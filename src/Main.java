@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args)
     {
-        Board bor = new Board(10, 10);
+        PlayerBoard bor = new PlayerBoard(10, 10);
         bor.emptyBoard();
         for(int y = 0; y < bor.getHeight(); y++)
         {

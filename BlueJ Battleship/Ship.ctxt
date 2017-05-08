@@ -1,6 +1,10 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Ship()
-comment1.params=
-comment1.target=java.lang.String\ toString()
-numComments=2
+comment1.params=head
+comment1.target=Ship(HeadSpot)
+comment2.params=
+comment2.target=HeadSpot\ getHead()
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

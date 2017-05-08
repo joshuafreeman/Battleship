@@ -27,4 +27,8 @@ public class OpponentBoard extends Board {
         return hit;
     }
     
+    /*public boolean sunkShip()
+    {
+    }*/
+    
 }

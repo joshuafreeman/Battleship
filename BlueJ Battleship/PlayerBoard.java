@@ -29,16 +29,16 @@ public class PlayerBoard extends Board{
         {
             if (rotation == 0)
             {
-                myBoard[yCord][xCord] = new HeadSpot(name, 0);
+                myBoard[yCord][xCord] = new HeadSpot(name, 0, xCord, yCord);
                 for (int x = xCord + 1; x < xCord + type.getSize(); x++)
-                    myBoard[yCord][x] = new Ship();
+                    myBoard[yCord][x] = new Ship((HeadSpot)myBoard[yCord][xCord]);
                 return true;
             }
             else
             {
-                myBoard[yCord][xCord] = new HeadSpot(name, 1);
+                myBoard[yCord][xCord] = new HeadSpot(name, 1, xCord, yCord);
                 for (int y = yCord + 1; y < yCord + type.getSize(); y++)
-                    myBoard[y][xCord] = new Ship();
+                    myBoard[y][xCord] = new Ship((HeadSpot)myBoard[yCord][xCord]);
                 return true;
             }
         }

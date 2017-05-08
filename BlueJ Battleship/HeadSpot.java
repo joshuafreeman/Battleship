@@ -6,16 +6,20 @@ public class HeadSpot extends Spot {
     private int myRotation;
     private int mySize;
     private String myHull;
+    private int xCord;
+    private int yCord;
     public HeadSpot(String type)
     {
         super("HeadSpot");
         constructShip(type);
     }
 
-    public HeadSpot(String type, int rot)
+    public HeadSpot(String type, int rot, int x, int y)
     {
         super ("HeadSpot");
         myRotation = rot;
+        xCord = x;
+        yCord = y;
         constructShip(type);
     }
     private void constructShip(String type)

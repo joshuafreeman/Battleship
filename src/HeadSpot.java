@@ -1,41 +1,51 @@
 /**
  * Created by Josh on 5/3/2017.
  */
-public class HeadSpot extends Spot {
+public class HeadSpot extends Spot/*extends Ship*/ {
 
     private int myRotation;
     private int mySize;
-
+    private String myHull;
+    private int xCord;
+    private int yCord;
+    //private HeadSpot myHead;
     public HeadSpot(String type)
     {
-        super(type);
-        constructShip();
+        super("head");
+        constructShip(type);
     }
 
-    public HeadSpot(String type, int rot)
+    public HeadSpot(String type, int rot, int x, int y)
     {
-        super (type);
+        super ("head");
         myRotation = rot;
-        constructShip();
+        xCord = x;
+        yCord = y;
+        constructShip(type);
     }
-    private void constructShip()
+    private void constructShip(String type)
     {
-        switch(myType)
+        switch(type)
         {
             case("Battleship"):
                 mySize = 6;
+                myHull = "Battleship";
                 break;
             case("Carrier"):
                 mySize = 5;
+                myHull = "Carrier";
                 break;
             case("Destroyer"):
                 mySize = 4;
+                myHull = "Destroyer";
                 break;
             case("Submarine"):
                 mySize = 3;
+                myHull = "Submarine";
                 break;
-            case("Cruiser"):
+            case("Patrol Boat"):
                 mySize = 2;
+                myHull = "Patrol Boat";
                 break;
         }
     }
@@ -47,10 +57,26 @@ public class HeadSpot extends Spot {
     {
         return mySize;
     }
-    public String getType()
+    public String getHull()
     {
-        return myType;
+        return myHull;
     }
+    public int getXCord()
+    {
+        return xCord;
+    }
+    public int getYCord()
+    {
+        return yCord;
+    }
+    /*public HeadSpot getHead()
+    {
+        return myHead;
+    }
+    public void setHead(HeadSpot head)
+    {
+        myHead = head;
+    }*/
     public String toString()
     {
         return "H";

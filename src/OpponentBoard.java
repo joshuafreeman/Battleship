@@ -6,8 +6,29 @@ public class OpponentBoard extends Board {
     {
         super(10,10);
     }
-    public OpponentBoard(int x, int y)
+    public OpponentBoard(PlayerBoard board)
     {
-        super(x,y);
+        super(board.getWidth(),board.getHeight());
+        myBoard = board.getArray();
     }
+    
+    public boolean receiveAttack(int x, int y)
+    {
+        x--;y--;
+        boolean hit = false;
+        
+        if(myBoard[y][x].getType().equals("ship") || myBoard[y][x].getType().equals("head"))
+        {
+            hit = true;
+            myBoard[y][x] = new Hit();
+        }
+        else
+            myBoard[y][x] = new Miss();
+        return hit;
+    }
+    
+    /*public boolean sunkShip()
+    {
+    }*/
+    
 }

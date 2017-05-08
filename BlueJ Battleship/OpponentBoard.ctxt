@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=
+comment0.target=OpponentBoard()
+comment1.params=x\ y
+comment1.target=OpponentBoard(int,\ int)
+numComments=2

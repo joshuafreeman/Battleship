@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=type
+comment0.target=HeadSpot(java.lang.String)
+comment1.params=type\ rot
+comment1.target=HeadSpot(java.lang.String,\ int)
+comment2.params=
+comment2.target=void\ constructShip()
+comment3.params=
+comment3.target=int\ getRotation()
+comment4.params=
+comment4.target=int\ getSize()
+comment5.params=
+comment5.target=java.lang.String\ getType()
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

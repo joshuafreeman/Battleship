@@ -5,37 +5,42 @@ public class HeadSpot extends Spot {
 
     private int myRotation;
     private int mySize;
-
+    private String myHull;
     public HeadSpot(String type)
     {
-        super(type);
-        constructShip();
+        super("HeadSpot");
+        constructShip(type);
     }
 
     public HeadSpot(String type, int rot)
     {
-        super (type);
+        super ("HeadSpot");
         myRotation = rot;
-        constructShip();
+        constructShip(type);
     }
-    private void constructShip()
+    private void constructShip(String type)
     {
-        switch(myType)
+        switch(type)
         {
             case("Battleship"):
                 mySize = 6;
+                myHull = "Battleship";
                 break;
             case("Carrier"):
                 mySize = 5;
+                myHull = "Carrier";
                 break;
             case("Destroyer"):
                 mySize = 4;
+                myHull = "Destroyer";
                 break;
             case("Submarine"):
                 mySize = 3;
+                myHull = "Submarine";
                 break;
             case("Patrol Boat"):
                 mySize = 2;
+                myHull = "Patrol Boat";
                 break;
         }
     }
@@ -47,9 +52,9 @@ public class HeadSpot extends Spot {
     {
         return mySize;
     }
-    public String getType()
+    public String getHull()
     {
-        return myType;
+        return myHull;
     }
     public String toString()
     {

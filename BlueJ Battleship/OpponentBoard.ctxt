@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=OpponentBoard()
-comment1.params=x\ y
-comment1.target=OpponentBoard(int,\ int)
-numComments=2
+comment1.params=board
+comment1.target=OpponentBoard(PlayerBoard)
+comment2.params=x\ y
+comment2.target=boolean\ recieveAttack(int,\ int)
+numComments=3

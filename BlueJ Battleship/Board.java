@@ -21,7 +21,6 @@ public abstract class Board
         myWidth = width;
         myBoard = new Spot[myHeight][myWidth];
     }
-
     /**
      * Empties the board and sets every cell to be water
      */
@@ -49,6 +48,10 @@ public abstract class Board
     {
         System.out.print("row: " + myBoard.length + " col: " + myBoard[0].length);
         return ("Rows: " + myHeight + " Columns: " + myWidth);
+    }
+    protected Spot[][] getArray()
+    {
+        return myBoard;
     }
 
 }

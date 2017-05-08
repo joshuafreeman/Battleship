@@ -142,4 +142,29 @@ public class PlayerBoard extends Board{
         }
         return canSet;
     }
+    
+    public boolean recieveAttack(int x, int y)
+    {
+        x--;y--;
+        boolean hit = false;
+        
+        if(myBoard[y][x].getType().equals("Ship") || myBoard[y][x].getType().equals("HeadSpot"))
+        {
+            hit = true;
+            myBoard[y][x] = new Hit();
+        }
+        else
+            myBoard[y][x] = new Miss();
+
+        return hit;
+    }
+    
+    public boolean sendAttack(int x, int y, OpponentBoard board)
+    {
+        x--;y--;
+        boolean hit = false;
+        
+        hit = board.recieveAttack(x, y);
+        return hit;
+    }
 }

@@ -30,15 +30,17 @@ public class PlayerBoard extends Board{
             if (rotation == 0)
             {
                 myBoard[yCord][xCord] = new HeadSpot(name, 0, xCord, yCord);
+                //((HeadSpot)myBoard[yCord][xCord]).setHead((HeadSpot)myBoard[yCord][xCord]);
                 for (int x = xCord + 1; x < xCord + type.getSize(); x++)
-                    myBoard[yCord][x] = new Ship((HeadSpot)myBoard[yCord][xCord]);
+                    myBoard[yCord][x] = new Hull((HeadSpot)myBoard[yCord][xCord]);
                 return true;
             }
             else
             {
                 myBoard[yCord][xCord] = new HeadSpot(name, 1, xCord, yCord);
+                //((HeadSpot)myBoard[yCord][xCord]).setHead((HeadSpot)myBoard[yCord][xCord]);
                 for (int y = yCord + 1; y < yCord + type.getSize(); y++)
-                    myBoard[y][xCord] = new Ship((HeadSpot)myBoard[yCord][xCord]);
+                    myBoard[y][xCord] = new Hull((HeadSpot)myBoard[yCord][xCord]);
                 return true;
             }
         }
@@ -143,20 +145,21 @@ public class PlayerBoard extends Board{
         return canSet;
     }
     
-    public boolean recieveAttack(int x, int y)
+    public boolean receiveAttack(int x, int y)
     {
         x--;y--;
-        boolean hit = false;
-        
-        if(myBoard[y][x].getType().equals("Ship") || myBoard[y][x].getType().equals("HeadSpot"))
+        boolean sunken = false;
+        Spot temp = myBoard[y][x];
+        if(myBoard[y][x].getType().equals("hull") || myBoard[y][x].getType().equals("head"))
         {
-            hit = true;
             myBoard[y][x] = new Hit();
         }
         else
             myBoard[y][x] = new Miss();
 
-        return hit;
+        if(temp.getType().equals("hull") || temp.getType().equals("head"))
+            sunken = sunk(temp);
+        return sunken;
     }
     
     public boolean sendAttack(int x, int y, OpponentBoard board)
@@ -164,7 +167,46 @@ public class PlayerBoard extends Board{
         x--;y--;
         boolean hit = false;
         
-        hit = board.recieveAttack(x, y);
+        hit = board.receiveAttack(x, y);
         return hit;
+    }
+
+    public boolean sunk(Spot place)
+    {
+        int xCord;
+        int yCord;
+        boolean sunken = true;
+        int rotation;
+        int size;
+        Ship ship = (Ship)place;
+        if(place.getType().equals("head"))
+        {
+            xCord = ((HeadSpot)ship).getXCord();
+            yCord = ((HeadSpot)ship).getYCord();
+            rotation = ((HeadSpot)ship).getRotation();
+            size = ((HeadSpot)ship).getSize();
+        }
+        else // if(place.getType().equals("ship"))
+        {
+            xCord = ((Hull)ship).getHead().getXCord();
+            yCord = ((Hull)ship).getHead().getYCord();
+            rotation = ((Hull)ship).getHead().getRotation();
+            size = ((Hull)ship).getHead().getSize();
+        }
+
+
+        if(rotation == 0)
+        {
+            for(int x = xCord + 1; x < xCord + size; x++)
+                if(!myBoard[yCord][x].getType().equals("hit"))
+                    sunken = false;
+        }
+        else
+        {
+            for(int y = yCord + 1; y < yCord + size; y++)
+                if(!myBoard[y][xCord].getType().equals("hit"))
+                    sunken = false;
+        }
+        return sunken;
     }
 }

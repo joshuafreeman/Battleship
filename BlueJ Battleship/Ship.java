@@ -9,7 +9,7 @@ public class Ship extends Spot{
     {
         super("ship");
     }
-    
+    //public Ship(String type){super(type);}
     public Ship(HeadSpot head)
     {
         super("ship");

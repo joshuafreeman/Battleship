@@ -12,12 +12,12 @@ public class OpponentBoard extends Board {
         myBoard = board.getArray();
     }
     
-    public boolean recieveAttack(int x, int y)
+    public boolean receiveAttack(int x, int y)
     {
         x--;y--;
         boolean hit = false;
         
-        if(myBoard[y][x].getType().equals("Ship") || myBoard[y][x].getType().equals("HeadSpot"))
+        if(myBoard[y][x].getType().equals("ship") || myBoard[y][x].getType().equals("head"))
         {
             hit = true;
             myBoard[y][x] = new Hit();

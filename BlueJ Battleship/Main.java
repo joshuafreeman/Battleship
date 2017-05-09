@@ -18,8 +18,8 @@ public class Main {
         System.out.println(bor.setShip(10,10,0, "Battleship")); //Test to see if you can place a ship off array
         System.out.println(bor.rotateShip(4,4));
         System.out.println(bor.rotateShip(6,6));
-        System.out.println(bor.recieveAttack(1,1));
-        bor.recieveAttack(2,2);
+        System.out.println(bor.receiveAttack(1,1));
+        bor.receiveAttack(2,2);
         for(int y = 0; y < bor.getHeight(); y++)
         {
             for (int x = 0; x < bor.getWidth(); x++)

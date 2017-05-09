@@ -1,22 +1,23 @@
 /**
  * Created by Josh on 5/3/2017.
  */
-public class HeadSpot extends Spot {
+public class HeadSpot extends Spot/*extends Ship*/ {
 
     private int myRotation;
     private int mySize;
     private String myHull;
     private int xCord;
     private int yCord;
+    //private HeadSpot myHead;
     public HeadSpot(String type)
     {
-        super("HeadSpot");
+        super("head");
         constructShip(type);
     }
 
     public HeadSpot(String type, int rot, int x, int y)
     {
-        super ("HeadSpot");
+        super ("head");
         myRotation = rot;
         xCord = x;
         yCord = y;
@@ -60,6 +61,22 @@ public class HeadSpot extends Spot {
     {
         return myHull;
     }
+    public int getXCord()
+    {
+        return xCord;
+    }
+    public int getYCord()
+    {
+        return yCord;
+    }
+    /*public HeadSpot getHead()
+    {
+        return myHead;
+    }
+    public void setHead(HeadSpot head)
+    {
+        myHead = head;
+    }*/
     public String toString()
     {
         return "H";

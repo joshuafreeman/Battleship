@@ -159,6 +159,7 @@ public class PlayerBoard extends Board{
 
         if(temp.getType().equals("hull") || temp.getType().equals("head"))
             sunken = sunk(temp);
+
         return sunken;
     }
     
@@ -171,7 +172,7 @@ public class PlayerBoard extends Board{
         return hit;
     }
 
-    public boolean sunk(Spot place)
+    private boolean sunk(Spot place)
     {
         int xCord;
         int yCord;

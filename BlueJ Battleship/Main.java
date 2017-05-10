@@ -19,7 +19,12 @@ public class Main {
         System.out.println(bor.rotateShip(4,4));
         System.out.println(bor.rotateShip(6,6));
         System.out.println(bor.receiveAttack(1,1));
-        bor.receiveAttack(2,2);
+        System.out.println(bor.receiveAttack(2,1));
+        System.out.println(bor.receiveAttack(3,1));
+        System.out.println(bor.receiveAttack(4,1));
+        System.out.println(bor.receiveAttack(5,1));
+        System.out.println(bor.receiveAttack(6,1));
+        System.out.println(bor.receiveAttack(2,2));
         for(int y = 0; y < bor.getHeight(); y++)
         {
             for (int x = 0; x < bor.getWidth(); x++)

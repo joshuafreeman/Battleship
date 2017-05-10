@@ -13,15 +13,15 @@ import java.util.*;
 
 public class BattleShipGameGUI extends JFrame implements ActionListener 
 {
-    /* Height of the game frame. */
+    /** Height of the game frame. */
     private static final int DEFAULT_HEIGHT = 810;
-    /* Width of the game frame. */
+    /** Width of the game frame. */
     private static final int DEFAULT_WIDTH = 1440;
     
     /** Width of background. */
     private static final int BACK_WIDTH = 500;
-	/** Height of background. */
-	private static final int BACK_HEIGHT = 500;
+    /** Height of background. */
+    private static final int BACK_HEIGHT = 500;
     
     /** The main panel containing the game components. */
     private JPanel panel;
@@ -36,6 +36,9 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     
     /** The displays. */
     private JLabel[] display;
+    
+    /** Letters and numbers*/
+    JLabel letters;
     
     /** Button array of accessable Squares. */
     private JButton[][] validSpaces = new JButton[10][10];
@@ -90,7 +93,9 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
             {
                 JButton butt = validSpaces[x][y];
                 butt.setText((char)(65+y) + "" + (int)(x+1));
-                butt.setBackground(new Color(255,255,255,255));
+                butt.setContentAreaFilled(false);
+                butt.setBorder(null);
+                butt.setForeground(new Color(0,255,255));
                 panel.add(butt);
                 butt.setBounds(28 + 50 * x, 28 + 50 * y, 55, 55);
                 butt.addActionListener(this);
@@ -101,9 +106,18 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         {
             display[k] = new JLabel();
             panel.add(display[k]);
-			display[k].setBounds(30, 30, BACK_WIDTH, BACK_HEIGHT);
-			display[k].addMouseListener(new MyMouseListener());
+            display[k].setBounds(30, 30, BACK_WIDTH, BACK_HEIGHT);
+            display[k].addMouseListener(new MyMouseListener());
         }
+        
+        letters = new JLabel();
+		letters.setBounds(10, 10, 5, 400);
+		letters.setFont(new Font("SansSerif", Font.BOLD, 25));
+		letters.setForeground(Color.GREEN);
+		letters.setText("You win!");
+		panel.add(letters);
+		letters.setVisible(true);
+		
         pack();
         getContentPane().add(panel);
         panel.setVisible(true);
@@ -116,7 +130,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         for (int k = 0; k < 1; k++) 
         {
             URL imageURL = getClass().getResource("/Images/ocean.GIF");
-            if (imageURL != null) {
+            if (imageURL != null) 
+            {
                 ImageIcon icon = new ImageIcon(imageURL);
                 display[k].setIcon(icon);
                 display[k].setVisible(true);
@@ -147,54 +162,54 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     }
     
     /**
-	 * Receives and handles mouse clicks.  Other mouse events are ignored.
-	 */
-	private class MyMouseListener implements MouseListener 
-	{
+     * Receives and handles mouse clicks.  Other mouse events are ignored.
+     */
+    private class MyMouseListener implements MouseListener 
+    {
 
-		/**
-		 * Handle a mouse click on a card by toggling its "selected" property.
-		 * Each card is represented as a label.
-		 * @param e the mouse event.
-		 */
-		public void mouseClicked(MouseEvent e) {
-			for (int k = 0; k < 5; k++) 
-			{
-				if (e.getSource().equals(display[k])) 
-				{
-					repaint();
-					return;
-				}
-			}
-			signalError();
-		}
+        /**
+         * Handle a mouse click on a card by toggling its "selected" property.
+         * Each card is represented as a label.
+         * @param e the mouse event.
+         */
+        public void mouseClicked(MouseEvent e) {
+            for (int k = 0; k < 5; k++) 
+            {
+                if (e.getSource().equals(display[k])) 
+                {
+                    repaint();
+                    return;
+                }
+            }
+            signalError();
+        }
 
-		/**
-		 * Ignore a mouse exited event.
-		 * @param e the mouse event.
-		 */
-		public void mouseExited(MouseEvent e) {
-		}
+        /**
+         * Ignore a mouse exited event.
+         * @param e the mouse event.
+         */
+        public void mouseExited(MouseEvent e) {
+        }
 
-		/**
-		 * Ignore a mouse released event.
-		 * @param e the mouse event.
-		 */
-		public void mouseReleased(MouseEvent e) {
-		}
+        /**
+         * Ignore a mouse released event.
+         * @param e the mouse event.
+         */
+        public void mouseReleased(MouseEvent e) {
+        }
 
-		/**
-		 * Ignore a mouse entered event.
-		 * @param e the mouse event.
-		 */
-		public void mouseEntered(MouseEvent e) {
-		}
+        /**
+         * Ignore a mouse entered event.
+         * @param e the mouse event.
+         */
+        public void mouseEntered(MouseEvent e) {
+        }
 
-		/**
-		 * Ignore a mouse pressed event.
-		 * @param e the mouse event.
-		 */
-		public void mousePressed(MouseEvent e) {
-		}
-	}
+        /**
+         * Ignore a mouse pressed event.
+         * @param e the mouse event.
+         */
+        public void mousePressed(MouseEvent e) {
+        }
+    }
 }

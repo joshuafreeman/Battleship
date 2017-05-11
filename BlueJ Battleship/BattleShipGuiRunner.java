@@ -10,7 +10,7 @@ public class BattleShipGuiRunner {
 	 */
 	public static void main(String[] args) 
 	{
-		PlayerBoard board = new PlayerBoard();
+		PlayerBoard board = new PlayerBoard(10,10);
 		//Get PlayerBoard from server
 		PlayerBoard serverboard = new PlayerBoard();
 		OpponentBoard board2 = new OpponentBoard(serverboard);

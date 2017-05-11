@@ -38,7 +38,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     private JLabel[] display;
     
     /** Letters and numbers*/
-    JLabel letters;
+    JLabel letters[];
+    JLabel numbers;
     
     /** Button array of accessable Squares. */
     private JButton[][] validSpaces = new JButton[10][10];
@@ -110,14 +111,31 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
             display[k].addMouseListener(new MyMouseListener());
         }
         
-        letters = new JLabel();
-		letters.setBounds(10, 10, 5, 400);
-		letters.setFont(new Font("SansSerif", Font.BOLD, 25));
-		letters.setForeground(Color.GREEN);
-		letters.setText("You win!");
-		panel.add(letters);
-		letters.setVisible(true);
-		
+        letters = new JLabel[10];
+        for (int x = 0; x < boardHeight; x++)
+        {
+            letters[x] = new JLabel();
+            letters[x].setBounds(5, 50 * x + 30, 50, 50);
+            letters[x].setFont(new Font("SansSerif", Font.BOLD, 25));
+            letters[x].setForeground(Color.BLUE);
+            letters[x].setText((char)(x + 65) + "");
+            panel.add(letters[x]);
+            letters[x].setVisible(true);
+        }
+        
+        numbers = new JLabel();
+        numbers.setBounds(45, -10, 500, 50);
+        numbers.setFont(new Font("SansSerif", Font.BOLD, 25));
+        numbers.setForeground(Color.BLUE);
+        
+        String text = ""; 
+        for (int x = 0; x < boardWidth; x++)
+            text += ((x+1) + " \t  ");
+        
+        numbers.setText(text);
+        panel.add(numbers);
+        numbers.setVisible(true);
+        
         pack();
         getContentPane().add(panel);
         panel.setVisible(true);

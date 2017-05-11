@@ -9,7 +9,7 @@ public class Main
         boolean right = true;
         bor.emptyBoard();
         System.out.print(" ");
-         for(int y = 1; y <= bor.getWidth(); y++)
+        for(int y = 1; y <= bor.getWidth(); y++)
         {
             System.out.print(y + " ");
         }
@@ -22,6 +22,21 @@ public class Main
             System.out.println();
         }
         System.out.println();
+        System.out.println("BattleShip:1,Submarine:2,Carrier:3,PatrolBoat:4,Destroyer:5");
+        boatType = con.readInt();
+        while(right)
+        {
+            if(boatType < 1 || boatType > 5)
+            {
+                System.out.println("Please type between 1 and 5.");
+                boatType = con.readInt(); 
+            }
+            else
+            {
+                right = false;
+            }    
+        }  
+        right = true;
         for(int x = 0; x < 5; x++)
         {
             System.out.println("Please type a X cord.");
@@ -69,21 +84,7 @@ public class Main
                 }    
             }  
             right = true;
-            System.out.println("BattleShip:1,Submarine:2,Carrier:3,PatrolBoat:4,Destroyer:5");
-            boatType = con.readInt();
-             while(right)
-            {
-                if(boatType < 1 || boatType > 5)
-                {
-                   System.out.println("Please type between 1 and 5.");
-                   boatType = con.readInt(); 
-                }
-                else
-                {
-                    right = false;
-                }    
-            }  
-            right = true;
+            
             switch(boatType)
             {
                 case(1):

@@ -1,3 +1,4 @@
+
 /**
  * Created by Josh on 5/2/2017.
  */
@@ -16,6 +17,8 @@ public abstract class Board
     
     public Board(int width, int height)
     {
+        if(width > 26 || height > 26)
+            throw new ArithmeticException("YODAWGYOUMADEDABOARDTOOBIG");
         myHeight = height;
         myWidth = width;
         myBoard = new Spot[myHeight][myWidth];

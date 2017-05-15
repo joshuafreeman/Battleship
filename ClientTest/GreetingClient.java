@@ -2,13 +2,19 @@
 import apcslib.*;
 import java.net.*;
 import java.io.*;
-
+import chn.util.*;
 public class GreetingClient {
-
+    
    public static void main(String [] args) {
+<<<<<<< HEAD
       String serverName = "76.88.3.218";
       PlayerBoard board;
       int port = 25565;
+=======
+      String serverName = "localhost";
+      int port = 25567;
+      ConsoleIO con = new ConsoleIO();
+>>>>>>> origin/master
       try {
          System.out.println("Connecting to " + serverName + " on port " + port);
          Socket client = new Socket(serverName, port);
@@ -21,6 +27,7 @@ public class GreetingClient {
          out.writeObject(new PlayerBoard());
 
          InputStream inFromServer = client.getInputStream();
+<<<<<<< HEAD
          ObjectInputStream in = new ObjectInputStream(inFromServer);
 
          //Get PlayerBoard object back from server
@@ -44,6 +51,20 @@ public class GreetingClient {
          }
 
          //Close connection
+=======
+         DataInputStream in = new DataInputStream(inFromServer);
+         
+         System.out.println("Server says " + in.readUTF());
+         System.out.println(in.readUTF());
+         int x = con.readInt();
+         out.writeInt(x);
+         
+         System.out.println(in.readUTF());
+         int y = con.readInt();
+         out.writeInt(y);
+         
+         
+>>>>>>> origin/master
          client.close();
       }catch(IOException e) {
          e.printStackTrace();

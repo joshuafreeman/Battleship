@@ -150,7 +150,7 @@ public class PlayerBoard extends Board{
         x--;y--;
         boolean sunken = false;
         Spot temp = myBoard[y][x];
-        if(myBoard[y][x].getType().equals("hull") || myBoard[y][x].getType().equals("head") || myBoard[y][x].getType().equals("hit"))
+        if(myBoard[y][x].getType().equals("hull") || myBoard[y][x].getType().equals("head"))
         {
             myBoard[y][x] = new Hit();
         }
@@ -165,7 +165,6 @@ public class PlayerBoard extends Board{
     
     public boolean sendAttack(int x, int y, OpponentBoard board)
     {
-        x--;y--;
         boolean hit = false;
         
         hit = board.receiveAttack(x, y);

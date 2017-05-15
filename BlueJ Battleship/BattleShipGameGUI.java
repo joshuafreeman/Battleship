@@ -19,7 +19,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     private static final int DEFAULT_WIDTH = 1440;
     
     /** Width of background. */
-    private static final int BACK_WIDTH = 500;
+    private static final int BACK_WIDTH = 485;
     /** Height of background. */
     private static final int BACK_HEIGHT = 500;
     
@@ -87,67 +87,72 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         this.setSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
         panel.setLayout(null);
         panel.setPreferredSize(new Dimension(DEFAULT_WIDTH - 20, DEFAULT_HEIGHT - 20));
-
-        //Do the buttons
-        for (int x = 0; x < boardHeight; x++)
-            for (int y = 0; y < boardWidth; y++)
-            {
-                JButton butt = validSpaces[x][y];
-                butt.setText((char)(65+y) + "" + (int)(x+1));
-                butt.setContentAreaFilled(false);
-                butt.setBorder(null);
-                butt.setForeground(new Color(0,255,255));
-                panel.add(butt);
-                butt.setBounds(28 + 50 * x, 28 + 50 * y, 55, 55);
-                butt.addActionListener(this);
-            }
-
-        display = new JLabel[1];
-        for (int k = 0; k < 1; k++) 
+        
+        display = new JLabel[2];
+        for (int k = 0; k < 2; k++) 
         {
             display[k] = new JLabel();
             panel.add(display[k]);
-            display[k].setBounds(30, 30, BACK_WIDTH, BACK_HEIGHT);
+            display[k].setBounds((k * 720) + 30, 30, BACK_WIDTH, BACK_HEIGHT);
             display[k].addMouseListener(new MyMouseListener());
         }
         
-        letters = new JLabel[10];
-        for (int x = 0; x < boardHeight; x++)
+        for (int k = 0; k < 2; k++)
         {
-            letters[x] = new JLabel();
-            letters[x].setBounds(5, 50 * x + 30, 50, 50);
-            letters[x].setFont(new Font("SansSerif", Font.BOLD, 25));
-            letters[x].setForeground(Color.BLUE);
-            letters[x].setText((char)(x + 65) + "");
-            panel.add(letters[x]);
-            letters[x].setVisible(true);
+            //Do the buttons
+            for (int x = 0; x < boardHeight; x++)
+                for (int y = 0; y < boardWidth; y++)
+                {
+                    JButton butt = validSpaces[x][y];
+                    butt.setText((char)(65+y) + "" + (int)(x+1));
+                    butt.setContentAreaFilled(false);
+                    butt.setBorder(null);
+                    butt.setForeground(new Color(0,255,255));
+                    panel.add(butt);
+                    butt.setBounds(28 + 48 * x, 28 + 50 * y, 55, 55);
+                    butt.addActionListener(this);
+                } 
+                
+            letters = new JLabel[boardHeight];
+            for (int x = 0; x < boardHeight; x++)
+            {
+                letters[x] = new JLabel();
+                letters[x].setBounds(10 + (k * 1240), 50 * x + 30, 50, 50);
+                letters[x].setForeground(Color.BLUE);
+                letters[x].setText((char)(x + 65) + "");
+                panel.add(letters[x]);
+                letters[x].setVisible(true);
+            }
+            
+            numbers = new JLabel();
+            numbers.setBounds(50 + (k * 720), -10, 500, 50);
+            numbers.setForeground(Color.BLUE);
+            
+            String text = ""; 
+            for (int x = 0; x < boardWidth; x++)
+            {
+                text += ((x+1));
+                for (int y = 1; y < 21 - boardWidth; y++)
+                    text += " ";
+            }
+            
+            numbers.setText(text);
+            panel.add(numbers);
+            numbers.setVisible(true);
         }
-        
-        numbers = new JLabel();
-        numbers.setBounds(45, -10, 500, 50);
-        numbers.setFont(new Font("SansSerif", Font.BOLD, 25));
-        numbers.setForeground(Color.BLUE);
-        
-        String text = ""; 
-        for (int x = 0; x < boardWidth; x++)
-            text += ((x+1) + " \t  ");
-        
-        numbers.setText(text);
-        panel.add(numbers);
-        numbers.setVisible(true);
         
         pack();
         getContentPane().add(panel);
-        panel.setVisible(true);
+        panel.setVisible(true); 
     }
     
     /**
      * Draw the display (cards and messages).
      */
     public void repaint() {
-        for (int k = 0; k < 1; k++) 
+        for (int k = 0; k < 2; k++) 
         {
-            URL imageURL = getClass().getResource("/Images/ocean.GIF");
+            URL imageURL = getClass().getResource("/Images/ocean.jpeg");
             if (imageURL != null) 
             {
                 ImageIcon icon = new ImageIcon(imageURL);

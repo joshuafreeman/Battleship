@@ -2,12 +2,13 @@
 import apcslib.*;
 import java.net.*;
 import java.io.*;
+import java.io.Serializable;
 
 public class GreetingClient {
 
    public static void main(String [] args) {
       String serverName = "76.88.3.218";
-      PlayerBoard board;
+      PlayerBoard board = null;
       int port = 25565;
       try {
          System.out.println("Connecting to " + serverName + " on port " + port);
@@ -18,13 +19,14 @@ public class GreetingClient {
          ObjectOutputStream out = new ObjectOutputStream(outToServer);
 
          //Send server PlayerBoard object
-         out.writeObject(new PlayerBoard());
+         out.writeObject(board);
 
          InputStream inFromServer = client.getInputStream();
          ObjectInputStream in = new ObjectInputStream(inFromServer);
 
          //Get PlayerBoard object back from server
          board = (PlayerBoard)in.readObject();
+
 
          //Loop to print out board to console
          System.out.println("Board:");

@@ -165,7 +165,6 @@ public class PlayerBoard extends Board{
     
     public boolean sendAttack(int x, int y, OpponentBoard board)
     {
-        x--;y--;
         boolean hit = false;
         
         hit = board.receiveAttack(x, y);

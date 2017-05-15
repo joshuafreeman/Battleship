@@ -1,13 +1,12 @@
 // File Name GreetingClient.java
 import java.net.*;
 import java.io.*;
-import chn.util.*;
-public class GreetingClient {
-    
+
+public class GClient2 {
+
    public static void main(String [] args) {
       String serverName = "localhost";
       int port = 25567;
-      ConsoleIO con = new ConsoleIO();
       try {
          System.out.println("Connecting to " + serverName + " on port " + port);
          Socket client = new Socket(serverName, port);
@@ -20,14 +19,10 @@ public class GreetingClient {
          InputStream inFromServer = client.getInputStream();
          DataInputStream in = new DataInputStream(inFromServer);
          
-         System.out.println("Server says " + in.readUTF());
-         System.out.println(in.readUTF());
-         int x = con.readInt();
-         out.writeInt(x);
+         int x = in.readInt();
+         int u = in.readInt();
+         System.out.println(x + "   " + u);
          
-         System.out.println(in.readUTF());
-         int y = con.readInt();
-         out.writeInt(y);
          
          
          client.close();

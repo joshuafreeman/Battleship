@@ -4,7 +4,6 @@ import java.io.*;
 
 public class GreetingServer extends Thread {
    private ServerSocket serverSocket;
-   private int x,y;
    public GreetingServer(int port) throws IOException {
       serverSocket = new ServerSocket(port);
       //serverSocket.setSoTimeout(10000);  //Don't timeout
@@ -19,7 +18,7 @@ public class GreetingServer extends Thread {
             Socket server = serverSocket.accept();
             
             System.out.println("Just connected to " + server.getRemoteSocketAddress());
-<<<<<<< HEAD:src/GreetingServer.java
+
             ObjectInputStream in = new ObjectInputStream(server.getInputStream());
 
             //Get PlayerBoard Object from server.
@@ -30,10 +29,11 @@ public class GreetingServer extends Thread {
             out.writeObject(board);
 
             //Close server
-=======
             DataInputStream in = new DataInputStream(server.getInputStream());
-            
-            System.out.println("Waiting for second client on port " + 
+
+
+            //This is   all trash
+            /*System.out.println("Waiting for second client on port " +
                serverSocket.getLocalPort() + "...");
             Socket server2 = serverSocket.accept();
             
@@ -52,8 +52,7 @@ public class GreetingServer extends Thread {
             System.out.println(x + "   " + y);
             out2.writeUTF(" You are getting attacked at:");
             out2.writeInt(x);
-            out2.writeInt(y);
->>>>>>> origin/master:ServerTest/GreetingServer.java
+            out2.writeInt(y);*/
             server.close();
             
          }catch(SocketTimeoutException s) {

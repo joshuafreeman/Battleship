@@ -1,6 +1,6 @@
 import chn.util.*;
 import apcslib.*;
-public class Main 
+public class Driver
 {
     public static void main(String[] args)
     {
@@ -8,6 +8,7 @@ public class Main
         PlayerBoard bor = new PlayerBoard(10, 10);
         int xCord,yCord,boatType,rot;
         boolean right = true;
+        boolean gameOver = false;
         bor.emptyBoard();
         System.out.print(" ");
         
@@ -36,25 +37,26 @@ public class Main
                 System.out.print(bor.displaySpot(x, y) + " ");
             System.out.println();
         }
-        System.out.println("\nEnter in the number corresponding with the boat you want to place.\n");
-        System.out.println("Patrol Boat (Size 2) | Submarine (Size 3) | Destroyer (Size 4) | Carrier (Size 5) | Battleship (Size 6)");
-        System.out.println("      Enter 1                Enter 2             Enter 3              Enter 4             Enter 5");
-        boatType = con.readInt();
-        while(right)
-        {
-            if(boatType < 1 || boatType > 5)
-            {
-                System.out.println("Please type between 1 and 5.");
-                boatType = con.readInt(); 
-            }
-            else
-            {
-                right = false;
-            }    
-        }  
-        right = true;
+        
         for(int x = 0; x < 5; x++)
         {
+            System.out.println("\nEnter in the number corresponding with the boat you want to place.\n");
+            System.out.println("Patrol Boat (Size 2) | Submarine (Size 3) | Destroyer (Size 4) | Battleship (Size 5) | Carrier (Size 6)");
+            System.out.println("      Enter 1                Enter 2             Enter 3              Enter 4             Enter 5");
+            boatType = con.readInt();
+            while(right)
+            {
+                if(boatType < 1 || boatType > 5)
+                {
+                    System.out.println("Please type between 1 and 5.");
+                    boatType = con.readInt(); 
+                }
+                else
+                {   
+                    right = false;
+                }    
+            }  
+            right = true;
             System.out.print("Enter an X Coordinate: ");
             xCord = con.readInt();
             while(right)
@@ -90,7 +92,7 @@ public class Main
             rot--;
              while(right)
             {
-                if(rot < 0 || rot > 1)
+                if(rot < 1 || rot > 2)
                 {
                    System.out.println("Please learn to type.");
                    rot = con.readInt(); 
@@ -105,20 +107,40 @@ public class Main
             switch(boatType)
             {
                 case(1):
-                    if(bor.setShip(xCord,yCord,rot,"Patrol Boat"))
-                    
+
+                    if(!bor.setShip(xCord,yCord,rot,"Patrol Boat"))
+                    {
+                        System.out.println("Brah thers es a buot teire alrudy.");
+                        x--;
+                    }                        
                     break;
                 case(2):
-                    if(bor.setShip(xCord,yCord,rot,"Submarine"))
+                    if(!bor.setShip(xCord,yCord,rot,"Submarine"))
+                    {
+                        System.out.println("Brah thers es a buot teire alrudy.");
+                        x--;
+                    } 
                     break;                
                 case(3):
-                    if(bor.setShip(xCord,yCord,rot,"Destroyer"))
+                    if(!bor.setShip(xCord,yCord,rot,"Destroyer"))
+                    {
+                        System.out.println("Brah thers es a buot teire alrudy.");
+                        x--;
+                    } 
                     break;                
                 case(4):
-                    if(bor.setShip(xCord,yCord,rot,"Carrier"))
+                    if(!bor.setShip(xCord,yCord,rot,"Battleship"))
+                    {
+                        System.out.println("Brah thers es a buot teire alrudy.");
+                        x--;
+                    } 
                     break;                
                 case(5):
-                    if(bor.setShip(xCord,yCord,rot,"Battleship"))
+                    if(!bor.setShip(xCord,yCord,rot,"Carrier"))
+                    {
+                        System.out.println("Brah thers es a buot teire alrudy.");
+                        x--;
+                    } 
                     break;              
             }    
             for(int y = 0; y < bor.getHeight(); y++)
@@ -128,7 +150,7 @@ public class Main
                 System.out.println();
             }
         }
-        while(!bor.isEmpty())
+        while(!gameOver)
         {
             System.out.println("Please type a X cord to Shoot.");
             xCord = con.readInt();
@@ -162,7 +184,8 @@ public class Main
             right = true;
             if(bor.receiveAttack(xCord,yCord))
             {
-                System.out.println("U SONK MOI BITLESHOP");
+                printSunkBattleship();
+                gameOver = bor.isEmpty();
             }
             
             for(int y = 0; y < bor.getHeight(); y++)
@@ -174,5 +197,18 @@ public class Main
             
         }    
         System.out.println("hoi tots pritu gud, u won");
+    }
+    
+    private static void printSunkBattleship()
+    {
+        System.out.println(
+        " _   _    _____  _____ _   _  _   __  ___  ________ _____   ______ _____ _____ _      _____ _____ _   _ ___________ _\n"+
+        "| | | |  /  ___||  _  | \\ | || | / /  |  \\/  |  _  |_   _|  | ___ \\_   _|_   _| |    |  ___/  ___| | | |  _  | ___ \\ |\n"+
+        "| | | |  \\ `--. | | | |  \\| || |/ /   | .  . | | | | | |    | |_/ / | |   | | | |    | |__ \\ `--.| |_| | | | | |_/ / |\n"+
+        "| | | |   `--. \\| | | | . ` ||    \\   | |\\/| | | | | | |    | ___ \\ | |   | | | |    |  __| `--. \\  _  | | | |  __/| |\n"+
+        "| |_| |  /\\__/ /\\ \\_/ / |\\  || |\\  \\  | |  | \\ \\_/ /_| |_   | |_/ /_| |_  | | | |____| |___/\\__/ / | | \\ \\_/ / |   |_|\n"+
+        " \\___/   \\____/  \\___/\\_| \\_/\\_| \\_/  \\_|  |_/\\___/ \\___/   \\____/ \\___/  \\_/ \\_____/\\____/\\____/\\_| |_/\\___/\\_|   (_)\n"
+                                                                                                                      
+        );
     }
 }

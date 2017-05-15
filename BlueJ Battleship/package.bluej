@@ -77,9 +77,15 @@ dependency9.type=UsesDependency
 objectbench.height=84
 objectbench.width=1015
 package.editor.height=504
+<<<<<<< HEAD
 package.editor.width=907
 package.editor.x=102
 package.editor.y=65
+=======
+package.editor.width=917
+package.editor.x=577
+package.editor.y=291
+>>>>>>> origin/master
 package.numDependencies=25
 package.numTargets=13
 package.showExtends=true
@@ -188,8 +194,13 @@ target4.x=450
 target4.y=270
 target5.editor.height=700
 target5.editor.width=749
+<<<<<<< HEAD
 target5.editor.x=0
 target5.editor.y=23
+=======
+target5.editor.x=911
+target5.editor.y=379
+>>>>>>> origin/master
 target5.height=50
 target5.name=BattleShipGameGUI
 target5.naviview.expanded=false
@@ -198,7 +209,7 @@ target5.type=ClassTarget
 target5.typeParameters=
 target5.width=140
 target5.x=210
-target5.y=380
+target5.y=370
 target6.editor.height=700
 target6.editor.width=900
 target6.editor.x=0

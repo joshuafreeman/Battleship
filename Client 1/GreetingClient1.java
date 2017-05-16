@@ -51,11 +51,12 @@ public class GreetingClient1 {
             //Attacking
 
             boolean gameOver = false;
-            boolean right = true;
+            boolean right;
             int xCord, yCord;
             ConsoleIO con = new ConsoleIO();
             boolean hit;
             while(!bor.isEmpty() && !opp.isEmpty()) {
+                right = true;
                 System.out.print("Please type a X cord to shoot: ");
                 xCord = con.readInt();
                 while (right) {

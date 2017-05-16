@@ -40,7 +40,6 @@ public class GreetingClient1 {
             try{
                 ObjectOutputStream objectOut = new ObjectOutputStream(outToServer);
                 objectOut.writeObject(bor);
-
                 ObjectInputStream objectIn = new ObjectInputStream(inFromServer);
                 opp = (OpponentBoard)objectIn.readObject();
 
@@ -49,14 +48,14 @@ public class GreetingClient1 {
                 x.printStackTrace();
             }
 
-
             //Attacking
+
             boolean gameOver = false;
             boolean right = true;
             int xCord, yCord;
             ConsoleIO con = new ConsoleIO();
             boolean hit;
-            while(bor.isEmpty() && opp.isEmpty()) {
+            while(!bor.isEmpty() && !opp.isEmpty()) {
                 System.out.print("Please type a X cord to shoot: ");
                 xCord = con.readInt();
                 while (right) {
@@ -78,31 +77,29 @@ public class GreetingClient1 {
                         right = false;
                     }
                 }
+
                 opponentReady = false;
-                while(!opponentReady)
-                {
-                    System.out.println("Waiting for opponent's attacks...");
-                    opponentReady = in.readBoolean();
+                System.out.println("Waiting for opponent's attacks...");
+                opponentReady = in.readBoolean();
 
-                    //Send attacks
-                    out.writeInt(xCord);
-                    out.writeInt(yCord);
-                    hit = in.readBoolean();
+                //Send attacks
+                out.writeInt(xCord);
+                out.writeInt(yCord);
+                hit = in.readBoolean();
 
-                    if(hit)
-                        System.out.println("It's a hit!");
-                    else
-                        System.out.println("It's a miss.");
+                if(hit)
+                    System.out.println("It's a hit!");
+                else
+                    System.out.println("It's a miss.");
 
-                    //Receive where the attacks hit on opponent board
-                    try{
-                        ObjectInputStream objectIn = new ObjectInputStream(inFromServer);
-                        opp = (OpponentBoard)objectIn.readObject();
-                        //Get new player board with opponents attacks
-                        bor = (PlayerBoard)objectIn.readObject();
-                    }catch(Exception z){
-                        z.printStackTrace();
-                    }
+                //Receive where the attacks hit on opponent board
+                try{
+                    ObjectInputStream objectIn = new ObjectInputStream(inFromServer);
+                    opp = (OpponentBoard)objectIn.readObject();
+                    //Get new player board with opponents attacks
+                    bor = (PlayerBoard)objectIn.readObject();
+                }catch(Exception z){
+                    z.printStackTrace();
                 }
             }
 

@@ -51,22 +51,27 @@ public class GreetingServer extends Thread {
                ObjectInputStream objectInP2 = new ObjectInputStream(server2.getInputStream());
                player1Board = (PlayerBoard)objectInP1.readObject();
                player2Board = (PlayerBoard)objectInP2.readObject();
+               ObjectOutputStream objectOutP1 = new ObjectOutputStream(server1.getOutputStream());
+               ObjectOutputStream objectOutP2 = new ObjectOutputStream(server2.getOutputStream());
+               player1Opp = new OpponentBoard(player2Board);
+               player2Opp = new OpponentBoard(player1Board);
+               objectOutP1.writeObject(player1Opp);
+               objectOutP2.writeObject(player2Opp);
             }catch(Exception e)
             {
                e.printStackTrace();
             }
 
-
+            //RECEIVE ATTACK DOESN'T TELL IF ITS A HIT, ONLY SUNKEN SHIP
             while(!player1Board.isEmpty() && !player2Board.isEmpty())
             {
                outP1.writeBoolean(true); //P1 can attack
                xCordP1 = inP1.readInt();
                yCordP1 = inP1.readInt();
+               outP1.writeBoolean(player2Board.receiveAttack(xCordP1, yCordP1));
                outP2.writeBoolean(true); //P2 can attack
                xCordP2 = inP2.readInt();
                yCordP2 = inP2.readInt();
-
-               outP1.writeBoolean(player2Board.receiveAttack(xCordP1, yCordP1));
                outP2.writeBoolean(player1Board.receiveAttack(xCordP2, yCordP2));
 
                player1Opp = new OpponentBoard(player2Board);
@@ -75,9 +80,11 @@ public class GreetingServer extends Thread {
                try{
                   ObjectOutputStream objectOutP1 = new ObjectOutputStream(server1.getOutputStream());
                   ObjectOutputStream objectOutP2 = new ObjectOutputStream(server2.getOutputStream());
+
                   objectOutP1.writeObject(player2Opp);
-                  objectOutP2.writeObject(player1Opp);
                   objectOutP1.writeObject(player1Board);
+
+                  objectOutP2.writeObject(player1Opp);
                   objectOutP2.writeObject(player2Board);
                }catch(Exception z)
                {

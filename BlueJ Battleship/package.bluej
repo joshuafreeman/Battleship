@@ -75,11 +75,19 @@ dependency9.from=OpponentBoard
 dependency9.to=Miss
 dependency9.type=UsesDependency
 objectbench.height=84
+<<<<<<< Updated upstream
 objectbench.width=1015
 package.editor.height=504
 package.editor.width=917
 package.editor.x=20
 package.editor.y=51
+=======
+objectbench.width=1136
+package.editor.height=584
+package.editor.width=1028
+package.editor.x=69
+package.editor.y=23
+>>>>>>> Stashed changes
 package.numDependencies=25
 package.numTargets=14
 package.showExtends=true
@@ -137,6 +145,10 @@ target12.x=320
 target12.y=80
 target13.height=50
 target13.name=Ship
+<<<<<<< Updated upstream
+=======
+target13.naviview.expanded=false
+>>>>>>> Stashed changes
 target13.showInterface=false
 target13.type=ClassTarget
 target13.typeParameters=
@@ -201,16 +213,29 @@ target5.editor.x=137
 target5.editor.y=86
 target5.height=50
 target5.name=Driver
+<<<<<<< Updated upstream
+=======
+target5.naviview.expanded=true
+>>>>>>> Stashed changes
 target5.showInterface=false
 target5.type=ClassTarget
 target5.typeParameters=
 target5.width=140
+<<<<<<< Updated upstream
 target5.x=160
 target5.y=360
 target6.editor.height=700
 target6.editor.width=749
 target6.editor.x=1840
 target6.editor.y=379
+=======
+target5.x=760
+target5.y=70
+target6.editor.height=700
+target6.editor.width=749
+target6.editor.x=209
+target6.editor.y=172
+>>>>>>> Stashed changes
 target6.height=50
 target6.name=BattleShipGameGUI
 target6.naviview.expanded=false
@@ -218,8 +243,13 @@ target6.showInterface=false
 target6.type=ClassTarget
 target6.typeParameters=
 target6.width=150
+<<<<<<< Updated upstream
 target6.x=560
 target6.y=20
+=======
+target6.x=200
+target6.y=380
+>>>>>>> Stashed changes
 target7.editor.height=700
 target7.editor.width=900
 target7.editor.x=0

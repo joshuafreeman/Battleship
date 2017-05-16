@@ -1,8 +1,9 @@
+import java.io.Serializable;
 
 /**
  * Created by Josh on 5/2/2017.
  */
-public abstract class Board
+public abstract class Board implements Serializable
 {
     protected int myHeight;
     protected int myWidth; 

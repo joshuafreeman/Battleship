@@ -1,7 +1,8 @@
+
 /**
  * Created by Josh on 5/3/2017.
  */
-public class HeadSpot extends Ship/*extends Ship*/ {
+public class HeadSpot extends Ship {
 
     private int myRotation;
     private int mySize;
@@ -28,11 +29,11 @@ public class HeadSpot extends Ship/*extends Ship*/ {
         switch(type)
         {
             case("Battleship"):
-                mySize = 6;
+                mySize = 5;
                 myHull = "Battleship";
                 break;
             case("Carrier"):
-                mySize = 5;
+                mySize = 6;
                 myHull = "Carrier";
                 break;
             case("Destroyer"):

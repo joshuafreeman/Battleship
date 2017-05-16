@@ -77,17 +77,11 @@ dependency9.type=UsesDependency
 objectbench.height=84
 objectbench.width=1015
 package.editor.height=504
-<<<<<<< HEAD
 package.editor.width=917
-package.editor.x=1840
-package.editor.y=291
-=======
-package.editor.width=907
 package.editor.x=20
 package.editor.y=51
->>>>>>> origin/master
 package.numDependencies=25
-package.numTargets=13
+package.numTargets=14
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
@@ -141,28 +135,27 @@ target12.typeParameters=
 target12.width=80
 target12.x=320
 target12.y=80
-target13.editor.height=700
-target13.editor.width=900
-target13.editor.x=0
-target13.editor.y=23
 target13.height=50
-<<<<<<< HEAD
 target13.name=Ship
-=======
-target13.name=Main
->>>>>>> origin/master
-target13.naviview.expanded=true
 target13.showInterface=false
 target13.type=ClassTarget
 target13.typeParameters=
 target13.width=80
-<<<<<<< HEAD
-target13.x=220
-target13.y=20
-=======
-target13.x=770
-target13.y=440
->>>>>>> origin/master
+target13.x=210
+target13.y=100
+target14.editor.height=700
+target14.editor.width=900
+target14.editor.x=0
+target14.editor.y=23
+target14.height=50
+target14.name=Main
+target14.naviview.expanded=true
+target14.showInterface=false
+target14.type=ClassTarget
+target14.typeParameters=
+target14.width=80
+target14.x=770
+target14.y=440
 target2.editor.height=700
 target2.editor.width=900
 target2.editor.x=262
@@ -201,29 +194,19 @@ target4.type=ClassTarget
 target4.typeParameters=
 target4.width=120
 target4.x=450
-<<<<<<< HEAD
-target4.y=270
-=======
 target4.y=240
 target5.editor.height=700
 target5.editor.width=749
 target5.editor.x=137
 target5.editor.y=86
->>>>>>> origin/master
 target5.height=50
 target5.name=Driver
 target5.showInterface=false
 target5.type=ClassTarget
 target5.typeParameters=
-<<<<<<< HEAD
-target5.width=80
-target5.x=310
-target5.y=10
-=======
 target5.width=140
 target5.x=160
 target5.y=360
->>>>>>> origin/master
 target6.editor.height=700
 target6.editor.width=749
 target6.editor.x=1840
@@ -234,15 +217,9 @@ target6.naviview.expanded=false
 target6.showInterface=false
 target6.type=ClassTarget
 target6.typeParameters=
-<<<<<<< HEAD
-target6.width=140
-target6.x=210
-target6.y=370
-=======
-target6.width=80
-target6.x=400
+target6.width=150
+target6.x=560
 target6.y=20
->>>>>>> origin/master
 target7.editor.height=700
 target7.editor.width=900
 target7.editor.x=0
@@ -254,8 +231,8 @@ target7.showInterface=false
 target7.type=ClassTarget
 target7.typeParameters=
 target7.width=80
-target7.x=400
-target7.y=30
+target7.x=500
+target7.y=110
 target8.editor.height=700
 target8.editor.width=900
 target8.editor.x=569
@@ -266,13 +243,8 @@ target8.showInterface=false
 target8.type=ClassTarget
 target8.typeParameters=
 target8.width=80
-<<<<<<< HEAD
-target8.x=210
-target8.y=120
-=======
 target8.x=560
 target8.y=330
->>>>>>> origin/master
 target9.editor.height=700
 target9.editor.width=900
 target9.editor.x=286
@@ -285,4 +257,4 @@ target9.type=AbstractTarget
 target9.typeParameters=
 target9.width=80
 target9.x=560
-target9.y=380
+target9.y=420

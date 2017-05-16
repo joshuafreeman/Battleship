@@ -1,7 +1,8 @@
+
 /**
  * Created by Josh on 5/3/2017.
  */
-public class HeadSpot extends Ship/*extends Ship*/ {
+public class HeadSpot extends Ship {
 
     private int myRotation;
     private int mySize;

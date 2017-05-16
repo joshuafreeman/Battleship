@@ -103,7 +103,7 @@ public class Driver
                 }    
             }  
             right = true;
-            
+
             switch(boatType)
             {
                 case(1):
@@ -112,7 +112,7 @@ public class Driver
                     {
                         System.out.println("Brah thers es a buot teire alrudy.");
                         x--;
-                    }                        
+                    }
                     break;
                 case(2):
                     if(!bor.setShip(xCord,yCord,rot,"Submarine"))
@@ -150,6 +150,15 @@ public class Driver
                 System.out.println();
             }
         }
+
+
+
+
+
+
+
+
+
         while(!gameOver)
         {
             System.out.println("Please type a X cord to Shoot.");

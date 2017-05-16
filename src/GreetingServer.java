@@ -105,7 +105,7 @@ public class GreetingServer extends Thread {
    }
    
    public static void main(String [] args) {
-      int port = 25565;
+      int port = 8080;
       try {
          Thread t = new GreetingServer(port);
          t.start();

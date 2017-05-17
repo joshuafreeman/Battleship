@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a701051b-78b8-4805-918e-1522b1aa023c" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/GreetingClient.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/LoopingSocketClient.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/ObjectOutputStreamDemo.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/GreetingClient1.class" afterPath="$PROJECT_DIR$/out/production/Battleship/GreetingClient1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/GreetingClient2.class" afterPath="$PROJECT_DIR$/out/production/Battleship/GreetingClient2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/GreetingServer.class" afterPath="$PROJECT_DIR$/out/production/Battleship/GreetingServer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/PlayerBoard.class" afterPath="$PROJECT_DIR$/out/production/Battleship/PlayerBoard.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GreetingServer.java" afterPath="$PROJECT_DIR$/src/GreetingServer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,6 +57,7 @@
               <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1494962384179" expanded="true" signature="4042:9304" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -63,6 +70,7 @@
               <caret line="82" column="39" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="262" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1494962384183" expanded="true" signature="4042:9304" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -83,7 +91,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
               <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
+              <folding>
+                <marker date="1494962384190" expanded="true" signature="5447:6463" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -193,6 +203,7 @@
     <panes>
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -233,37 +244,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Battleship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Battleship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ctest2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Battleship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Battleship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClientTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -606,7 +588,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26279318" sideWeight="0.4927798" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26812366" sideWeight="0.4927798" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -647,7 +629,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
+          <folding>
+            <marker date="1494962384190" expanded="true" signature="5447:6463" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -709,6 +693,7 @@
           <caret line="18" column="37" lean-forward="false" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1494962384179" expanded="true" signature="4042:9304" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -719,6 +704,7 @@
           <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1494962384183" expanded="true" signature="4042:9304" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -735,7 +721,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
+          <folding>
+            <marker date="1494962384190" expanded="true" signature="5447:6463" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -797,6 +785,7 @@
           <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1494962384179" expanded="true" signature="4042:9304" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -807,6 +796,7 @@
           <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1494962384183" expanded="true" signature="4042:9304" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -823,7 +813,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
+          <folding>
+            <marker date="1494962384190" expanded="true" signature="5447:6463" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -895,6 +887,7 @@
           <caret line="45" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="203" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1494962384179" expanded="true" signature="4042:9304" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -920,6 +913,7 @@
           <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1494962384183" expanded="true" signature="4042:9304" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -931,35 +925,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ServerTest/GreetingServer.ctxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ctest2/GClient2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientTest/GreetingClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ServerTest/GreetingServer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ServerTest/GreetingServer.ctxt" />
+    <entry file="file://$PROJECT_DIR$/Ctest2/GClient2.java" />
+    <entry file="file://$PROJECT_DIR$/ClientTest/GreetingClient.java" />
+    <entry file="file://$PROJECT_DIR$/ServerTest/GreetingServer.class" />
     <entry file="file://$PROJECT_DIR$/src/LoopingSocketClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -1037,6 +1006,7 @@
           <caret line="82" column="39" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="262" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1494962384183" expanded="true" signature="4042:9304" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1045,7 +1015,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
+          <folding>
+            <marker date="1494962384190" expanded="true" signature="5447:6463" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1055,6 +1027,7 @@
           <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1494962384179" expanded="true" signature="4042:9304" ph="{...}" />
           </folding>
         </state>
       </provider>

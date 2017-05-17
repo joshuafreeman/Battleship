@@ -180,6 +180,7 @@ public class PlayerBoard extends Board{
         int size;
         Ship ship = null;
         Spot place = myBoard[yCord][xCord];
+        //This doesn't work
         if(!place.getType().equals("hull") || !place.getType().equals("head") || !place.getType().equals("ship"))
             sunken = false;
         else

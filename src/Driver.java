@@ -92,10 +92,11 @@ public class Driver
             rot--;
              while(right)
             {
-                if(rot < 1 || rot > 2)
+                if(rot < 0 || rot > 1)
                 {
                    System.out.println("Please learn to type.");
-                   rot = con.readInt(); 
+                   rot = con.readInt();
+                    rot--;
                 }
                 else
                 {
@@ -190,11 +191,12 @@ public class Driver
                     right = false;
                 }
             }
+            bor.receiveAttack(xCord,yCord);
             right = true;
-            if(bor.receiveAttack(xCord,yCord))
+            if(bor.sunk(xCord,yCord))
             {
                 System.out.println("You sunk my battleship!");
-                gameOver = bor.isEmpty();
+                gameOver = bor.sunk(xCord, yCord);
             }
 
             for(int y = 0; y < bor.getHeight(); y++)

@@ -15,27 +15,25 @@ public class OpponentBoard extends Board {
     public boolean receiveAttack(int x, int y)
     {
         x--;y--;
-        boolean sunken = false;
+        boolean hit = false;
         Spot temp = myBoard[y][x];
-        if(myBoard[y][x].getType().equals("hull") || myBoard[y][x].getType().equals("head"))
+        if(myBoard[y][x].getType().equals("hull") || myBoard[y][x].getType().equals("head") || myBoard[y][x].getType().equals("hit"))
         {
             myBoard[y][x] = new Hit();
+            hit = true;
         }
         else
             myBoard[y][x] = new Miss();
 
-        if(temp.getType().equals("hull") || temp.getType().equals("head"))
-            sunken = sunk(temp);
-        return sunken;
+        return hit;
     }
 
-    public boolean sunk(Spot place)
+    public boolean sunk(int xCord, int yCord)
     {
-        int xCord;
-        int yCord;
         boolean sunken = true;
         int rotation;
         int size;
+        Spot place = myBoard[yCord][xCord];
         Ship ship = (Ship)place;
         if(place.getType().equals("head"))
         {

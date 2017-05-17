@@ -8,7 +8,7 @@ public class GreetingClient1 {
     private static PlayerBoard bor;
     public static void main(String [] args) {
         String serverName = "76.88.3.218";
-        int port = 25565;
+        int port = 8080;
         try {
             bor = new PlayerBoard(10,10);
             OpponentBoard opp = new OpponentBoard();
@@ -53,9 +53,18 @@ public class GreetingClient1 {
             boolean gameOver = false;
             boolean right = true;
             int xCord, yCord;
+            boolean sunk;
             ConsoleIO con = new ConsoleIO();
             boolean hit;
             while(!bor.isEmpty() && !opp.isEmpty()) {
+                for(int y = 0; y < bor.getHeight(); y++)
+                {
+                    System.out.print(Format.left(y+1, 3));
+                    for (int x = 0; x < bor.getWidth(); x++)
+                        System.out.print(bor.displaySpot(x, y) + " ");
+                    System.out.println();
+                }
+                System.out.println();
                 System.out.print("Please type a X cord to shoot: ");
                 xCord = con.readInt();
                 while (right) {
@@ -92,6 +101,11 @@ public class GreetingClient1 {
                 else
                     System.out.println("It's a miss.");
 
+                sunk = in.readBoolean();
+                if(sunk)
+                    System.out.println("You sunk the opponent's ship!");
+                else
+                    System.out.println("You didn't sink the ship!");
                 //Receive where the attacks hit on opponent board
                 try{
                     ObjectInputStream objectIn = new ObjectInputStream(inFromServer);
@@ -102,7 +116,12 @@ public class GreetingClient1 {
                     z.printStackTrace();
                 }
             }
+            boolean winner = in.readBoolean();
 
+            if(winner)
+                System.out.println("Congrats! You sunk all their battleships.");
+            else
+                System.out.println("Sorry. They suck all your battleships.");
             //Close connection
             client.close();
 
@@ -205,6 +224,7 @@ public class GreetingClient1 {
                 {
                     System.out.println("Please learn to type.");
                     rot = con.readInt();
+                    rot--;
                 }
                 else
                 {

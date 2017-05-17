@@ -173,50 +173,39 @@ public class PlayerBoard extends Board{
 
     public boolean sunk(int xCord, int yCord)
     {
-        xCord--;
-        yCord--;
         boolean sunken = true;
         int rotation;
         int size;
-        Ship ship = null;
         Spot place = myBoard[yCord][xCord];
-        //This doesn't work
-        if(!place.getType().equals("hull") || !place.getType().equals("head") || !place.getType().equals("ship"))
-            sunken = false;
-        else
-            ship = (Ship)place;
-        if(sunken == true)
+        Ship ship = (Ship)place;
+        if(place.getType().equals("head"))
         {
-            if(place.getType().equals("head"))
-            {
-                xCord = ((HeadSpot)ship).getXCord();
-                yCord = ((HeadSpot)ship).getYCord();
-                rotation = ((HeadSpot)ship).getRotation();
-                size = ((HeadSpot)ship).getSize();
-            }
-            else // if(place.getType().equals("ship"))
-            {
-                xCord = ((Hull)ship).getHead().getXCord();
-                yCord = ((Hull)ship).getHead().getYCord();
-                rotation = ((Hull)ship).getHead().getRotation();
-                size = ((Hull)ship).getHead().getSize();
-            }
-
-
-            if(rotation == 0)
-            {
-                for(int x = xCord + 1; x < xCord + size; x++)
-                    if(!myBoard[yCord][x].getType().equals("hit"))
-                        sunken = false;
-            }
-            else
-            {
-                for(int y = yCord + 1; y < yCord + size; y++)
-                    if(!myBoard[y][xCord].getType().equals("hit"))
-                        sunken = false;
-            }
+            xCord = ((HeadSpot)ship).getXCord();
+            yCord = ((HeadSpot)ship).getYCord();
+            rotation = ((HeadSpot)ship).getRotation();
+            size = ((HeadSpot)ship).getSize();
+        }
+        else // if(place.getType().equals("ship"))
+        {
+            xCord = ((Hull)ship).getHead().getXCord();
+            yCord = ((Hull)ship).getHead().getYCord();
+            rotation = ((Hull)ship).getHead().getRotation();
+            size = ((Hull)ship).getHead().getSize();
         }
 
+
+        if(rotation == 0)
+        {
+            for(int x = xCord + 1; x < xCord + size; x++)
+                if(!myBoard[yCord][x].getType().equals("hit"))
+                    sunken = false;
+        }
+        else
+        {
+            for(int y = yCord + 1; y < yCord + size; y++)
+                if(!myBoard[y][xCord].getType().equals("hit"))
+                    sunken = false;
+        }
         return sunken;
     }
 }

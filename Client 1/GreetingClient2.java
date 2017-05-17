@@ -51,20 +51,12 @@ public class GreetingClient2 {
             //Attacking
 
             boolean gameOver = false;
-            boolean right = true;
+            boolean right;
             int xCord, yCord;
-            boolean sunk;
             ConsoleIO con = new ConsoleIO();
             boolean hit;
             while(!bor.isEmpty() && !opp.isEmpty()) {
-                for(int y = 0; y < bor.getHeight(); y++)
-                {
-                    System.out.print(Format.left(y+1, 3));
-                    for (int x = 0; x < bor.getWidth(); x++)
-                        System.out.print(bor.displaySpot(x, y) + " ");
-                    System.out.println();
-                }
-                System.out.println();
+                right = true;
                 System.out.print("Please type a X cord to shoot: ");
                 xCord = con.readInt();
                 while (right) {
@@ -101,12 +93,6 @@ public class GreetingClient2 {
                 else
                     System.out.println("It's a miss.");
 
-                sunk = in.readBoolean();
-                if(sunk)
-                    System.out.println("You sunk the opponent's ship!");
-                else
-                    System.out.println("You didn't sink the ship!");
-
                 //Receive where the attacks hit on opponent board
                 try{
                     ObjectInputStream objectIn = new ObjectInputStream(inFromServer);
@@ -117,12 +103,7 @@ public class GreetingClient2 {
                     z.printStackTrace();
                 }
             }
-            boolean winner = in.readBoolean();
 
-            if(winner)
-                System.out.println("Congrats! You sunk all their battleships.");
-            else
-                System.out.println("Sorry. They suck all your battleships.");
             //Close connection
             client.close();
 
@@ -225,7 +206,6 @@ public class GreetingClient2 {
                 {
                     System.out.println("Please learn to type.");
                     rot = con.readInt();
-                    rot--;
                 }
                 else
                 {

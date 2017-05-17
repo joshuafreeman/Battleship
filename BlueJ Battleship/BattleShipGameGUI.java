@@ -36,19 +36,13 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     
     /** The displays. */
     private JLabel[] display;
-    private JLabel[] boardLable;
     
     /** Letters and numbers*/
     JLabel letters[];
     JLabel numbers;
     
     /** Button array of accessable Squares. */
-    private JButton[][] validSpaces;
-    
-    /** Selectable Ships */
-    private JButton[] ships;
-    
-    private Color col;
+    private JButton[][] validSpaces = new JButton[10][10];
     
     public BattleShipGameGUI(PlayerBoard p1, OpponentBoard p2)
     {
@@ -57,10 +51,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         boardHeight = p1.getHeight();
         boardWidth = p1.getWidth();
         
-        validSpaces = new JButton[boardHeight * 2][boardWidth * 2];
-        
-        for (int x = 0; x < boardHeight * 2; x++)
-            for (int y = 0; y < boardWidth * 2; y++)
+        for (int x = 0; x < boardHeight; x++)
+            for (int y = 0; y < boardWidth; y++)
                 validSpaces[x][y] = new JButton();
                 
         initDisplay();
@@ -97,6 +89,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         panel.setPreferredSize(new Dimension(DEFAULT_WIDTH - 20, DEFAULT_HEIGHT - 20));
         
         display = new JLabel[2];
+<<<<<<< HEAD
         boardLable = new JLabel[2];
         
         for(int k = 0; k < 2; k++)
@@ -113,13 +106,76 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
                         butt.addActionListener(this);
                     }
         
+        ships = new JButton[5];
+        JButton butt;
+        ImageIcon image = new ImageIcon("/Images/PatrolBoat.png");
+        int length = 0, height = 0;
+        
+        for (int x = 0; x < 5; x++)
+        {
+            switch (x)
+            {
+                case 0:
+                    image = image = new ImageIcon("/Images/AircraftCarrier.png");
+                    length = 200;
+                    height = 100;
+                    break;   
+                case 1:
+                    image = image = new ImageIcon("/Images/BattleShip.png");
+                    length = 140;
+                    height = 70;
+                    break;
+                case 2:
+                    image = image = new ImageIcon("/Images/Destroyer.png");
+                    length = 110;
+                    height = 70;
+                    break;
+                case 3:
+                    image = image = new ImageIcon("/Images/Submarine.png");
+                    length = 110;
+                    height = 70;
+                    break;
+                case 4:
+                    image = image = new ImageIcon("/Images/PatrolBoat.png");
+                    length = 80;
+                    height = 40;
+                    break;
+            }
+            ships[x] = butt = new JButton();
+            butt.setIcon(image);
+            butt.setAlignmentX(SwingConstants.CENTER);
+            panel.add(butt);
+            butt.setBounds(80 + (240 * x), 630 + (10 * x), length, height);
+            butt.addActionListener(this);
+        }
+        
         for (int k = 0; k < 2; k++)
+=======
+        for (int k = 0; k < 2; k++) 
+>>>>>>> parent of 2eca938... idk
         {
             display[k] = new JLabel();
             panel.add(display[k]);
             display[k].setBounds((k * 720) + 30, 30, BACK_WIDTH, BACK_HEIGHT);
             display[k].addMouseListener(new MyMouseListener());
- 
+        }
+        
+        for (int k = 0; k < 2; k++)
+        {
+            //Do the buttons
+            for (int x = 0; x < boardHeight; x++)
+                for (int y = 0; y < boardWidth; y++)
+                {
+                    JButton butt = validSpaces[x][y];
+                    butt.setText((char)(65+y) + "" + (int)(x+1));
+                    butt.setContentAreaFilled(false);
+                    butt.setBorder(null);
+                    butt.setForeground(new Color(0,255,255));
+                    panel.add(butt);
+                    butt.setBounds(28 + 48 * x, 28 + 50 * y, 55, 55);
+                    butt.addActionListener(this);
+                } 
+                
             letters = new JLabel[boardHeight];
             for (int x = 0; x < boardHeight; x++)
             {
@@ -146,6 +202,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
             numbers.setText(text);
             panel.add(numbers);
             numbers.setVisible(true);
+<<<<<<< HEAD
             
             
             if (k == 0)
@@ -177,20 +234,10 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         shipBackground.setVerticalAlignment(SwingConstants.TOP);
         shipBackground.setOpaque(true);
         panel.add(shipBackground);
-        shipBackground.setVisible(true);
-        
-        ships = new JButton[5];
-        for (int x = 0; x < 5; x++)
-        {
-            JButton butt = validSpaces[(k * boardHeight) + x][(k * boardWidth) + y];
-            butt.setText((char)(65+y) + "" + (int)(x+1));
-            butt.setContentAreaFilled(false);
-            butt.setBorder(null);
-            butt.setForeground(new Color(0,255,255));
-            panel.add(butt);
-            butt.setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 55, 55);
-            butt.addActionListener(this);
+        shipBackground.setVisible(true);   
+=======
         }
+>>>>>>> parent of 2eca938... idk
         
         pack();
         getContentPane().add(panel);
@@ -287,3 +334,4 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         }
     }
 }
+

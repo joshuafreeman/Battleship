@@ -36,7 +36,7 @@ public class GreetingServer extends Thread {
 
             boolean gameReadyP1 = false;
             boolean gameReadyP2 = false;
-            System.out.println("Waiting for both players to be ready....");
+            System.out.println("Waiting for both players to be ready...");
             while(!gameReadyP1 || !gameReadyP2 )
             {
                gameReadyP1 = inP1.readBoolean();
@@ -46,6 +46,7 @@ public class GreetingServer extends Thread {
             outP1.writeBoolean(true); //Player 2 is ready
             outP2.writeBoolean(true); //Player 1 is ready
 
+            System.out.println("Sending PlayerBoards to players.");
             try{ //OBJECT STREAMS NEED TO BE IN TRY CATCH OR IT WONT WORK!!!!!!!!!!!???????????????!!!!!!!!!!!!!!!!!
                ObjectInputStream objectInP1 = new ObjectInputStream(server1.getInputStream());
                ObjectInputStream objectInP2 = new ObjectInputStream(server2.getInputStream());
@@ -62,6 +63,7 @@ public class GreetingServer extends Thread {
                e.printStackTrace();
             }
 
+            System.out.println("Players are attacking.");
             //RECEIVE ATTACK DOESN'T TELL IF ITS A HIT, ONLY SUNKEN SHIP
             while(!player1Board.isEmpty() && !player2Board.isEmpty())
             {
@@ -69,10 +71,22 @@ public class GreetingServer extends Thread {
                xCordP1 = inP1.readInt();
                yCordP1 = inP1.readInt();
                outP1.writeBoolean(player2Board.receiveAttack(xCordP1, yCordP1));
+               if(player2Board.receiveAttack(xCordP1, yCordP1))
+                  System.out.println("Player 1 hit Player 2's boat");
+               else
+                  System.out.println("Player 1 missed Player 2's boats");
+               outP1.writeBoolean(player2Board.sunk(xCordP1, yCordP1));
+
+
                outP2.writeBoolean(true); //P2 can attack
                xCordP2 = inP2.readInt();
                yCordP2 = inP2.readInt();
                outP2.writeBoolean(player1Board.receiveAttack(xCordP2, yCordP2));
+               if(player1Board.receiveAttack(xCordP2, yCordP2))
+                  System.out.println("Player 2 hit Player 1's boat");
+               else
+                  System.out.println("Player 2 missed Player 1's boats");
+               outP2.writeBoolean(player1Board.sunk(xCordP2, yCordP2));
 
                player1Opp = new OpponentBoard(player2Board);
                player2Opp = new OpponentBoard(player1Board);
@@ -90,6 +104,19 @@ public class GreetingServer extends Thread {
                {
                   z.printStackTrace();
                }
+            }
+            //Game over
+            if(player1Board.isEmpty())
+            {
+               System.out.println("Player 1 lost");
+               outP1.writeBoolean(false);
+               outP2.writeBoolean(true);
+            }
+            if(player2Board.isEmpty())
+            {
+               System.out.println("Player 2 lost");
+               outP1.writeBoolean(true);
+               outP2.writeBoolean(false);
             }
 
             server1.close();

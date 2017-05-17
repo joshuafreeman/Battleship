@@ -168,13 +168,13 @@ public class Driver
                 if(xCord < 1 || xCord > 10)
                 {
                    System.out.println("Please type a X cord between 1 and 10.");
-                   xCord = con.readInt(); 
+                   xCord = con.readInt();
                 }
                 else
                 {
                     right = false;
-                }    
-            }  
+                }
+            }
             right = true;
             System.out.println("Please type a Y cord to Shoot.");
             yCord = con.readInt();
@@ -183,28 +183,28 @@ public class Driver
                 if(yCord < 1 || yCord > 10)
                 {
                    System.out.println("Please type a Y cord between 1 and 10.");
-                   yCord = con.readInt(); 
+                   yCord = con.readInt();
                 }
                 else
                 {
                     right = false;
-                }    
-            }  
+                }
+            }
             right = true;
             if(bor.receiveAttack(xCord,yCord))
             {
-                printSunkBattleship();
+                System.out.println("You sunk my battleship!");
                 gameOver = bor.isEmpty();
             }
-            
+
             for(int y = 0; y < bor.getHeight(); y++)
             {
                 for (int x2 = 0; x2 < bor.getWidth(); x2++)
                 System.out.print(bor.displaySpot(x2, y) + " ");
                 System.out.println();
             }
-            
-        }    
+
+        }
         System.out.println("hoi tots pritu gud, u won");
     }
     

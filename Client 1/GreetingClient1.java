@@ -49,7 +49,6 @@ public class GreetingClient1 {
             }
 
             //Attacking
-
             boolean gameOver = false;
             boolean right = true;
             int xCord, yCord;

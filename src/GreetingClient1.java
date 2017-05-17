@@ -55,7 +55,13 @@ public class GreetingClient1 {
             boolean sunk;
             ConsoleIO con = new ConsoleIO();
             boolean hit;
+            int attacks = 0;
             while(!bor.isEmpty() && !opp.isEmpty()) {
+                attacks++;
+                opponentReady = false;
+                if(attacks == 1)
+                    System.out.println("Waiting for opponent's attacks...");
+                opponentReady = in.readBoolean();
                 for(int y = 0; y < bor.getHeight(); y++)
                 {
                     System.out.print(Format.left(y+1, 3));
@@ -86,10 +92,6 @@ public class GreetingClient1 {
                     }
                 }
 
-                opponentReady = false;
-                System.out.println("Waiting for opponent's attacks...");
-                opponentReady = in.readBoolean();
-
                 //Send attacks
                 out.writeInt(xCord);
                 out.writeInt(yCord);
@@ -106,6 +108,7 @@ public class GreetingClient1 {
                 else
                     System.out.println("You didn't sink the ship!");
                 //Receive where the attacks hit on opponent board
+                System.out.println("Waiting for opponent's attacks...");
                 try{
                     ObjectInputStream objectIn = new ObjectInputStream(inFromServer);
                     opp = (OpponentBoard)objectIn.readObject();

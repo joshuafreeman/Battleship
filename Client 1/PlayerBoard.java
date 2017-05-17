@@ -171,13 +171,15 @@ public class PlayerBoard extends Board{
         return hit;
     }
 
-    public boolean sunk(int xCord, int yCord)
+    public boolean sunk(Spot place)
     {
+        int xCord, yCord;
         boolean sunken = true;
         int rotation;
         int size;
-        Spot place = myBoard[yCord][xCord];
         Ship ship = (Ship)place;
+        //This doesn't work
+
         if(place.getType().equals("head"))
         {
             xCord = ((HeadSpot)ship).getXCord();
@@ -193,7 +195,6 @@ public class PlayerBoard extends Board{
             size = ((Hull)ship).getHead().getSize();
         }
 
-
         if(rotation == 0)
         {
             for(int x = xCord + 1; x < xCord + size; x++)
@@ -206,6 +207,8 @@ public class PlayerBoard extends Board{
                 if(!myBoard[y][xCord].getType().equals("hit"))
                     sunken = false;
         }
+      
+
         return sunken;
     }
 }

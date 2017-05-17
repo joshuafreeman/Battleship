@@ -55,7 +55,11 @@ public abstract class Board implements Serializable
     {
         return myBoard[y][x].toString();
     }
-    
+    public Spot getSpot(int x, int y)
+    {
+        x--;y--;
+        return myBoard[y][x];
+    }
     public int getHeight()
     {
         return myHeight;

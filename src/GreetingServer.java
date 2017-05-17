@@ -62,7 +62,7 @@ public class GreetingServer extends Thread {
             {
                e.printStackTrace();
             }
-
+            Spot temp1, temp2;
             System.out.println("Players are attacking.");
             //RECEIVE ATTACK DOESN'T TELL IF ITS A HIT, ONLY SUNKEN SHIP
             while(!player1Board.isEmpty() && !player2Board.isEmpty())
@@ -70,23 +70,26 @@ public class GreetingServer extends Thread {
                outP1.writeBoolean(true); //P1 can attack
                xCordP1 = inP1.readInt();
                yCordP1 = inP1.readInt();
+               temp1 = player2Board.getSpot(xCordP1, yCordP1);
                outP1.writeBoolean(player2Board.receiveAttack(xCordP1, yCordP1));
                if(player2Board.receiveAttack(xCordP1, yCordP1))
                   System.out.println("Player 1 hit Player 2's boat");
                else
                   System.out.println("Player 1 missed Player 2's boats");
-               outP1.writeBoolean(player2Board.sunk(xCordP1, yCordP1));
-
+               outP1.writeBoolean(player2Board.sunk(temp1));
 
                outP2.writeBoolean(true); //P2 can attack
                xCordP2 = inP2.readInt();
                yCordP2 = inP2.readInt();
+               
+               temp2  = player1Board.getSpot(xCordP2, yCordP2);
                outP2.writeBoolean(player1Board.receiveAttack(xCordP2, yCordP2));
                if(player1Board.receiveAttack(xCordP2, yCordP2))
                   System.out.println("Player 2 hit Player 1's boat");
                else
                   System.out.println("Player 2 missed Player 1's boats");
-               outP2.writeBoolean(player1Board.sunk(xCordP2, yCordP2));
+               
+               outP2.writeBoolean(player1Board.sunk(temp2));
 
                player1Opp = new OpponentBoard(player2Board);
                player2Opp = new OpponentBoard(player1Board);

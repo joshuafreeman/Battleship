@@ -36,13 +36,19 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     
     /** The displays. */
     private JLabel[] display;
+    private JLabel[] boardLable;
     
     /** Letters and numbers*/
     JLabel letters[];
     JLabel numbers;
     
     /** Button array of accessable Squares. */
-    private JButton[][] validSpaces = new JButton[10][10];
+    private JButton[][] validSpaces;
+    
+    /** Selectable Ships */
+    private JButton[] ships;
+    
+    private Color col;
     
     public BattleShipGameGUI(PlayerBoard p1, OpponentBoard p2)
     {
@@ -51,8 +57,10 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         boardHeight = p1.getHeight();
         boardWidth = p1.getWidth();
         
-        for (int x = 0; x < boardHeight; x++)
-            for (int y = 0; y < boardWidth; y++)
+        validSpaces = new JButton[boardHeight * 2][boardWidth * 2];
+        
+        for (int x = 0; x < boardHeight * 2; x++)
+            for (int y = 0; y < boardWidth * 2; y++)
                 validSpaces[x][y] = new JButton();
                 
         initDisplay();
@@ -88,6 +96,22 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         panel.setLayout(null);
         panel.setPreferredSize(new Dimension(DEFAULT_WIDTH - 20, DEFAULT_HEIGHT - 20));
         
+        boardLable = new JLabel[2];
+        
+        for(int k = 0; k < 2; k++)
+            for (int x = 0; x < boardHeight; x++)
+                    for (int y = 0; y < boardWidth; y++)
+                    {
+                        JButton butt = validSpaces[(k * boardHeight) + x][(k * boardWidth) + y];
+                        butt.setText((char)(65+y) + "" + (int)(x+1));
+                        butt.setContentAreaFilled(false);
+                        butt.setBorder(null);
+                        butt.setForeground(new Color(0,255,255));
+                        panel.add(butt);
+                        butt.setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 55, 55);
+                        butt.addActionListener(this);
+                    }
+
         display = new JLabel[2];
         for (int k = 0; k < 2; k++) 
         {
@@ -98,21 +122,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         }
         
         for (int k = 0; k < 2; k++)
-        {
-            //Do the buttons
-            for (int x = 0; x < boardHeight; x++)
-                for (int y = 0; y < boardWidth; y++)
-                {
-                    JButton butt = validSpaces[x][y];
-                    butt.setText((char)(65+y) + "" + (int)(x+1));
-                    butt.setContentAreaFilled(false);
-                    butt.setBorder(null);
-                    butt.setForeground(new Color(0,255,255));
-                    panel.add(butt);
-                    butt.setBounds(28 + 48 * x, 28 + 50 * y, 55, 55);
-                    butt.addActionListener(this);
-                } 
-                
+        {                
             letters = new JLabel[boardHeight];
             for (int x = 0; x < boardHeight; x++)
             {

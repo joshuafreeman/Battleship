@@ -152,15 +152,8 @@ public class Driver
             }
         }
 
-
-
-
-
-
-
-
-
-        while(!gameOver)
+        Spot place;
+        while(!bor.isEmpty())
         {
             System.out.println("Please type a X cord to Shoot.");
             xCord = con.readInt();
@@ -191,12 +184,13 @@ public class Driver
                     right = false;
                 }
             }
+            place = bor.getSpot(xCord, yCord);
             bor.receiveAttack(xCord,yCord);
             right = true;
-            if(bor.sunk(xCord,yCord))
+            if((place.myType.equals("hull") || place.myType.equals("head") || place.myType.equals("ship")) && bor.sunk(place))
             {
                 System.out.println("You sunk my battleship!");
-                gameOver = bor.sunk(xCord, yCord);
+                bor.sunk(place);
             }
 
             for(int y = 0; y < bor.getHeight(); y++)

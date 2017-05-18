@@ -65,5 +65,13 @@ public class OpponentBoard extends Board {
         }
         return sunken;
     }
+
+    public String displaySpot(int x, int y)
+    {
+        if(myBoard[y][x].getType().equals("ship") || myBoard[y][x].getType().equals("head") || myBoard[y][x].getType().equals("hull"))
+            return new Water().toString();
+        else
+            return myBoard[y][x].toString();
+    }
     
 }

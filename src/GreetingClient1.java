@@ -49,7 +49,6 @@ public class GreetingClient1 {
             }
 
             //Attacking
-            boolean gameOver = false;
             boolean right = true;
             int xCord, yCord;
             boolean sunk;
@@ -66,7 +65,15 @@ public class GreetingClient1 {
                 {
                     System.out.print(Format.left(y+1, 3));
                     for (int x = 0; x < bor.getWidth(); x++)
+                    {
                         System.out.print(bor.displaySpot(x, y) + " ");
+                    }
+                    System.out.print("              ");
+                    for (int x = 0; x < opp.getWidth(); x++)
+                    {
+                        System.out.print(opp.displaySpot(x, y) + " ");
+                    }
+
                     System.out.println();
                 }
                 System.out.println();

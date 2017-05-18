@@ -105,10 +105,10 @@ public class GreetingServer extends Thread {
                   ObjectOutputStream objectOutP1 = new ObjectOutputStream(server1.getOutputStream());
                   ObjectOutputStream objectOutP2 = new ObjectOutputStream(server2.getOutputStream());
 
-                  objectOutP1.writeObject(player2Opp);
+                  objectOutP1.writeObject(player1Opp);
                   objectOutP1.writeObject(player1Board);
 
-                  objectOutP2.writeObject(player1Opp);
+                  objectOutP2.writeObject(player2Opp);
                   objectOutP2.writeObject(player2Board);
                }catch(Exception z)
                {

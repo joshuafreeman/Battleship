@@ -51,7 +51,10 @@ public abstract class Board implements Serializable
         return empt;
     }
     
-    public abstract String displaySpot(int x, int y);
+    public String displaySpot(int x, int y)
+    {
+        return myBoard[y][x].toString();
+    }
     public Spot getSpot(int x, int y)
     {
         x--;y--;

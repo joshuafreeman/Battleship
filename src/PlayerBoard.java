@@ -211,4 +211,8 @@ public class PlayerBoard extends Board{
 
         return sunken;
     }
+    public String displaySpot(int x, int y)
+    {
+        return myBoard[y][x].toString();
+    }
 }

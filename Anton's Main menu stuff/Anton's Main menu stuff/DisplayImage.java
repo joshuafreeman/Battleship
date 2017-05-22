@@ -6,7 +6,12 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.Media;
+import java.net.*;
+import java.util.*;
+import javafx.embed.swing.JFXPanel;
+import javafx.util.Duration.*;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -17,6 +22,13 @@ public class DisplayImage{
     public static void main(String avg[]) throws IOException
     {
         DisplayImage abc=new DisplayImage();
+        final JFXPanel fxPanel = new JFXPanel();
+        File music = new File("mainmenu.wav");
+        Media p = new Media(music.toURI().toString());      
+        MediaPlayer mP = new MediaPlayer(p);
+        mP.setStopTime(p.getDuration());
+        System.out.println(mP.getStopTime());
+        mP.play();
     }
 
     public DisplayImage() throws IOException

@@ -37,6 +37,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     /** The displays. */
     private JLabel[] display;
     private JLabel[] boardLable;
+    private JLabel[][] grids;
     
     /** Letters and numbers*/
     JLabel letters[];
@@ -59,10 +60,13 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         boardWidth = p1.getWidth();
         
         validSpaces = new JButton[boardHeight][boardWidth * 2];
+        grids = new JLabel[boardHeight][boardWidth * 4];
         
         for (int x = 0; x < boardHeight; x++)
             for (int y = 0; y < boardWidth * 2; y++)
+            {
                 validSpaces[x][y] = new JButton();
+            }
                 
         initDisplay();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -93,34 +97,34 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         
         for(int k = 0; k < 2; k++)
             for (int x = 0; x < boardHeight; x++)
-                    for (int y = 0; y < boardWidth; y++)
-                    {
-                        JButton butt = validSpaces[x][(boardWidth * k) + y];
-                        butt.setText((char)(65+y) + "" + (int)(x+1));
-                        butt.setContentAreaFilled(false);
-                        butt.setBorder(null);
-                        butt.setForeground(new Color(0,0,255));
-                        panel.add(butt);
-                        butt.setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 55, 55);
-                        butt.addActionListener(this);
-                    }
-        
-        for (int k = 0; k < 2; k++)
-        {
-            //Do the buttons
-            for (int x = 0; x < boardHeight; x++)
+            {
                 for (int y = 0; y < boardWidth; y++)
                 {
-                    JButton butt = validSpaces[x][y];
+                    JButton butt = validSpaces[x][(boardWidth * k) + y];
                     butt.setText((char)(65+y) + "" + (int)(x+1));
                     butt.setContentAreaFilled(false);
                     butt.setBorder(null);
                     butt.setForeground(new Color(0,255,255));
                     panel.add(butt);
-                    butt.setBounds(28 + 48 * x, 28 + 50 * y, 55, 55);
+                    butt.setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 55, 55);
                     butt.addActionListener(this);
-                } 
-                
+                }
+            }
+        
+        for(int k = 0; k < 2; k++)    
+            for (int x = 0; x < boardHeight; x++)
+                for (int y = 0; y < boardWidth * 2; y++)
+                {
+                    grids[x][y] = new JLabel();
+                    JLabel line = grids[x][y];
+                    line.setForeground(Color.GRAY);
+                    line.setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 500, 505);
+                    panel.add(line); 
+                    line.setVisible(true);
+                }
+        
+        for (int k = 0; k < 2; k++)
+        {   
             letters = new JLabel[boardHeight];
             for (int x = 0; x < boardHeight; x++)
             {
@@ -190,38 +194,29 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         ships = new JButton[5];
         JButton butt;
         ImageIcon icon = new ImageIcon("/Images/BattleShip.png");
-        String text = "Battleship";
         for (int x = 0; x < 5; x++)
         {
             switch (x)
             {
                 case 0:
                     icon = new ImageIcon(getClass().getResource("/Images/AircraftCarrier.png"));
-                    text = "Aircraft Carrier -- 6 spaces";
                 break;
                 case 1:
                     icon = new ImageIcon(getClass().getResource("/Images/BattleShip.png"));
-                    text = "Battleship -- 5 spaces";
                 break;
                 case 2:
                     icon = new ImageIcon(getClass().getResource("/Images/Destroyer.png"));
-                    text = "Destroyer -- 3 spaces";
                 break;
                 case 3:
                     icon = new ImageIcon(getClass().getResource("/Images/Submarine.png"));
-                    text = "Submarine -- 3 spaces";
                 break;
                 case 4:
                     icon = new ImageIcon(getClass().getResource("/Images/PatrolBoat.png"));
-                    text = "Patrol Boat -- 2 spaces";
                 break;
             }  
             ships[x] = butt = new JButton();
             butt.setIcon(icon);
-            butt.setText(text);
-            butt.setVerticalAlignment(SwingConstants.TOP);
-            butt.setVerticalTextPosition(SwingConstants.BOTTOM);
-            butt.setIconTextGap(22);
+            butt.setVerticalAlignment(SwingConstants.CENTER);
             butt.setContentAreaFilled(false);
             panel.add(butt);
             butt.setBounds(50 + 240 * x, 635, 200, 100);

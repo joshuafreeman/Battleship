@@ -22,7 +22,6 @@ public class BattleShipGuiRunner {
         };
 		
         StartGUI anton = new StartGUI(uniPanel);
-		anton.displayGame();
         
 	    PlayerBoard serverboard = new PlayerBoard();
         PlayerBoard board = new PlayerBoard(10,10);

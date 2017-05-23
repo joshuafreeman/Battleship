@@ -1,17 +1,15 @@
 #BlueJ class context
-comment0.params=p1\ p2\ pan
-comment0.target=BattleShipGameGUI(PlayerBoard,\ OpponentBoard,\ javax.swing.JPanel)
+comment0.params=pan
+comment0.target=StartGUI(javax.swing.JPanel)
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ StartGUI\n
 comment1.params=
 comment1.target=void\ displayGame()
-comment1.text=\n\ Run\ the\ game.\n
 comment2.params=
 comment2.target=void\ run()
 comment3.params=
 comment3.target=void\ initDisplay()
-comment3.text=\n\ Initialize\ the\ display.\n
 comment4.params=
 comment4.target=void\ repaint()
-comment4.text=\n\ Draw\ the\ display\ (cards\ and\ messages).\n
 comment5.params=
 comment5.target=void\ signalError()
 comment5.text=\n\ Deal\ with\ the\ user\ clicking\ on\ something\ other\ than\ a\ button\ or\ a\ card.\n

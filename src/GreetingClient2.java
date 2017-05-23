@@ -49,19 +49,32 @@ public class GreetingClient2 {
             }
 
             //Attacking
-
             boolean gameOver = false;
             boolean right = true;
             int xCord, yCord;
             boolean sunk;
             ConsoleIO con = new ConsoleIO();
             boolean hit;
+            int attacks = 0;
             while(!bor.isEmpty() && !opp.isEmpty()) {
+                attacks++;
+                opponentReady = false;
+                if(attacks == 1)
+                    System.out.println("Waiting for opponent's attacks...");
+                opponentReady = in.readBoolean();
                 for(int y = 0; y < bor.getHeight(); y++)
                 {
                     System.out.print(Format.left(y+1, 3));
                     for (int x = 0; x < bor.getWidth(); x++)
+                    {
                         System.out.print(bor.displaySpot(x, y) + " ");
+                    }
+                    System.out.print("              ");
+                    for (int x = 0; x < opp.getWidth(); x++)
+                    {
+                        System.out.print(opp.displaySpot(x, y) + " ");
+                    }
+
                     System.out.println();
                 }
                 System.out.println();
@@ -87,10 +100,6 @@ public class GreetingClient2 {
                     }
                 }
 
-                opponentReady = false;
-                System.out.println("Waiting for opponent's attacks...");
-                opponentReady = in.readBoolean();
-
                 //Send attacks
                 out.writeInt(xCord);
                 out.writeInt(yCord);
@@ -106,8 +115,8 @@ public class GreetingClient2 {
                     System.out.println("You sunk the opponent's ship!");
                 else
                     System.out.println("You didn't sink the ship!");
-
                 //Receive where the attacks hit on opponent board
+                System.out.println("Waiting for opponent's attacks...");
                 try{
                     ObjectInputStream objectIn = new ObjectInputStream(inFromServer);
                     opp = (OpponentBoard)objectIn.readObject();

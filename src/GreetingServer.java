@@ -36,6 +36,8 @@ public class GreetingServer extends Thread {
 
             boolean gameReadyP1 = false;
             boolean gameReadyP2 = false;
+            boolean player1Won = false;
+            boolean player2Won = false;
             System.out.println("Waiting for both players to be ready...");
             while(!gameReadyP1 || !gameReadyP2 )
             {
@@ -78,8 +80,14 @@ public class GreetingServer extends Thread {
                   System.out.println("Player 1 missed Player 2's boats");
                   
                if((temp1.myType.equals("hull") || temp1.myType.equals("head") || temp1.myType.equals("ship")) && player2Board.sunk(temp1))
+               {
                    outP1.writeBoolean(player2Board.sunk(temp1));
-                   
+                   if(player1Board.isEmpty())
+                        player1Won = true;
+               }
+               else
+                  outP1.writeBoolean(false);
+
                outP2.writeBoolean(true); //P2 can attack
                xCordP2 = inP2.readInt();
                yCordP2 = inP2.readInt();
@@ -91,7 +99,13 @@ public class GreetingServer extends Thread {
                else
                   System.out.println("Player 2 missed Player 1's boats");
                if((temp2.myType.equals("hull") || temp2.myType.equals("head") || temp2.myType.equals("ship")) && player1Board.sunk(temp2))
+               {
                    outP2.writeBoolean(player1Board.sunk(temp2));
+                   if(player2Board.isEmpty() && !player1Won)
+                        player2Won = true;
+               }    
+               else
+                  outP2.writeBoolean(false);
                
 
                player1Opp = new OpponentBoard(player2Board);
@@ -101,10 +115,10 @@ public class GreetingServer extends Thread {
                   ObjectOutputStream objectOutP1 = new ObjectOutputStream(server1.getOutputStream());
                   ObjectOutputStream objectOutP2 = new ObjectOutputStream(server2.getOutputStream());
 
-                  objectOutP1.writeObject(player2Opp);
+                  objectOutP1.writeObject(player1Opp);
                   objectOutP1.writeObject(player1Board);
 
-                  objectOutP2.writeObject(player1Opp);
+                  objectOutP2.writeObject(player2Opp);
                   objectOutP2.writeObject(player2Board);
                }catch(Exception z)
                {
@@ -112,18 +126,19 @@ public class GreetingServer extends Thread {
                }
             }
             //Game over
-            if(player1Board.isEmpty())
+            if(player1Won)
             {
                System.out.println("Player 1 lost");
                outP1.writeBoolean(false);
                outP2.writeBoolean(true);
             }
-            if(player2Board.isEmpty())
-            {
-               System.out.println("Player 2 lost");
-               outP1.writeBoolean(true);
-               outP2.writeBoolean(false);
-            }
+            else
+                if(player2Won)
+                {
+                   System.out.println("Player 2 lost");
+                   outP1.writeBoolean(true);
+                   outP2.writeBoolean(false);
+                }
 
             server1.close();
 

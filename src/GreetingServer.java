@@ -79,8 +79,6 @@ public class GreetingServer extends Thread {
                   
                if((temp1.myType.equals("hull") || temp1.myType.equals("head") || temp1.myType.equals("ship")) && player2Board.sunk(temp1))
                    outP1.writeBoolean(player2Board.sunk(temp1));
-               else
-                  outP1.writeBoolean(false);
                    
                outP2.writeBoolean(true); //P2 can attack
                xCordP2 = inP2.readInt();
@@ -94,8 +92,6 @@ public class GreetingServer extends Thread {
                   System.out.println("Player 2 missed Player 1's boats");
                if((temp2.myType.equals("hull") || temp2.myType.equals("head") || temp2.myType.equals("ship")) && player1Board.sunk(temp2))
                    outP2.writeBoolean(player1Board.sunk(temp2));
-               else
-                  outP2.writeBoolean(false);
                
 
                player1Opp = new OpponentBoard(player2Board);
@@ -105,10 +101,10 @@ public class GreetingServer extends Thread {
                   ObjectOutputStream objectOutP1 = new ObjectOutputStream(server1.getOutputStream());
                   ObjectOutputStream objectOutP2 = new ObjectOutputStream(server2.getOutputStream());
 
-                  objectOutP1.writeObject(player1Opp);
+                  objectOutP1.writeObject(player2Opp);
                   objectOutP1.writeObject(player1Board);
 
-                  objectOutP2.writeObject(player2Opp);
+                  objectOutP2.writeObject(player1Opp);
                   objectOutP2.writeObject(player2Board);
                }catch(Exception z)
                {

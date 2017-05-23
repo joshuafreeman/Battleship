@@ -219,8 +219,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
             ships[x] = butt = new JButton();
             butt.setIcon(icon);
             butt.setText(text);
-            butt.setVerticalTextPosition(SwingConstants.BOTTOM);
             butt.setVerticalAlignment(SwingConstants.TOP);
+            butt.setVerticalTextPosition(SwingConstants.BOTTOM);
             butt.setIconTextGap(22);
             butt.setContentAreaFilled(false);
             panel.add(butt);
@@ -249,8 +249,9 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         }    
         
         JTextArea battleLog = new JTextArea();
+        battleLog.setBounds(550,60,160,450);
+        battleLog.setEditable( false );
         panel.add(battleLog);
-        battleLog.setBounds(600,50,55,55);
         
         JLabel logBackground = new JLabel();
         logBackground.setBounds(535, 20, 190, 520);

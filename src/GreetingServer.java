@@ -122,12 +122,13 @@ public class GreetingServer extends Thread {
                outP1.writeBoolean(false);
                outP2.writeBoolean(true);
             }
-            if(player2Board.isEmpty())
-            {
-               System.out.println("Player 2 lost");
-               outP1.writeBoolean(true);
-               outP2.writeBoolean(false);
-            }
+            else
+                if(player2Board.isEmpty())
+                {
+                   System.out.println("Player 2 lost");
+                   outP1.writeBoolean(true);
+                   outP2.writeBoolean(false);
+                }
 
             server1.close();
 

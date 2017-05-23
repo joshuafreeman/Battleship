@@ -74,8 +74,22 @@ dependency30.type=UsesDependency
 dependency31.from=BattleShipGuiRunner
 dependency31.to=StartGUI
 dependency31.type=UsesDependency
+<<<<<<< HEAD
 dependency4.from=OpponentBoard
 dependency4.to=Hit
+=======
+dependency32.from=BattleShipGuiRunner
+dependency32.to=BattleShipGameGUI
+dependency32.type=UsesDependency
+dependency33.from=OpponentBoard
+dependency33.to=Water
+dependency33.type=UsesDependency
+dependency34.from=Main
+dependency34.to=PlayerBoard
+dependency34.type=UsesDependency
+dependency4.from=PlayerBoard
+dependency4.to=HeadSpot
+>>>>>>> origin/master
 dependency4.type=UsesDependency
 dependency5.from=OpponentBoard
 dependency5.to=Miss
@@ -93,12 +107,21 @@ dependency9.from=PlayerBoard
 dependency9.to=Water
 dependency9.type=UsesDependency
 objectbench.height=76
+<<<<<<< HEAD
 objectbench.width=1110
 package.editor.height=600
 package.editor.width=1002
 package.editor.x=0
 package.editor.y=59
 package.numDependencies=31
+=======
+objectbench.width=1035
+package.editor.height=512
+package.editor.width=927
+package.editor.x=184
+package.editor.y=201
+package.numDependencies=34
+>>>>>>> origin/master
 package.numTargets=17
 package.showExtends=true
 package.showUses=true
@@ -130,8 +153,13 @@ target10.x=190
 target10.y=460
 target11.editor.height=700
 target11.editor.width=900
+<<<<<<< HEAD
 target11.editor.x=569
 target11.editor.y=411
+=======
+target11.editor.x=287
+target11.editor.y=264
+>>>>>>> origin/master
 target11.height=50
 target11.name=Hit
 target11.naviview.expanded=false
@@ -139,12 +167,21 @@ target11.showInterface=false
 target11.type=ClassTarget
 target11.typeParameters=
 target11.width=80
+<<<<<<< HEAD
 target11.x=660
 target11.y=230
 target12.editor.height=700
 target12.editor.width=900
 target12.editor.x=286
 target12.editor.y=269
+=======
+target11.x=560
+target11.y=420
+target12.editor.height=946
+target12.editor.width=1280
+target12.editor.x=0
+target12.editor.y=23
+>>>>>>> origin/master
 target12.height=50
 target12.name=Board
 target12.naviview.expanded=true
@@ -204,6 +241,7 @@ target16.showInterface=false
 target16.type=ClassTarget
 target16.typeParameters=
 target16.width=80
+<<<<<<< HEAD
 target16.x=320
 target16.y=150
 target17.editor.height=700
@@ -213,12 +251,23 @@ target17.editor.y=208
 target17.height=50
 target17.name=Ship
 target17.naviview.expanded=true
+=======
+target16.x=200
+target16.y=80
+target17.height=50
+target17.name=Main
+>>>>>>> origin/master
 target17.showInterface=false
 target17.type=ClassTarget
 target17.typeParameters=
 target17.width=80
+<<<<<<< HEAD
 target17.x=200
 target17.y=80
+=======
+target17.x=750
+target17.y=10
+>>>>>>> origin/master
 target2.editor.height=700
 target2.editor.width=900
 target2.editor.x=12
@@ -245,10 +294,15 @@ target3.typeParameters=
 target3.width=80
 target3.x=50
 target3.y=40
-target4.editor.height=948
+target4.editor.height=946
 target4.editor.width=1280
+<<<<<<< HEAD
 target4.editor.x=0
 target4.editor.y=23
+=======
+target4.editor.x=181
+target4.editor.y=408
+>>>>>>> origin/master
 target4.height=50
 target4.name=GreetingClient1
 target4.naviview.expanded=true
@@ -298,12 +352,21 @@ target7.width=140
 target7.x=740
 target7.y=440
 target8.editor.height=700
+<<<<<<< HEAD
 target8.editor.width=869
 target8.editor.x=310
 target8.editor.y=190
 target8.height=50
 target8.name=BattleShipGameGUI
 target8.naviview.expanded=false
+=======
+target8.editor.width=900
+target8.editor.x=0
+target8.editor.y=23
+target8.height=50
+target8.name=BattleShipGameGUI
+target8.naviview.expanded=true
+>>>>>>> origin/master
 target8.showInterface=false
 target8.type=ClassTarget
 target8.typeParameters=

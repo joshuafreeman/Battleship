@@ -36,6 +36,8 @@ public class GreetingServer extends Thread {
 
             boolean gameReadyP1 = false;
             boolean gameReadyP2 = false;
+            boolean player1Won = false;
+            boolean player2Won = false;
             System.out.println("Waiting for both players to be ready...");
             while(!gameReadyP1 || !gameReadyP2 )
             {
@@ -78,7 +80,11 @@ public class GreetingServer extends Thread {
                   System.out.println("Player 1 missed Player 2's boats");
                   
                if((temp1.myType.equals("hull") || temp1.myType.equals("head") || temp1.myType.equals("ship")) && player2Board.sunk(temp1))
+               {
                    outP1.writeBoolean(player2Board.sunk(temp1));
+                   if(player1Board.isEmpty())
+                        player1Won = true;
+               }
                else
                   outP1.writeBoolean(false);
 
@@ -93,7 +99,11 @@ public class GreetingServer extends Thread {
                else
                   System.out.println("Player 2 missed Player 1's boats");
                if((temp2.myType.equals("hull") || temp2.myType.equals("head") || temp2.myType.equals("ship")) && player1Board.sunk(temp2))
+               {
                    outP2.writeBoolean(player1Board.sunk(temp2));
+                   if(player2Board.isEmpty() && !player1Won)
+                        player2Won = true;
+               }    
                else
                   outP2.writeBoolean(false);
                
@@ -116,14 +126,14 @@ public class GreetingServer extends Thread {
                }
             }
             //Game over
-            if(player1Board.isEmpty())
+            if(player1Won)
             {
                System.out.println("Player 1 lost");
                outP1.writeBoolean(false);
                outP2.writeBoolean(true);
             }
             else
-                if(player2Board.isEmpty())
+                if(player2Won)
                 {
                    System.out.println("Player 2 lost");
                    outP1.writeBoolean(true);

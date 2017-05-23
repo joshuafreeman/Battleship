@@ -12,6 +12,7 @@ import java.net.*;
 import java.util.*;
 import javafx.embed.swing.JFXPanel;
 import javafx.util.Duration.*;
+import java.time.*;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -24,9 +25,11 @@ public class DisplayImage{
         DisplayImage abc=new DisplayImage();
         final JFXPanel fxPanel = new JFXPanel();
         File music = new File("mainmenu.wav");
+        long time = 100000000;
+        Duration.add(time);
         Media p = new Media(music.toURI().toString());      
         MediaPlayer mP = new MediaPlayer(p);
-        mP.setStopTime(p.getDuration());
+        mP.setStopTime();
         System.out.println(mP.getStopTime());
         mP.play();
     }

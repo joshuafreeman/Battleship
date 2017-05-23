@@ -131,7 +131,7 @@ public class GreetingClient1 {
             if(winner)
                 System.out.println("Congrats! You sunk all their battleships.");
             else
-                System.out.println("Sorry. They suck all your battleships.");
+                System.out.println("Sorry. They sunk all your battleships.");
             //Close connection
             client.close();
 

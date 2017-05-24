@@ -101,26 +101,36 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
                 for (int y = 0; y < boardWidth; y++)
                 {
                     JButton butt = validSpaces[x][(boardWidth * k) + y];
-                    butt.setText((char)(65+y) + "" + (int)(x+1));
+                    String text = (char)(32 + k * (33+y)) + "";
+                    if (k > 0 )
+                        text += "" + (int)(x+1);
+                    butt.setText(text);
                     butt.setContentAreaFilled(false);
                     butt.setBorder(null);
-                    butt.setForeground(new Color(0,255,255));
+                    butt.setForeground(new Color(0,255,0));
                     panel.add(butt);
                     butt.setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 55, 55);
                     butt.addActionListener(this);
                 }
             }
-        
+            
         for(int k = 0; k < 2; k++)    
             for (int x = 0; x < boardHeight; x++)
-                for (int y = 0; y < boardWidth * 2; y++)
+                for (int y = 0; y <= boardWidth * 2; y++)
                 {
                     grids[x][y] = new JLabel();
-                    JLabel line = grids[x][y];
-                    line.setForeground(Color.GRAY);
-                    line.setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 500, 505);
-                    panel.add(line); 
-                    line.setVisible(true);
+                    grids[x][y].setBounds(28 + 48 * x + (k * 720), 28, 2, 500);
+                    grids[x][y].setBackground(Color.RED);
+                    grids[x][y].setOpaque(true);
+                    panel.add(grids[x][y]);
+                    grids[x][y].setVisible(true);
+                    
+                    /*grids[x][y + boardWidth] = new JLabel();
+                    grids[x][y + boardWidth].setBounds(28 + (k * 720), 28 + 50 * y, 485, 2);
+                    grids[x][y + boardWidth].setBackground(Color.LIGHT_GRAY);
+                    grids[x][y + boardWidth].setOpaque(true);
+                    panel.add(grids[x][y + boardWidth]);
+                    grids[x][y + boardWidth].setVisible(true);*/
                 }
         
         for (int k = 0; k < 2; k++)
@@ -258,6 +268,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         logBackground.setOpaque(true);
         panel.add(logBackground);
         logBackground.setVisible(true);
+        
         
         pack();
         getContentPane().add(panel);

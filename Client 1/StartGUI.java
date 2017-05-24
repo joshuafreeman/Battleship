@@ -49,10 +49,11 @@ public class StartGUI extends JFrame implements ActionListener
         panel.setLayout(null);
         panel.setPreferredSize(new Dimension(DEFAULT_WIDTH - 20, DEFAULT_HEIGHT - 20));
         
+        /**
         logo = new JLabel();
         panel.add(logo);
         logo.setBounds(160, -20,1440,400);
-        
+        */
         start = new JButton("Start");
         start.setFont(new Font("SansSerif", Font.BOLD, 25));
         panel.add(start);
@@ -71,12 +72,13 @@ public class StartGUI extends JFrame implements ActionListener
     
     public void repaint() 
     {
+        /**
         URL imageURL = getClass().getResource("/Images/logo.jpg");
         ImageIcon icon = new ImageIcon(imageURL);
         logo.setIcon(icon);
         logo.setVisible(true);
-        
-        URL backgroundURL = getClass().getResource("/Images/ocean.jpeg");
+        */
+        URL backgroundURL = getClass().getResource("/Images/Title.png");
         ImageIcon bicon = new ImageIcon(backgroundURL);
         background.setIcon(bicon);
         background.setVisible(true);

@@ -60,7 +60,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         boardWidth = p1.getWidth();
         
         validSpaces = new JButton[boardHeight][boardWidth * 2];
-        grids = new JLabel[boardHeight][boardWidth * 4];
+        grids = new JLabel[boardHeight + 2][boardWidth * 4];
         
         for (int x = 0; x < boardHeight; x++)
             for (int y = 0; y < boardWidth * 2; y++)
@@ -101,13 +101,17 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
                 for (int y = 0; y < boardWidth; y++)
                 {
                     JButton butt = validSpaces[x][(boardWidth * k) + y];
-                    String text = (char)(32 + k * (33+y)) + "";
+                    String text;
                     if (k > 0 )
-                        text += "" + (int)(x+1);
+                        text = "F";
+                    else
+                        text = "E";
+                        
+                    text += (char)(65+y) + "" + (int)(x+1);
                     butt.setText(text);
                     butt.setContentAreaFilled(false);
                     butt.setBorder(null);
-                    butt.setForeground(new Color(0,255,0));
+                    butt.setForeground(new Color(0,255,0,0));
                     panel.add(butt);
                     butt.setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 55, 55);
                     butt.addActionListener(this);
@@ -115,22 +119,22 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
             }
             
         for(int k = 0; k < 2; k++)    
-            for (int x = 0; x < boardHeight; x++)
+            for (int x = 0; x < boardHeight + 1; x++)
                 for (int y = 0; y <= boardWidth * 2; y++)
                 {
                     grids[x][y] = new JLabel();
-                    grids[x][y].setBounds(28 + 48 * x + (k * 720), 28, 2, 500);
-                    grids[x][y].setBackground(Color.RED);
+                    grids[x][y].setBounds(28 + 48 * x + (k * 720), 30, 2, 500);
+                    grids[x][y].setBackground(new Color(225,140,0));
                     grids[x][y].setOpaque(true);
                     panel.add(grids[x][y]);
                     grids[x][y].setVisible(true);
                     
-                    /*grids[x][y + boardWidth] = new JLabel();
-                    grids[x][y + boardWidth].setBounds(28 + (k * 720), 28 + 50 * y, 485, 2);
-                    grids[x][y + boardWidth].setBackground(Color.LIGHT_GRAY);
+                    grids[x][y + boardWidth] = new JLabel();
+                    grids[x][y + boardWidth].setBounds(28 + (k * 720), 28 + 50 * x, 482, 2);
+                    grids[x][y + boardWidth].setBackground(new Color(225,140,0));
                     grids[x][y + boardWidth].setOpaque(true);
                     panel.add(grids[x][y + boardWidth]);
-                    grids[x][y + boardWidth].setVisible(true);*/
+                    grids[x][y + boardWidth].setVisible(true);
                 }
         
         for (int k = 0; k < 2; k++)
@@ -249,7 +253,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         {
             display[k] = new JLabel();
             panel.add(display[k]);
-            display[k].setBounds((k * 720) + 30, 30, BACK_WIDTH, BACK_HEIGHT);
+            display[k].setBounds((k * 720) + 30, 30, BACK_WIDTH - 5, BACK_HEIGHT);
             display[k].addMouseListener(new MyMouseListener());
         }    
         
@@ -295,6 +299,11 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         panel.repaint();
     }
     
+    public void printLog(String str)
+    {
+        battleLog.append(str + "\n");
+    }
+    
     /**
      * Deal with the user clicking on something other than a button or a card.
      */
@@ -310,7 +319,12 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
      */
     public void actionPerformed(ActionEvent e) 
     {
-        
+        if (e.getSource().equals(no)
+        //((ImageIcon)JButton().getIcon()))) 
+        {
+            
+        }
+        //((ImageIcon) JLabel().getIcon())
     }
     
     /**

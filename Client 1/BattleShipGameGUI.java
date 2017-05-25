@@ -51,6 +51,10 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     
     private Color col;
     JTextArea battleLog;
+<<<<<<< HEAD
+=======
+    int attX = -1, attY = -1;
+>>>>>>> origin/master
     
     public BattleShipGameGUI(PlayerBoard p1, OpponentBoard p2, JPanel pan)
     {
@@ -104,9 +108,15 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
                     JButton butt = validSpaces[x][(boardWidth * k) + y];
                     String text;
                     if (k > 0 )
+                    {
                         text = "F";
+                        butt.setActionCommand("Send Atack");
+                    }
                     else
+                    {
                         text = "E";
+                        butt.setActionCommand("Place Ship");
+                    }
                         
                     text += (char)(65+y) + "" + (int)(x+1);
                     butt.setText(text);
@@ -259,12 +269,16 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         }    
         
         battleLog = new JTextArea();
+<<<<<<< HEAD
         battleLog.setBounds(550,60,160,450);
+=======
+        battleLog.setBounds(515,60,200,450);
+>>>>>>> origin/master
         battleLog.setEditable( false );
         panel.add(battleLog);
         
         JLabel logBackground = new JLabel();
-        logBackground.setBounds(535, 20, 190, 520);
+        logBackground.setBounds(510, 20, 220, 520);
         logBackground.setBackground(new Color(120,120,130));
         logBackground.setFont(new Font("SansSerif", Font.BOLD, 25));
         logBackground.setText("Battle Log");
@@ -322,12 +336,28 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
      */
     public void actionPerformed(ActionEvent e) 
     {
+<<<<<<< HEAD
         if (e.getSource().equals(ships[1]))
         //((ImageIcon)JButton().getIcon()))) 
+=======
+        if (e.getActionCommand().equals("Send Attack"))
+>>>>>>> origin/master
         {
-            
+                //attX = e.getSourse();
+                //attY = ;
         }
+        //((ImageIcon)JButton().getIcon())
         //((ImageIcon) JLabel().getIcon())
+    }
+    
+    public Point getAttack()
+    {
+        //while 
+        Point pointy = new Point(attX, attY);
+        attX = -1;
+        attY = -1;
+        return pointy;
+        
     }
     
     /**

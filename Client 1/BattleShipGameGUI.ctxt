@@ -20,4 +20,10 @@ comment6.text=\n\ Deal\ with\ the\ user\ clicking\ on\ something\ other\ than\ a
 comment7.params=e
 comment7.target=void\ actionPerformed(java.awt.event.ActionEvent)
 comment7.text=\n\ Respond\ to\ a\ button\ click\ (on\ either\ the\ "Replace"\ button\n\ or\ the\ "Restart"\ button).\n\ @param\ e\ the\ button\ click\ action\ event\n
+<<<<<<< HEAD
 numComments=8
+=======
+comment8.params=
+comment8.target=java.awt.Point\ getAttack()
+numComments=9
+>>>>>>> origin/master

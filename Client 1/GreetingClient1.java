@@ -6,6 +6,7 @@ import java.io.*;
 
 public class GreetingClient1 {
     private static PlayerBoard bor;
+    public static boolean isStart = false;
     public static void main(String [] args) {
         String serverName = "76.88.3.218";
         int port = 8080;

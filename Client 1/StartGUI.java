@@ -62,7 +62,7 @@ public class StartGUI extends JFrame implements ActionListener
                 
         background = new JLabel();
         panel.add(background);
-        background.setBounds(0, -140, 1800, 1440);
+        background.setBounds(0, -350, 1800, 1440);
         
         pack();
         getContentPane().add(panel);
@@ -76,7 +76,7 @@ public class StartGUI extends JFrame implements ActionListener
         logo.setIcon(icon);
         logo.setVisible(true);
         
-        URL backgroundURL = getClass().getResource("/Images/ocean.jpeg");
+        URL backgroundURL = getClass().getResource("/Images/Title.png");
         ImageIcon bicon = new ImageIcon(backgroundURL);
         background.setIcon(bicon);
         background.setVisible(true);
@@ -105,6 +105,7 @@ public class StartGUI extends JFrame implements ActionListener
             logo.setVisible(false);
             background.setVisible(false);
             start.setVisible(false);
+            GreetingClient1.isStart = true;
         }
     }
     

@@ -3,20 +3,39 @@ import apcslib.*;
 import chn.util.ConsoleIO;
 import java.net.*;
 import java.io.*;
-
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.net.URL;
+import java.util.*;
 public class GreetingClient1 {
     private static PlayerBoard bor;
+    public static boolean isStart = false;
     public static void main(String [] args) {
         String serverName = "76.88.3.218";
         int port = 8080;
         try {
             bor = new PlayerBoard(10,10);
             OpponentBoard opp = new OpponentBoard();
+            
+            JPanel uniPanel = new JPanel()
+            {
+                public void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                }
+            };
+     
+            StartGUI start = new StartGUI(uniPanel);
+            BattleShipGameGUI gui = new BattleShipGameGUI(bor, opp, uniPanel);
+            gui.displayGame();
+        
+           
+            
             //Start connection to server
-            System.out.println("Connecting to " + serverName + " on port " + port);
+            gui.printLog("    Connecting to \n        " + serverName + "\n    on port " + port);
             Socket client = new Socket(serverName, port);
 
-            System.out.println("Just connected to " + client.getRemoteSocketAddress());
+            gui.printLog("Just connected to " + client.getRemoteSocketAddress());
             OutputStream outToServer = client.getOutputStream();
             DataOutputStream out = new DataOutputStream(outToServer);
 

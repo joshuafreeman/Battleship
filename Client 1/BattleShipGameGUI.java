@@ -50,6 +50,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     private JButton[] ships;
     
     private Color col;
+    JTextArea battleLog;
     
     public BattleShipGameGUI(PlayerBoard p1, OpponentBoard p2, JPanel pan)
     {
@@ -257,7 +258,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
             display[k].addMouseListener(new MyMouseListener());
         }    
         
-        JTextArea battleLog = new JTextArea();
+        battleLog = new JTextArea();
         battleLog.setBounds(550,60,160,450);
         battleLog.setEditable( false );
         panel.add(battleLog);
@@ -302,6 +303,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     public void printLog(String str)
     {
         battleLog.append(str + "\n");
+        pack();
+        panel.repaint();
     }
     
     /**
@@ -319,7 +322,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
      */
     public void actionPerformed(ActionEvent e) 
     {
-        if (e.getSource().equals(no)
+        if (e.getSource().equals(ships[1]))
         //((ImageIcon)JButton().getIcon()))) 
         {
             

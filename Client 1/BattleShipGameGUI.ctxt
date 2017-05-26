@@ -3,27 +3,23 @@ comment0.params=p1\ p2\ pan
 comment0.target=BattleShipGameGUI(PlayerBoard,\ OpponentBoard,\ javax.swing.JPanel)
 comment1.params=
 comment1.target=void\ displayGame()
-comment1.text=\n\ Run\ the\ game.\n
+comment1.text=\r\n\ Run\ the\ game.\r\n
 comment2.params=
 comment2.target=void\ run()
 comment3.params=
 comment3.target=void\ initDisplay()
-comment3.text=\n\ Initialize\ the\ display.\n
+comment3.text=\r\n\ Initialize\ the\ display.\r\n
 comment4.params=
 comment4.target=void\ repaint()
-comment4.text=\n\ Draw\ the\ display\ (cards\ and\ messages).\n
+comment4.text=\r\n\ Draw\ the\ display\ (cards\ and\ messages).\r\n
 comment5.params=str
 comment5.target=void\ printLog(java.lang.String)
 comment6.params=
 comment6.target=void\ signalError()
-comment6.text=\n\ Deal\ with\ the\ user\ clicking\ on\ something\ other\ than\ a\ button\ or\ a\ card.\n
+comment6.text=\r\n\ Deal\ with\ the\ user\ clicking\ on\ something\ other\ than\ a\ button\ or\ a\ card.\r\n
 comment7.params=e
 comment7.target=void\ actionPerformed(java.awt.event.ActionEvent)
-comment7.text=\n\ Respond\ to\ a\ button\ click\ (on\ either\ the\ "Replace"\ button\n\ or\ the\ "Restart"\ button).\n\ @param\ e\ the\ button\ click\ action\ event\n
-<<<<<<< HEAD
-numComments=8
-=======
+comment7.text=\r\n\ Respond\ to\ a\ button\ click\ (on\ either\ the\ "Replace"\ button\r\n\ or\ the\ "Restart"\ button).\r\n\ @param\ e\ the\ button\ click\ action\ event\r\n
 comment8.params=
 comment8.target=java.awt.Point\ getAttack()
 numComments=9
->>>>>>> origin/master

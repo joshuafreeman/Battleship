@@ -51,10 +51,10 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     
     private Color col;
     JTextArea battleLog;
-<<<<<<< HEAD
-=======
+
+
     int attX = -1, attY = -1;
->>>>>>> origin/master
+
     
     public BattleShipGameGUI(PlayerBoard p1, OpponentBoard p2, JPanel pan)
     {
@@ -269,11 +269,11 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         }    
         
         battleLog = new JTextArea();
-<<<<<<< HEAD
+
         battleLog.setBounds(550,60,160,450);
-=======
-        battleLog.setBounds(515,60,200,450);
->>>>>>> origin/master
+
+        //battleLog.setBounds(515,60,200,450);
+
         battleLog.setEditable( false );
         panel.add(battleLog);
         
@@ -336,12 +336,12 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
      */
     public void actionPerformed(ActionEvent e) 
     {
-<<<<<<< HEAD
+
         if (e.getSource().equals(ships[1]))
         //((ImageIcon)JButton().getIcon()))) 
-=======
-        if (e.getActionCommand().equals("Send Attack"))
->>>>>>> origin/master
+
+        //if (e.getActionCommand().equals("Send Attack"))
+
         {
                 //attX = e.getSourse();
                 //attY = ;

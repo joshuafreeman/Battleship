@@ -51,7 +51,7 @@ public class StartGUI extends JFrame implements ActionListener
         
         logo = new JLabel();
         panel.add(logo);
-        logo.setBounds(160, -20,1440,400);
+        logo.setBounds(220,35,700,220);
         
         start = new JButton("Start");
         start.setFont(new Font("SansSerif", Font.BOLD, 25));
@@ -62,7 +62,7 @@ public class StartGUI extends JFrame implements ActionListener
                 
         background = new JLabel();
         panel.add(background);
-        background.setBounds(0, -350, 1800, 1440);
+        background.setBounds(0,0, 1300,810);
         
         pack();
         getContentPane().add(panel);

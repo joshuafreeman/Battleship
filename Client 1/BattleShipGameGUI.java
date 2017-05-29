@@ -38,6 +38,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     private JLabel[] display;
     private JLabel[] boardLable;
     private JLabel[][] grids;
+    private JLabel background;
     
     /** Letters and numbers*/
     JLabel letters[];
@@ -100,6 +101,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         
         boardLable = new JLabel[2];
         
+        
+        
         for(int k = 0; k < 2; k++)
             for (int x = 0; x < boardHeight; x++)
             {
@@ -155,7 +158,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
             {
                 letters[x] = new JLabel();
                 letters[x].setBounds(10 + (k * 1240), 50 * x + 30, 50, 50);
-                letters[x].setForeground(Color.BLUE);
+                letters[x].setForeground(Color.WHITE);
                 letters[x].setText((char)(x + 65) + "");
                 panel.add(letters[x]);
                 letters[x].setVisible(true);
@@ -163,14 +166,14 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
             
             numbers = new JLabel();
             numbers.setBounds(50 + (k * 720), -10, 500, 50);
-            numbers.setForeground(Color.BLUE);
+            numbers.setForeground(Color.WHITE);
             
             String text = ""; 
             for (int x = 0; x < boardWidth; x++)
             {
                 text += ((x+1));
-                for (int y = 1; y < 21 - boardWidth; y++)
-                    text += " ";
+                //for (int y = 1; y < 21 - x; y++)
+                    text += "             ";
             }
             
             numbers.setText(text);
@@ -278,7 +281,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         panel.add(battleLog);
         
         JLabel logBackground = new JLabel();
-        logBackground.setBounds(510, 20, 220, 520);
+        logBackground.setBounds(510, 20, 238, 520);
         logBackground.setBackground(new Color(120,120,130));
         logBackground.setFont(new Font("SansSerif", Font.BOLD, 25));
         logBackground.setText("Battle Log");
@@ -287,6 +290,11 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
         logBackground.setOpaque(true);
         panel.add(logBackground);
         logBackground.setVisible(true);
+        
+        
+        background = new JLabel();
+        panel.add(background);
+        background.setBounds(0,0, 1300,810);
         
         
         pack();
@@ -298,6 +306,12 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
      * Draw the display (cards and messages).
      */
     public void repaint() {
+        
+        URL bground = getClass().getResource("/Images/punk.jpg");
+        ImageIcon iconback = new ImageIcon(bground);
+        background.setIcon(iconback);
+        background.setVisible(true);
+        
         for (int k = 0; k < 2; k++) 
         {
             URL imageURL = getClass().getResource("/Images/ocean.jpeg");

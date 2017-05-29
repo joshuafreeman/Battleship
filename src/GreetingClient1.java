@@ -30,11 +30,19 @@ public class GreetingClient1 {
             gui.displayGame();
         
            
-            
+            Socket client = null;
             //Start connection to server
             for(int x = 0; x < 100; x++)
-                gui.printLog("Connecting to " + serverName + " on port " + port + ".");
-            Socket client = new Socket(serverName, port);
+                gui.printLog("Connecting to Server 1 (" + serverName + ") on port " + port + ".");
+            boolean connected = false;
+            while(!connected)
+                try {
+                client = new Socket(serverName, port);
+                connected = true;
+            }
+            catch(ConnectException e) {
+                gui.printLog("Cannot connect to Server 1 (" + serverName + "). Retrying.");
+            }
 
             gui.printLog("Just connected to " + client.getRemoteSocketAddress());
             OutputStream outToServer = client.getOutputStream();

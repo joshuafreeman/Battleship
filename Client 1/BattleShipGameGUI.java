@@ -51,8 +51,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     private JButton[] ships;
     
     private Color col;
-    JTextArea battleLog;
-
+    JTextArea bA;
+    JScrollPane battleLog;
 
     int attX = -1, attY = -1;
 
@@ -271,13 +271,18 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
             display[k].addMouseListener(new MyMouseListener());
         }    
         
-        battleLog = new JTextArea();
+        bA = new JTextArea();
+        bA.setLineWrap(true);
+        bA.setWrapStyleWord(true);
+        bA.setEditable( false );
+        battleLog = new JScrollPane(bA);
 
-        battleLog.setBounds(550,60,160,450);
+        battleLog.setFont(new Font("Arial", 0, 12));
+        //battleLog.setBounds(515,60,160,450);
 
-        //battleLog.setBounds(515,60,200,450);
+        battleLog.setBounds(515,60,227,450);
 
-        battleLog.setEditable( false );
+
         panel.add(battleLog);
         
         JLabel logBackground = new JLabel();
@@ -330,7 +335,14 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     
     public void printLog(String str)
     {
-        battleLog.append(str + "\n");
+        //str = " " + str;
+        /*if(str.length() > 35)
+        {
+            printLog(str.substring(0,35));
+            printLog(str.substring(35));
+        }
+        else*/
+            bA.append(str + "\n");
         pack();
         panel.repaint();
     }

@@ -32,7 +32,8 @@ public class GreetingClient1 {
            
             
             //Start connection to server
-            gui.printLog("    Connecting to \n        " + serverName + "\n    on port " + port);
+            for(int x = 0; x < 100; x++)
+                gui.printLog("Connecting to " + serverName + " on port " + port + ".");
             Socket client = new Socket(serverName, port);
 
             gui.printLog("Just connected to " + client.getRemoteSocketAddress());

@@ -3,20 +3,40 @@ import apcslib.*;
 import chn.util.ConsoleIO;
 import java.net.*;
 import java.io.*;
-
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.net.URL;
+import java.util.*;
 public class GreetingClient2 {
     private static PlayerBoard bor;
+    public static boolean isStart = false;
     public static void main(String [] args) {
         String serverName = "76.88.3.218";
         int port = 8080;
         try {
             bor = new PlayerBoard(10,10);
             OpponentBoard opp = new OpponentBoard();
+
+            JPanel uniPanel = new JPanel()
+            {
+                public void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                }
+            };
+
+            StartGUI start = new StartGUI(uniPanel);
+            BattleShipGameGUI gui = new BattleShipGameGUI(bor, opp, uniPanel);
+            gui.displayGame();
+
+
+
             //Start connection to server
-            System.out.println("Connecting to " + serverName + " on port " + port);
+            for(int x = 0; x < 100; x++)
+                gui.printLog("Connecting to " + serverName + " on port " + port + ".");
             Socket client = new Socket(serverName, port);
 
-            System.out.println("Just connected to " + client.getRemoteSocketAddress());
+            gui.printLog("Just connected to " + client.getRemoteSocketAddress());
             OutputStream outToServer = client.getOutputStream();
             DataOutputStream out = new DataOutputStream(outToServer);
 
@@ -31,9 +51,9 @@ public class GreetingClient2 {
             boolean opponentReady = false;
             while(!opponentReady)
             {
-                System.out.println("Waiting for opponent");
+                gui.printLog("Waiting for opponent");
                 opponentReady = in.readBoolean();
-                System.out.println("Found opponent!");
+                gui.printLog("Found opponent!");
             }
 
             //Turn opponents player board into opponent board
@@ -60,7 +80,7 @@ public class GreetingClient2 {
                 attacks++;
                 opponentReady = false;
                 if(attacks == 1)
-                    System.out.println("Waiting for opponent's attacks...");
+                    gui.printLog("Waiting for opponent's attacks...");
                 opponentReady = in.readBoolean();
                 for(int y = 0; y < bor.getHeight(); y++)
                 {
@@ -78,18 +98,18 @@ public class GreetingClient2 {
                     System.out.println();
                 }
                 System.out.println();
-                System.out.print("Please type a X cord to shoot: ");
+                gui.printLog("Please type a X cord to shoot: ");
                 xCord = con.readInt();
                 while (right) {
                     if (xCord < 1 || xCord > 10) {
-                        System.out.print("Please type a X cord between 1 and 10: ");
+                        gui.printLog("Please type a X cord between 1 and 10: ");
                         xCord = con.readInt();
                     } else {
                         right = false;
                     }
                 }
                 right = true;
-                System.out.print("Please type a Y cord to shoot: ");
+                gui.printLog("Please type a Y cord to shoot: ");
                 yCord = con.readInt();
                 while (right) {
                     if (yCord < 1 || yCord > 10) {
@@ -106,15 +126,15 @@ public class GreetingClient2 {
                 hit = in.readBoolean();
 
                 if(hit)
-                    System.out.println("It's a hit!");
+                    gui.printLog("It's a hit!");
                 else
-                    System.out.println("It's a miss.");
+                    gui.printLog("It's a miss.");
 
                 sunk = in.readBoolean();
                 if(sunk)
-                    System.out.println("You sunk the opponent's ship!");
+                    gui.printLog("You sunk the opponent's ship!");
                 else
-                    System.out.println("You didn't sink the ship!");
+                    gui.printLog("You didn't sink the ship!");
                 //Receive where the attacks hit on opponent board
                 System.out.println("Waiting for opponent's attacks...");
                 try{
@@ -129,9 +149,9 @@ public class GreetingClient2 {
             boolean winner = in.readBoolean();
 
             if(winner)
-                System.out.println("Congrats! You sunk all their battleships.");
+                gui.printLog("Congrats! You sunk all their battleships.");
             else
-                System.out.println("Sorry. They suck all your battleships.");
+                gui.printLog("Sorry. They sunk all your battleships.");
             //Close connection
             client.close();
 

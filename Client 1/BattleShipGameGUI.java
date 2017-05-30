@@ -11,7 +11,7 @@ import java.util.*;
  * @version .5
  */
 
-public class BattleShipGameGUI extends JFrame implements ActionListener 
+public class BattleShipGameGUI extends JFrame implements ActionListener, KeyListener
 {
     /** Height of the game frame. */
     private static final int DEFAULT_HEIGHT = 810;
@@ -41,8 +41,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     private JLabel background;
     
     /** Letters and numbers*/
-    JLabel letters[];
-    JLabel numbers;
+    private JLabel letters[];
+    private JLabel numbers;
     
     /** Button array of accessable Squares. */
     private JButton[][] validSpaces;
@@ -51,10 +51,13 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     private JButton[] ships;
     
     private Color col;
-    JTextArea bA;
-    JScrollPane battleLog;
+    private JTextArea bA;
+    private JScrollPane battleLog;
 
-    int attX = -1, attY = -1;
+    private int attX = -1, attY = -1;
+    private int placeX = -1, placeY = -1, placeR = 0;
+    private boolean selectable = false;
+    private String shipName = "";
 
     
     public BattleShipGameGUI(PlayerBoard p1, OpponentBoard p2, JPanel pan)
@@ -113,12 +116,12 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
                     if (k > 0 )
                     {
                         text = "F";
-                        butt.setActionCommand("Send Atack");
+                        butt.setActionCommand("Place Ship");
                     }
                     else
                     {
                         text = "E";
-                        butt.setActionCommand("Place Ship");
+                        butt.setActionCommand("Send Atack");
                     }
                         
                     text += (char)(65+y) + "" + (int)(x+1);
@@ -172,8 +175,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
             for (int x = 0; x < boardWidth; x++)
             {
                 text += ((x+1));
-                //for (int y = 1; y < 21 - x; y++)
-                    text += "             ";
+                text += "          ";
             }
             
             numbers.setText(text);
@@ -228,18 +230,23 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
             {
                 case 0:
                     icon = new ImageIcon(getClass().getResource("/Images/AircraftCarrier.png"));
+                    icon.setDescription("Aircraft Carrier");
                 break;
                 case 1:
                     icon = new ImageIcon(getClass().getResource("/Images/BattleShip.png"));
+                    icon.setDescription("Battleship");
                 break;
                 case 2:
                     icon = new ImageIcon(getClass().getResource("/Images/Destroyer.png"));
+                    icon.setDescription("Destroyer");
                 break;
                 case 3:
                     icon = new ImageIcon(getClass().getResource("/Images/Submarine.png"));
+                    icon.setDescription("Submarine");
                 break;
                 case 4:
                     icon = new ImageIcon(getClass().getResource("/Images/PatrolBoat.png"));
+                    icon.setDescription("Patrol Boat");
                 break;
             }  
             ships[x] = butt = new JButton();
@@ -335,14 +342,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
     
     public void printLog(String str)
     {
-        //str = " " + str;
-        /*if(str.length() > 35)
-        {
-            printLog(str.substring(0,35));
-            printLog(str.substring(35));
-        }
-        else*/
-            bA.append(str + "\n");
+        bA.append(str + "\n");
         pack();
         panel.repaint();
     }
@@ -362,28 +362,66 @@ public class BattleShipGameGUI extends JFrame implements ActionListener
      */
     public void actionPerformed(ActionEvent e) 
     {
-
-        if (e.getSource().equals(ships[1]))
-        //((ImageIcon)JButton().getIcon()))) 
-
-        //if (e.getActionCommand().equals("Send Attack"))
-
+        if (e.getActionCommand().equals("Place Ship"))
         {
-                //attX = e.getSourse();
-                //attY = ;
+            placeX = (int)(((JButton)e.getSource()).getText().charAt(1)) - 64;
+            placeY = Integer.parseInt(((JButton)e.getSource()).getText().substring(2));
         }
-        //((ImageIcon)JButton().getIcon())
-        //((ImageIcon) JLabel().getIcon())
+
+        if (e.getActionCommand().equals("Send Attack"))
+        {
+            attX = (int)(((JButton)e.getSource()).getText().charAt(1)) - 64;
+            attY = Integer.parseInt(((JButton)e.getSource()).getText().substring(2));
+        }
+        
+        if (e.getActionCommand().equals("Select Ship"))
+        {
+            if (selectable == true)
+            {
+                shipName = ((ImageIcon)((JButton)e.getSource()).getIcon()).getDescription();
+            }
+        }
     }
     
     public Point getAttack()
     {
-        //while 
-        Point pointy = new Point(attX, attY);
         attX = -1;
         attY = -1;
+        while (attX < 0 && attY < 0);
+        Point pointy = new Point(attX, attY);
         return pointy;
-        
+    }
+    
+    public PosObject PlaceShip()
+    {
+        selectable = true;
+        placeX = -1;
+        placeY = -1;
+        placeR = 0;
+        shipName = "";
+        while (placeX < 0 && placeY < 0 && !shipName.equals(""));
+        PosObject ship = new PosObject(placeX, placeY, placeR, shipName);
+        selectable = false;
+        return ship;
+    }
+    
+    public void keyPressed(KeyEvent e)
+    {
+        if (e.getKeyChar() == 'r' || e.getKeyChar() == 'R')
+        {
+            if (placeR == 0)
+                placeR = 1;
+            else
+                placeR = 0;
+        }
+    }
+    
+    public void keyReleased(KeyEvent e)
+    {
+    }
+    
+    public void keyTyped(KeyEvent e)
+    {
     }
     
     /**

@@ -128,6 +128,11 @@ public class GreetingClient1 {
                     gui.printLog("Waiting for opponent's attacks...");
                 opponentReady = in.readBoolean();
 
+                //Testing hitting and missing
+                gui.showHit(1,1,"E");
+                gui.showMiss(1,1,"E");
+                gui.showHit(1,1,"F");
+                gui.showMiss(1,1,"F");
 
                 gui.printLog("Please click on the coordinate you would like to attack.");
                 Point place = gui.getAttack();
@@ -138,10 +143,15 @@ public class GreetingClient1 {
                 out.writeInt(yCord);
                 hit = in.readBoolean();
 
-                if(hit)
+
+                if(hit) {
                     gui.printLog("It's a hit!");
-                else
+                    gui.showHit(xCord,yCord,"E");
+                }
+                else {
                     gui.printLog("It's a miss.");
+                    gui.showMiss(xCord,yCord,"E");
+                }
 
                 sunk = in.readBoolean();
                 if(sunk)

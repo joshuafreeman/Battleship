@@ -381,8 +381,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
 
         if (e.getActionCommand().equals("Send Attack"))
         {
-            attX = (int)(((JButton)e.getSource()).getText().charAt(1)) - 64;
-            attY = Integer.parseInt(((JButton)e.getSource()).getText().substring(2));
+            attX = Integer.parseInt(((JButton)e.getSource()).getText().substring(2));
+            attY = (int)(((JButton)e.getSource()).getText().charAt(1)) - 64;
         }
         
         if (e.getActionCommand().equals("Select Ship"))

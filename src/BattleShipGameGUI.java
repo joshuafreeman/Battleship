@@ -398,7 +398,10 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     {
         attX = -1;
         attY = -1;
-        while (attX < 0 || attY < 0);
+        int test = 0;
+        String tester;
+        while (attX < 0 || attY < 0)
+            tester = ((Integer)test).toString();
         Point pointy = new Point(attX, attY);
         return pointy;
     }

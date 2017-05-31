@@ -67,46 +67,28 @@ public class GreetingClient1 {
 
             //startGame();
             PosObject positions[] = new PosObject[5];
-            int ships[] = new int[5];
+            ArrayList ships = new ArrayList();
             boolean duplicateShips;
             for(int x = 0; x < 5; x ++) {
                 duplicateShips = false;
                 positions[x] = gui.placeShip();
-                switch(positions[x].getName())
+
+                for(int count = 0; count < ships.size(); count++)
                 {
-                    case("BattleShip"):
-                        ships[0]++;
-                        break;
-                    case("AircraftCarrier"):
-                        ships[1]++;
-                        break;
-                    case("Destroyer"):
-                        ships[2]++;
-                        break;
-                    case("Submarine"):
-                        ships[3]++;
-                        break;
-                    case("PatrolBoat"):
-                        ships[4]++;
-                        break;
-                }
-                for(int count = 0; count < 5; count++)
-                {
-                    if(ships[count] > 1) {
+                    if(ships.get(count).equals(positions[x].getName())) {
                         gui.printLog("You already placed that ship. Try placing a different one.");
                         x--;
-                        ships[count]--;
                         duplicateShips = true;
                     }
                 }
                 if(!duplicateShips)
-                    if(!bor.setShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName()))
-                    {
+                    if (!bor.setShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName())) {
                         gui.printLog("Can't place ship there.");
                         x--;
-                    }
-                    else
+                    } else {
                         gui.showShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName());
+                        ships.add(positions[x].getName());
+                    }
             }
             out.writeBoolean(true); //Ready
 
@@ -145,44 +127,12 @@ public class GreetingClient1 {
                 if(attacks == 1)
                     gui.printLog("Waiting for opponent's attacks...");
                 opponentReady = in.readBoolean();
-                for(int y = 0; y < bor.getHeight(); y++)
-                {
-                    System.out.print(Format.left(y+1, 3));
-                    for (int x = 0; x < bor.getWidth(); x++)
-                    {
-                        System.out.print(bor.displaySpot(x, y) + " ");
-                    }
-                    System.out.print("              ");
-                    for (int x = 0; x < opp.getWidth(); x++)
-                    {
-                        System.out.print(opp.displaySpot(x, y) + " ");
-                    }
 
-                    System.out.println();
-                }
-                System.out.println();
-                gui.printLog("Please type a X cord to shoot: ");
-                xCord = con.readInt();
-                while (right) {
-                    if (xCord < 1 || xCord > 10) {
-                        gui.printLog("Please type a X cord between 1 and 10: ");
-                        xCord = con.readInt();
-                    } else {
-                        right = false;
-                    }
-                }
-                right = true;
-                gui.printLog("Please type a Y cord to shoot: ");
-                yCord = con.readInt();
-                while (right) {
-                    if (yCord < 1 || yCord > 10) {
-                        System.out.print("Please type a Y cord between 1 and 10: ");
-                        yCord = con.readInt();
-                    } else {
-                        right = false;
-                    }
-                }
 
+                gui.printLog("Please click on the coordinate you would like to attack.");
+                Point place = gui.getAttack();
+                xCord = (int)place.getX();
+                yCord = (int)place.getY();
                 //Send attacks
                 out.writeInt(xCord);
                 out.writeInt(yCord);

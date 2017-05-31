@@ -58,7 +58,7 @@ public class HeadSpot extends Ship
                 myHull = "Carrier";
                 break;
             case("Destroyer"):
-                mySize = 4;
+                mySize = 3;
                 myHull = "Destroyer";
                 break;
             case("Submarine"):

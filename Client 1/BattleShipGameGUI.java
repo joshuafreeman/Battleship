@@ -505,7 +505,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     
     public void keyPressed(KeyEvent e)
     {
-        if (e.getKeyChar() == 'r' || e.getKeyChar() == 'R')
+        //if (e.getKeyChar() == 'r' || e.getKeyChar() == 'R')
         {
             if (placeR == 0)
                 placeR = 1;

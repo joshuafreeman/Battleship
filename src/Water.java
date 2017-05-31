@@ -3,12 +3,17 @@
  */
 public class Water extends Spot
 {
-
+	/**
+	 * Default constructor
+	 */
     public  Water()
     {
         super("water");
     }
 
+    /**
+     * Returns "." to represent water
+     */
     public String toString()
     {
         return ".";

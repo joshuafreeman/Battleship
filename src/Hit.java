@@ -3,11 +3,17 @@
  */
 public class Hit extends Spot
 {
-    public  Hit()
+	/**
+	 * Default constructor
+	 */
+    public Hit()
     {
         super("hit");
     }
 
+    /**
+     * Returns "X" to represent a Hit
+     */
     public String toString()
     {
         return "X";

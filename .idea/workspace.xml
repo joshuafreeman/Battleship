@@ -2,31 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="939a6364-1114-4a0e-a246-7e7297c675f1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/BattleShipGameGUI$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/BattleShipGameGUI$MyMouseListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/BattleShipGameGUI.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/Board.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/HeadSpot.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/Hit.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/Hull.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/Miss.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/OpponentBoard.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/PlayerBoard.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/Ship.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/Spot.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Battleship/Water.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BattleShipGameGUI.java" afterPath="$PROJECT_DIR$/src/BattleShipGameGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Board.java" afterPath="$PROJECT_DIR$/src/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HeadSpot.java" afterPath="$PROJECT_DIR$/src/HeadSpot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Hit.java" afterPath="$PROJECT_DIR$/src/Hit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Hull.java" afterPath="$PROJECT_DIR$/src/Hull.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Miss.java" afterPath="$PROJECT_DIR$/src/Miss.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OpponentBoard.java" afterPath="$PROJECT_DIR$/src/OpponentBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlayerBoard.java" afterPath="$PROJECT_DIR$/src/PlayerBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ship.java" afterPath="$PROJECT_DIR$/src/Ship.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Spot.java" afterPath="$PROJECT_DIR$/src/Spot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Water.java" afterPath="$PROJECT_DIR$/src/Water.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -111,8 +87,8 @@
       <file leaf-file-name="BattleShipGameGUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BattleShipGameGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="174" column="33" lean-forward="true" selection-start-line="174" selection-start-column="33" selection-end-line="174" selection-end-column="34" />
+            <state relative-caret-position="255">
+              <caret line="174" column="53" lean-forward="true" selection-start-line="174" selection-start-column="53" selection-end-line="174" selection-end-column="53" />
               <folding>
                 <marker date="1496195808822" expanded="true" signature="13792:13798" ph="{...}" />
               </folding>
@@ -528,6 +504,14 @@
       <option name="presentableId" value="Default" />
       <updated>1495487904345</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fixed pixel stuff. Daniel">
+      <created>1496195837115</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1496195837115</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -541,6 +525,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -604,6 +589,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed pixel stuff. Daniel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed pixel stuff. Daniel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1056,8 +1045,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BattleShipGameGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="174" column="33" lean-forward="true" selection-start-line="174" selection-start-column="33" selection-end-line="174" selection-end-column="34" />
+        <state relative-caret-position="255">
+          <caret line="174" column="53" lean-forward="true" selection-start-line="174" selection-start-column="53" selection-end-line="174" selection-end-column="53" />
           <folding>
             <marker date="1496195808822" expanded="true" signature="13792:13798" ph="{...}" />
           </folding>

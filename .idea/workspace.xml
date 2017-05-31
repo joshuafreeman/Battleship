@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="939a6364-1114-4a0e-a246-7e7297c675f1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueJ Battleship/BattleShipGameGUI.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueJ Battleship/__SHELL3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueJ Battleship/__SHELL3.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/BattleShipGameGUI$MyMouseListener.class" afterPath="$PROJECT_DIR$/out/production/Battleship/BattleShipGameGUI$MyMouseListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/BattleShipGameGUI.class" afterPath="$PROJECT_DIR$/out/production/Battleship/BattleShipGameGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/GreetingClient1.class" afterPath="$PROJECT_DIR$/out/production/Battleship/GreetingClient1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client 1/BattleShipGameGUI.java" afterPath="$PROJECT_DIR$/Client 1/BattleShipGameGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client 1/GreetingClient1.java" afterPath="$PROJECT_DIR$/Client 1/GreetingClient1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client 1/StartGUI.java" afterPath="$PROJECT_DIR$/Client 1/StartGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GreetingClient1.java" afterPath="$PROJECT_DIR$/src/GreetingClient1.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,8 +19,8 @@
       <file leaf-file-name="GreetingClient1.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GreetingClient1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="38" column="29" lean-forward="true" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+            <state relative-caret-position="374">
+              <caret line="53" column="20" lean-forward="false" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
               <folding>
                 <element signature="e#555#715#0" expanded="true" />
                 <element signature="e#637#638#0" expanded="false" />
@@ -77,9 +68,9 @@
         <entry file="file://$PROJECT_DIR$/Client 1/GreetingClient1.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="13" column="10" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="316" selection-end-column="1" />
+              <caret line="13" column="10" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="321" selection-end-column="1" />
               <folding>
-                <marker date="1496197921371" expanded="true" signature="6344:11633" ph="{...}" />
+                <marker date="1496198933238" expanded="true" signature="6629:11918" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -138,9 +129,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
+    <option name="x" value="47" />
+    <option name="y" value="191" />
+    <option name="width" value="1932" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
@@ -535,7 +526,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="47" y="191" width="1932" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -553,7 +544,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23667377" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23717949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -621,7 +612,7 @@
         <state relative-caret-position="85">
           <caret line="13" column="10" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="312" selection-end-column="1" />
           <folding>
-            <marker date="1496197921371" expanded="true" signature="6344:11633" ph="{...}" />
+            <marker date="1496198933238" expanded="true" signature="6629:11918" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -687,7 +678,7 @@
         <state relative-caret-position="85">
           <caret line="13" column="10" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="312" selection-end-column="1" />
           <folding>
-            <marker date="1496197921371" expanded="true" signature="6344:11633" ph="{...}" />
+            <marker date="1496198933238" expanded="true" signature="6629:11918" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -745,7 +736,7 @@
         <state relative-caret-position="85">
           <caret line="13" column="10" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="312" selection-end-column="1" />
           <folding>
-            <marker date="1496197921371" expanded="true" signature="6344:11633" ph="{...}" />
+            <marker date="1496198933238" expanded="true" signature="6629:11918" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -808,7 +799,7 @@
         <state relative-caret-position="85">
           <caret line="13" column="10" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="311" selection-end-column="1" />
           <folding>
-            <marker date="1496197921371" expanded="true" signature="6344:11633" ph="{...}" />
+            <marker date="1496198933238" expanded="true" signature="6629:11918" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1033,9 +1024,9 @@
     <entry file="file://$PROJECT_DIR$/Client 1/GreetingClient1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="13" column="10" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="316" selection-end-column="1" />
+          <caret line="13" column="10" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="321" selection-end-column="1" />
           <folding>
-            <marker date="1496197921371" expanded="true" signature="6344:11633" ph="{...}" />
+            <marker date="1496198933238" expanded="true" signature="6629:11918" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1085,8 +1076,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GreetingClient1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="38" column="29" lean-forward="true" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+        <state relative-caret-position="374">
+          <caret line="53" column="20" lean-forward="false" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
           <folding>
             <element signature="e#555#715#0" expanded="true" />
             <element signature="e#637#638#0" expanded="false" />

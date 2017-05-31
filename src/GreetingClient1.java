@@ -40,13 +40,19 @@ public class GreetingClient1 {
 
             gui.printLog("Connecting to Server 1 (" + serverName + ") on port " + port + ".");
             boolean connected = false;
+            int numberOfExceptionsThrown = 0;
             while(!connected)
                 try {
                 client = new Socket(serverName, port);
                 connected = true;
             }
             catch(ConnectException e) {
-                gui.printLog("Cannot connect to Server 1 (" + serverName + "). Retrying.");
+                numberOfExceptionsThrown++;
+                if(numberOfExceptionsThrown == 1)
+                    gui.printLog("Cannot connect to Server 1 (" + serverName + "). Retrying.");
+                else
+                    if(numberOfExceptionsThrown % 3 == 0)
+                    gui.printLog("Cannot connect to Server 1 (" + serverName + "). Retrying.");
             }
 
             gui.printLog("Just connected to " + client.getRemoteSocketAddress());

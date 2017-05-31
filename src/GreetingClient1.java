@@ -10,7 +10,6 @@ import java.net.URL;
 import java.util.*;
 public class GreetingClient1 {
     private static PlayerBoard bor;
-    public static boolean isStart = false;
     public static void main(String [] args) {
         String serverName = "76.88.3.218";
         int port = 8080;
@@ -28,12 +27,18 @@ public class GreetingClient1 {
             StartGUI start = new StartGUI(uniPanel);
             BattleShipGameGUI gui = new BattleShipGameGUI(bor, opp, uniPanel);
             gui.displayGame();
-        
-           
+
+
+            //This start test only works if we call a method in the while loop???
+            int test = 0;
+            while(!start.clickedStart()) {
+                String tester = ((Integer)test).toString();
+            }
+
             Socket client = null;
             //Start connection to server
-            for(int x = 0; x < 100; x++)
-                gui.printLog("Connecting to Server 1 (" + serverName + ") on port " + port + ".");
+
+            gui.printLog("Connecting to Server 1 (" + serverName + ") on port " + port + ".");
             boolean connected = false;
             while(!connected)
                 try {
@@ -167,8 +172,6 @@ public class GreetingClient1 {
             e.printStackTrace();
         }
     }
-
-
     private static void startGame()
     {
         ConsoleIO con = new ConsoleIO();

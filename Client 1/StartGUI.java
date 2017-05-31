@@ -26,11 +26,14 @@ public class StartGUI extends JFrame implements ActionListener
     private JLabel background;
     private JButton start;
     private MediaPlayer mP;
+
+    private boolean startButton;
     /**
      * Constructor for objects of class StartGUI
      */
     public StartGUI(JPanel pan)
     {
+        startButton = false;
         panel = pan;
         final JFXPanel fxPanel = new JFXPanel();
         File f = new File("mainmenu.mp3");
@@ -113,11 +116,14 @@ public class StartGUI extends JFrame implements ActionListener
             logo.setVisible(false);
             background.setVisible(false);
             start.setVisible(false);
-            GreetingClient1.isStart = true;
+            startButton = true;
             mP.stop();
         }
     }
-    
+    public boolean clickedStart()
+    {
+        return startButton;
+    }
     /**
      * Receives and handles mouse clicks.  Other mouse events are ignored.
      */

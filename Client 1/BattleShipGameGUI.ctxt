@@ -28,5 +28,5 @@ comment8.params=
 comment8.target=java.awt.Point\ getAttack()
 comment9.params=e
 comment9.target=void\ keyPressed(java.awt.event.KeyEvent)
-comment9.text=\r\n\ \ \ \ public\ PosObject\ PlaceShip()\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ selectable\ \=\ true;\r\n\ \ \ \ \ \ \ \ placeX\ \=\ -1;\r\n\ \ \ \ \ \ \ \ placeY\ \=\ -1;\r\n\ \ \ \ \ \ \ \ placeR\ \=\ 0;\r\n\ \ \ \ \ \ \ \ shipName\ \=\ "";\r\n\ \ \ \ \ \ \ \ while\ (placeX\ <\ 0\ &&\ placeY\ <\ 0\ &&\ \!shipName.equals(""));\r\n\ \ \ \ \ \ \ \ PosObject\ ship\ \=\ new\ PosObject(placeX,\ placeY,\ placeR,\ shipName);\r\n\ \ \ \ \ \ \ \ selectable\ \=\ false;\r\n\ \ \ \ \ \ \ \ return\ ship;\r\n\ \ \ \ }\r\n
+comment9.text=\r\n\ \ \ \ public\ PosObject\ PlaceShip()\r\n\r\n\ \ \ \ /*\ \ \ \ public\ PosObject\ PlaceShip()\r\n\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ selectable\ \=\ true;\r\n\ \ \ \ \ \ \ \ placeX\ \=\ -1;\r\n\ \ \ \ \ \ \ \ placeY\ \=\ -1;\r\n\ \ \ \ \ \ \ \ placeR\ \=\ 0;\r\n\ \ \ \ \ \ \ \ shipName\ \=\ "";\r\n\ \ \ \ \ \ \ \ while\ (placeX\ <\ 0\ &&\ placeY\ <\ 0\ &&\ \!shipName.equals(""));\r\n\ \ \ \ \ \ \ \ PosObject\ ship\ \=\ new\ PosObject(placeX,\ placeY,\ placeR,\ shipName);\r\n\ \ \ \ \ \ \ \ selectable\ \=\ false;\r\n\ \ \ \ \ \ \ \ return\ ship;\r\n\r\n\ \ \ \ }\r\n
 numComments=12

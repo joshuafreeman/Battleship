@@ -67,17 +67,46 @@ public class GreetingClient1 {
 
             //startGame();
             PosObject positions[] = new PosObject[5];
+            int ships[] = new int[5];
+            boolean duplicateShips;
             for(int x = 0; x < 5; x ++) {
+                duplicateShips = false;
                 positions[x] = gui.placeShip();
-                //System.out.println("Setting x at: " + positions[x].getX());
-                //System.out.println("Setting y at: " + positions[x].getY());
-                if(!bor.setShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName()))
+                switch(positions[x].getName())
                 {
-                    gui.printLog("Can't place ship there.");
-                    x--;
-                }    
-                else
-                    gui.showShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName());
+                    case("BattleShip"):
+                        ships[0]++;
+                        break;
+                    case("AircraftCarrier"):
+                        ships[1]++;
+                        break;
+                    case("Destroyer"):
+                        ships[2]++;
+                        break;
+                    case("Submarine"):
+                        ships[3]++;
+                        break;
+                    case("PatrolBoat"):
+                        ships[4]++;
+                        break;
+                }
+                for(int count = 0; count < 5; count++)
+                {
+                    if(ships[count] > 1) {
+                        gui.printLog("You already placed that ship. Try placing a different one.");
+                        x--;
+                        ships[count]--;
+                        duplicateShips = true;
+                    }
+                }
+                if(!duplicateShips)
+                    if(!bor.setShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName()))
+                    {
+                        gui.printLog("Can't place ship there.");
+                        x--;
+                    }
+                    else
+                        gui.showShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName());
             }
             out.writeBoolean(true); //Ready
 

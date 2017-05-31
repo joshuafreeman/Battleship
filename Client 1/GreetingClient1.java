@@ -16,6 +16,7 @@ public class GreetingClient1 {
         int port = 8080;
         try {
             bor = new PlayerBoard(10,10);
+            bor.emptyBoard();
             OpponentBoard opp = new OpponentBoard();
             
             JPanel uniPanel = new JPanel()
@@ -70,8 +71,13 @@ public class GreetingClient1 {
                 positions[x] = gui.placeShip();
                 //System.out.println("Setting x at: " + positions[x].getX());
                 //System.out.println("Setting y at: " + positions[x].getY());
-                bor.setShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName());
-                gui.showShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName());
+                if(!bor.setShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName()))
+                {
+                    gui.printLog("Can't place ship there.");
+                    x--;
+                }    
+                else
+                    gui.showShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName());
             }
             out.writeBoolean(true); //Ready
 

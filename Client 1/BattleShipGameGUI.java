@@ -108,10 +108,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         panel.setPreferredSize(new Dimension(DEFAULT_WIDTH - 20, DEFAULT_HEIGHT - 20));
         
         boardLable = new JLabel[2];
-        
-        for (int x = 0; x < 5; x++)
-            ship[x] = new JButton();
-        
+
         for(int k = 0; k < 2; k++)
             for (int x = 0; x < boardHeight; x++)
             {
@@ -141,7 +138,13 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                     butt.addActionListener(this);
                 }
             }
-            
+
+        for (int x = 0; x < 5; x++)
+        {
+            ship[x] = new JButton();
+            panel.add(ship[x]);
+        }
+        
         for(int k = 0; k < 2; k++)    
             for (int x = 0; x < boardHeight + 1; x++)
                 for (int y = 0; y <= boardWidth * 2; y++)
@@ -160,7 +163,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                     panel.add(grids[x][y + boardWidth]);
                     grids[x][y + boardWidth].setVisible(true);
                 }
-        
+                
         for (int k = 0; k < 2; k++)
         {   
             letters = new JLabel[boardHeight];
@@ -261,6 +264,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
             butt.setContentAreaFilled(false);
             panel.add(butt);
             butt.setBounds(50 + 240 * x, 635, 200, 100);
+            butt.setActionCommand("Select Ship");
             butt.addActionListener(this);
             butt.addMouseListener(new MyMouseListener());
         }                
@@ -310,12 +314,11 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         panel.add(logBackground);
         logBackground.setVisible(true);
         
-        
         background = new JLabel();
         panel.add(background);
         background.setBounds(0,0, 1300,810);
         
-        /*URL bground = getClass().getResource("/Images/punk.jpg");
+        URL bground = getClass().getResource("/Images/punk.jpg");
         ImageIcon iconback = new ImageIcon(bground);
         background.setIcon(iconback);
         background.setVisible(true);
@@ -331,7 +334,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
             } else {
                 throw new RuntimeException("Image not found");
             }
-        }*/
+        }
         
         pack();
         getContentPane().add(panel);
@@ -341,7 +344,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     /**
      * Draw the display (cards and messages).
      */
-    public void repaint() {
+    public void repaint() 
+    {
         pack();
         panel.repaint();
     }
@@ -373,7 +377,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
             placeX = Integer.parseInt(((JButton)e.getSource()).getText().substring(2));
             placeY = (int)(((JButton)e.getSource()).getText().charAt(1)) - 64;
             //placeY = 5;
-            //System.out.println("Internal y: " + placeY);
+            System.out.println("Internal y: " + placeY);
         }
 
         if (e.getActionCommand().equals("Send Attack"))
@@ -395,7 +399,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     {
         attX = -1;
         attY = -1;
-        while (attX < 0 && attY < 0);
+        while (attX < 0 || attY < 0);
         Point pointy = new Point(attX, attY);
         return pointy;
     }
@@ -409,14 +413,18 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         shipName = "";
         int test = 0;
         String tester;
-        while (placeX < 0 && placeY < 0 && shipName.equals(""))
+        while (placeX < 0 || placeY < 0 || shipName.equals(""))
             tester = ((Integer)test).toString();
-        System.out.println("Y AFTER LOOP: " + placeY); //The only way this works is if I print placeY what????
+        //System.out.println("Y AFTER LOOP: " + placeY); //The only way this works is if I print placeY what????
+        fixInt(((Integer)placeY).toString());
         PosObject ship = new PosObject(placeX, placeY, placeR, shipName);
         selectable = false;
         return ship;
     }
-
+    private static void fixInt(String string)
+    {
+        string += "";
+    }
     /**
      * To be called if the ship is in a placeable coordinate
      * str should be the name of the ship without spaces (ex "BattleShip")
@@ -425,19 +433,18 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     {
         ImageIcon icon;
         if (r == 0)
-                    //icon = new ImageIcon(getClass().getResource("/Images/" + str + ".png"));
-                    icon = new ImageIcon(getClass().getResource("/Images/Submarine.png"));
+                    icon = new ImageIcon(getClass().getResource("/Images/" + str + ".png"));
                 else
                     icon = new ImageIcon(getClass().getResource("/Images/" + str + "vert.png"));
         
         ship[num].setIcon(icon);
-        panel.add(ship[num]);
         ship[num].setBounds(42 * (x) + 720, 38 + 50 * (y - 1), 330 - (220 * r), 110 + (220 * r));
         ship[num].setHorizontalAlignment(SwingConstants.LEFT);
         ship[num].setVerticalAlignment(SwingConstants.TOP);
         ship[num].setContentAreaFilled(false);
         ship[num].setBorder(null);
         num++;
+        
         pack();
         panel.repaint();
     }

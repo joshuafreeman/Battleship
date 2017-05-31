@@ -14,8 +14,8 @@ public class GreetingServer extends Thread {
          try {
             PlayerBoard player1Board = null;
             PlayerBoard player2Board = null;
-            OpponentBoard player1Opp;
-            OpponentBoard player2Opp;
+            OpponentBoard player1Opp = null;
+            OpponentBoard player2Opp = null;
             int xCordP1 = -1, xCordP2 = -1, yCordP1 = -1, yCordP2 = -1;
             //Player 1
             System.out.println("Waiting for Player 1 on port " +  serverSocket.getLocalPort() + "...");
@@ -145,7 +145,13 @@ public class GreetingServer extends Thread {
          }catch(SocketTimeoutException s) {
             System.out.println("Socket timed out!");
             break;
-         }catch(IOException e) {
+         }catch(SocketException s) {
+            System.out.println("One of the players disconnected. Restarting server.");
+
+         }catch(EOFException e){
+            System.out.println("Got end of file.");
+         }
+         catch(IOException e) {
             e.printStackTrace();
             break;
          }

@@ -71,7 +71,7 @@ public class GreetingClient1 {
                 System.out.println(positions[x].getX());
                 System.out.println(positions[x].getY());
                 bor.setShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName());
-                gui.showShip(positions[x].getY(), positions[x].getX(), positions[x].getR(), positions[x].getName());
+                gui.showShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName());
             }
             out.writeBoolean(true); //Ready
 

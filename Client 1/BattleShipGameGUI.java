@@ -370,8 +370,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     {
         if (e.getActionCommand().equals("Place Ship"))
         {
-            placeX = (int)(((JButton)e.getSource()).getText().charAt(1)) - 64;
-            placeY = Integer.parseInt(((JButton)e.getSource()).getText().substring(2));
+            placeX = Integer.parseInt(((JButton)e.getSource()).getText().substring(2));
+            placeY = (int)(((JButton)e.getSource()).getText().charAt(1)) - 64;
         }
 
         if (e.getActionCommand().equals("Send Attack"))
@@ -429,7 +429,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         
         ship[num].setIcon(icon);
         panel.add(ship[num]);
-        ship[num].setBounds(20 + 48 * (x - 1) + 720, 28 + 50 * (y - 1), 330 - (220 * r), 110 + (220 * r));
+        ship[num].setBounds(42 * (x) + 720, 38 + 50 * (y - 1), 330 - (220 * r), 110 + (220 * r));
         ship[num].setHorizontalAlignment(SwingConstants.LEFT);
         ship[num].setVerticalAlignment(SwingConstants.TOP);
         ship[num].setContentAreaFilled(false);

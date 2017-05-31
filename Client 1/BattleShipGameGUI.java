@@ -392,6 +392,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         return pointy;
     }
     
+    /**
     public PosObject PlaceShip()
     {
         selectable = true;
@@ -404,7 +405,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         selectable = false;
         return ship;
     }
-    
+    */
     public void keyPressed(KeyEvent e)
     {
         if (e.getKeyChar() == 'r' || e.getKeyChar() == 'R')

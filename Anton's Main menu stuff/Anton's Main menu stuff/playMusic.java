@@ -1,4 +1,7 @@
-
+import java.io.File;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.embed.swing.JFXPanel;
 /**
  * Write a description of class playMusic here.
  * 
@@ -14,7 +17,11 @@ public class playMusic
      */
     public static void main(String[] args)
     {
-        // put your code here
-
+        final JFXPanel fxPanel = new JFXPanel();
+        File f = new File("mainmenu.mp3");
+        Media m = new Media(f.toURI().toString());  
+        MediaPlayer mP = new MediaPlayer(m);        
+        mP.setCycleCount(10);
+        mP.play();
     }
 }

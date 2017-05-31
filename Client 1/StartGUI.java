@@ -3,7 +3,10 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.net.URL;
 import java.util.*;
-
+import java.io.File;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.embed.swing.JFXPanel;
 /**
  * This is the GUI for the start menu for the game, because
  * "What kind of a game doesen't have a start menu!?".
@@ -22,14 +25,19 @@ public class StartGUI extends JFrame implements ActionListener
     private JLabel logo;
     private JLabel background;
     private JButton start;
-    
+    private MediaPlayer mP;
     /**
      * Constructor for objects of class StartGUI
      */
     public StartGUI(JPanel pan)
     {
         panel = pan;
-        
+        final JFXPanel fxPanel = new JFXPanel();
+        File f = new File("mainmenu.mp3");
+        Media m = new Media(f.toURI().toString());  
+        mP = new MediaPlayer(m);        
+        mP.setCycleCount(10);
+        mP.play();
         initDisplay();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         repaint();
@@ -106,6 +114,7 @@ public class StartGUI extends JFrame implements ActionListener
             background.setVisible(false);
             start.setVisible(false);
             GreetingClient1.isStart = true;
+            mP.stop();
         }
     }
     

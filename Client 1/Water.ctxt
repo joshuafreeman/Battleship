@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Water()
+comment0.text=\r\n\ Default\ constructor\r\n
 comment1.params=
 comment1.target=java.lang.String\ toString()
+comment1.text=\r\n\ Returns\ "."\ to\ represent\ water\r\n
 numComments=2

@@ -1,10 +1,17 @@
 #BlueJ class context
 comment0.params=
 comment0.target=OpponentBoard()
+comment0.text=\r\n\ Default\ constructor\ creates\ a\ 10x10\ board\r\n
 comment1.params=board
 comment1.target=OpponentBoard(PlayerBoard)
+comment1.text=\r\n\ Constructs\ an\ OpponentBoard\ based\ on\ the\ PlayerBoard\ passed\r\n\ @param\ board\r\n
 comment2.params=x\ y
 comment2.target=boolean\ receiveAttack(int,\ int)
+comment2.text=\r\n\ Updates\ board\ at\ the\ x\ and\ y\ coordinate\ specified\r\n\ @param\ x\r\n\ @param\ y\r\n\ @return\ hit\r\n
 comment3.params=xCord\ yCord
 comment3.target=boolean\ sunk(int,\ int)
-numComments=4
+comment3.text=\r\n\ Tests\ if\ a\ ship\ at\ a\ specified\ coordinate\ is\ sunk\ or\ not\r\n\ @param\ xCord\r\n\ @param\ yCord\r\n\ @return\r\n
+comment4.params=x\ y
+comment4.target=java.lang.String\ displaySpot(int,\ int)
+comment4.text=\r\n\ Returns\ basic\ information\ about\ the\ spot\r\n
+numComments=5

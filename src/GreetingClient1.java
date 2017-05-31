@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.*;
 public class GreetingClient1 {
     private static PlayerBoard bor;
+    private static BattleShipGameGUI gui;
     public static void main(String [] args) {
         String serverName = "76.88.3.218";
         int port = 8080;
@@ -25,7 +26,7 @@ public class GreetingClient1 {
             };
      
             StartGUI start = new StartGUI(uniPanel);
-            BattleShipGameGUI gui = new BattleShipGameGUI(bor, opp, uniPanel);
+            gui = new BattleShipGameGUI(bor, opp, uniPanel);
             gui.displayGame();
 
 
@@ -63,7 +64,15 @@ public class GreetingClient1 {
             DataInputStream  in = new DataInputStream (inFromServer);
 
 
-            startGame();
+            //startGame();
+            PosObject positions[] = new PosObject[5];
+            for(int x = 0; x < 5; x ++) {
+                positions[x] = gui.placeShip();
+                System.out.println(positions[x].getX());
+                System.out.println(positions[x].getY());
+                bor.setShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName());
+                gui.showShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName());
+            }
             out.writeBoolean(true); //Ready
 
             //Waiting on opponent
@@ -174,7 +183,10 @@ public class GreetingClient1 {
             //Close connection
             client.close();
 
-        }catch(IOException e) {
+        }catch(SocketException e){
+            gui.printLog("The opponent has disconnected. Please restart the game to find a new game.");
+        }
+        catch(IOException e) {
             e.printStackTrace();
         }
     }

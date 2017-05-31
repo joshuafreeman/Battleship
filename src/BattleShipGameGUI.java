@@ -3,6 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.net.URL;
 import java.util.*;
+import java.awt.event.MouseAdapter;
 
 /**
  * This class provides a GUI for the Battleship Game developed as a final APCS project.
@@ -58,6 +59,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     private int placeX = -1, placeY = -1, placeR = 0;
     private boolean selectable = false;
     private String shipName = "";
+    private int firstClick = 0;
+    private ImageIcon mouseIcon;
 
     
     public BattleShipGameGUI(PlayerBoard p1, OpponentBoard p2, JPanel pan)
@@ -97,7 +100,6 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
      * Initialize the display.
      */
     private void initDisplay()  { 
-
         this.setSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
         panel.setLayout(null);
         panel.setPreferredSize(new Dimension(DEFAULT_WIDTH - 20, DEFAULT_HEIGHT - 20));
@@ -117,6 +119,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                     {
                         text = "F";
                         butt.setActionCommand("Place Ship");
+                        butt.addMouseListener(new MyMouseListener());
                     }
                     else
                     {
@@ -167,7 +170,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                 letters[x].setVisible(true);
             }
 
-            //Made top row pixel numbers. Why did you use spaces. - Josh
+            //Made top row pixel numbers
             numbers = new JLabel[boardWidth];
             String text = "";
             for (int x = 0; x < boardWidth; x++)
@@ -180,8 +183,6 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                 panel.add(numbers[x]);
                 numbers[x].setVisible(true);
             }
-
-
             if (k == 0)
                 {
                     text = "Enemy Board";
@@ -231,11 +232,11 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
             {
                 case 0:
                     icon = new ImageIcon(getClass().getResource("/Images/AircraftCarrier.png"));
-                    icon.setDescription("Aircraft Carrier");
+                    icon.setDescription("AircraftCarrier");
                 break;
                 case 1:
                     icon = new ImageIcon(getClass().getResource("/Images/BattleShip.png"));
-                    icon.setDescription("Battleship");
+                    icon.setDescription("BattleShip");
                 break;
                 case 2:
                     icon = new ImageIcon(getClass().getResource("/Images/Destroyer.png"));
@@ -247,7 +248,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                 break;
                 case 4:
                     icon = new ImageIcon(getClass().getResource("/Images/PatrolBoat.png"));
-                    icon.setDescription("Patrol Boat");
+                    icon.setDescription("PatrolBoat");
                 break;
             }  
             ships[x] = butt = new JButton();
@@ -257,6 +258,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
             panel.add(butt);
             butt.setBounds(50 + 240 * x, 635, 200, 100);
             butt.addActionListener(this);
+            butt.addMouseListener(new MyMouseListener());
         }                
             
         JLabel shipBackground = new JLabel();
@@ -393,7 +395,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         return pointy;
     }
     
-/*    public PosObject PlaceShip()
+    public PosObject placeShip()
     {
         selectable = true;
         placeX = -1;
@@ -404,7 +406,80 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         PosObject ship = new PosObject(placeX, placeY, placeR, shipName);
         selectable = false;
         return ship;
-    }*/
+    }
+
+    /**
+     * To be called if the ship is in a placeable coordinate
+     * str should be the name of the ship without spaces (ex "BattleShip")
+     */
+    public void showShip(int x, int y, int r, String str)
+    {
+        ImageIcon icon;
+        if (r == 0)
+                    icon = new ImageIcon(getClass().getResource(str + ".png")); 
+                else
+                    icon = new ImageIcon(getClass().getResource(str + "vert.png"));
+        
+        JLabel ship = new JLabel(icon);
+        panel.add(ship);
+        ship.setBounds(28 + 48 * x + 720, 28 + 50 * y, 200, 200);
+        pack();
+        panel.repaint();
+    }
+    
+    /**
+     * P represents the x co-ordinate
+     * Q represents the y co-ordinate
+     * str should be "F" or "E" for friendly or enemy
+     */
+    public void showHit(int p, int q, String str)
+    {
+        String text = str + p + q;
+        for(int k = 0; k < 2; k++)
+            for (int x = 0; x < boardHeight; x++)
+            {
+                for (int y = 0; y < boardWidth; y++)
+                    if (validSpaces[x][y].getText().equals(text))
+                    {
+                        validSpaces[x][y] = new JButton();
+                        text = "Hit";
+                        validSpaces[x][y].setText(text);
+                        validSpaces[x][y].setForeground(Color.WHITE);
+                        validSpaces[x][y].setBackground(Color.RED);
+                        panel.add(validSpaces[x][y]);
+                        validSpaces[x][y].setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 55, 55);
+                    }
+            }
+        pack();
+        panel.repaint();
+    }
+    
+    /**
+     * P represents the x co-ordinate
+     * Q represents the y co-ordinate
+     * str should be "F" or "E" for friendly or enemy
+     */
+    public void showMiss(int p, int q, String str)
+    {
+        String text = str + p + q;
+        for(int k = 0; k < 2; k++)
+            for (int x = 0; x < boardHeight; x++)
+            {
+                for (int y = 0; y < boardWidth; y++)
+                    if (validSpaces[x][y].getText().equals(text))
+                    {
+                        validSpaces[x][y] = new JButton();
+                        text = "Miss";
+                        validSpaces[x][y].setText(text);
+                        validSpaces[x][y].setForeground(Color.RED);
+                        validSpaces[x][y].setBackground(Color.WHITE);
+                        panel.add(validSpaces[x][y]);
+                        validSpaces[x][y].setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 55, 55);
+                    }
+            }
+        pack();
+        panel.repaint();
+    }
     
     public void keyPressed(KeyEvent e)
     {
@@ -428,7 +503,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     /**
      * Receives and handles mouse clicks.  Other mouse events are ignored.
      */
-    private class MyMouseListener implements MouseListener 
+    private class MyMouseListener extends MouseAdapter
     {
 
         /**
@@ -436,16 +511,37 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
          * Each card is represented as a label.
          * @param e the mouse event.
          */
-        public void mouseClicked(MouseEvent e) {
-            for (int k = 0; k < 5; k++) 
+        public void mouseClicked(MouseEvent e) 
+        {
+            if (selectable == true && firstClick == 0 && ((JButton)e.getSource()).getIcon() != null)
             {
-                if (e.getSource().equals(display[k])) 
-                {
-                    repaint();
-                    return;
-                }
+                firstClick = 1;
+                if (placeR == 0)
+                    mouseIcon = ((ImageIcon)((JButton)e.getSource()).getIcon()); 
+                else
+                    mouseIcon = new ImageIcon(getClass().getResource(((ImageIcon)((JButton)e.getSource()).getIcon()).getDescription() + "vert.png"));
             }
-            signalError();
+            if (firstClick == 1 && ((JButton)e.getSource()).getActionCommand().equals("Place Ship"))
+            {
+                firstClick = 0;
+                mouseIcon = null;
+            }
+        }
+        
+        public void mouseMoved(MouseEvent e)
+        {
+            if (firstClick == 1 && ((JButton)e.getSource()).getActionCommand().equals("Place Ship"))
+            {
+                if (placeR == 0)
+                    mouseIcon = ((ImageIcon)((JButton)e.getSource()).getIcon()); 
+                else
+                    mouseIcon = new ImageIcon(getClass().getResource(((ImageIcon)((JButton)e.getSource()).getIcon()).getDescription() + "vert.png"));
+                JLabel ship = new JLabel(mouseIcon);
+                panel.add(ship);
+                ship.setBounds(((JButton)e.getSource()).getX(), ((JButton)e.getSource()).getY(), 200, 100);
+                pack();
+                panel.repaint();
+            }
         }
 
         /**

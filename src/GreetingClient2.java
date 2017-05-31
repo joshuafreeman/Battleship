@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.*;
 public class GreetingClient2 {
     private static PlayerBoard bor;
-    public static boolean isStart = false;
+    private static BattleShipGameGUI gui;
     public static void main(String [] args) {
         String serverName = "76.88.3.218";
         int port = 8080;
@@ -26,15 +26,35 @@ public class GreetingClient2 {
             };
 
             StartGUI start = new StartGUI(uniPanel);
-            BattleShipGameGUI gui = new BattleShipGameGUI(bor, opp, uniPanel);
+            gui = new BattleShipGameGUI(bor, opp, uniPanel);
             gui.displayGame();
 
 
+            //This start test only works if we call a method in the while loop???
+            int test = 0;
+            while(!start.clickedStart()) {
+                String tester = ((Integer)test).toString();
+            }
 
+            Socket client = null;
             //Start connection to server
-            for(int x = 0; x < 100; x++)
-                gui.printLog("Connecting to " + serverName + " on port " + port + ".");
-            Socket client = new Socket(serverName, port);
+
+            gui.printLog("Connecting to Server 1 (" + serverName + ") on port " + port + ".");
+            boolean connected = false;
+            int numberOfExceptionsThrown = 0;
+            while(!connected)
+                try {
+                    client = new Socket(serverName, port);
+                    connected = true;
+                }
+                catch(ConnectException e) {
+                    numberOfExceptionsThrown++;
+                    if(numberOfExceptionsThrown == 1)
+                        gui.printLog("Cannot connect to Server 1 (" + serverName + "). Retrying.");
+                    else
+                    if(numberOfExceptionsThrown % 3 == 0)
+                        gui.printLog("Cannot connect to Server 1 (" + serverName + "). Retrying.");
+                }
 
             gui.printLog("Just connected to " + client.getRemoteSocketAddress());
             OutputStream outToServer = client.getOutputStream();
@@ -155,12 +175,13 @@ public class GreetingClient2 {
             //Close connection
             client.close();
 
-        }catch(IOException e) {
+        }catch(SocketException e){
+            gui.printLog("The opponent has disconnected. Please restart the game to find a new game.");
+        }
+        catch(IOException e) {
             e.printStackTrace();
         }
     }
-
-
     private static void startGame()
     {
         ConsoleIO con = new ConsoleIO();

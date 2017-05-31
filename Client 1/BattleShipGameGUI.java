@@ -58,8 +58,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     private int placeX = -1, placeY = -1, placeR = 0;
     private boolean selectable = false;
     private String shipName = "";
-
     
+   
     public BattleShipGameGUI(PlayerBoard p1, OpponentBoard p2, JPanel pan)
     {
         panel = pan;
@@ -77,7 +77,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                 validSpaces[x][y] = new JButton();
             }
                 
-        initDisplay();
+        initDisplay();       
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         repaint();
     }

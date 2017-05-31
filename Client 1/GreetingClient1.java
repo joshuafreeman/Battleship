@@ -17,6 +17,7 @@ public class GreetingClient1 {
         try {
             bor = new PlayerBoard(10,10);
             OpponentBoard opp = new OpponentBoard();
+            Audio ao = new Audio();
             
             JPanel uniPanel = new JPanel()
             {
@@ -63,7 +64,7 @@ public class GreetingClient1 {
                 opponentReady = in.readBoolean();
                 gui.printLog("Found opponent!");
             }
-
+        
             //Turn opponents player board into opponent board
             try{
                 ObjectOutputStream objectOut = new ObjectOutputStream(outToServer);
@@ -157,10 +158,14 @@ public class GreetingClient1 {
             boolean winner = in.readBoolean();
 
             if(winner)
+            {
                 gui.printLog("Congrats! You sunk all their battleships.");
+                ao.playWon();
+            }    
             else
                 gui.printLog("Sorry. They sunk all your battleships.");
             //Close connection
+            ao.playThanks();
             client.close();
 
         }catch(IOException e) {

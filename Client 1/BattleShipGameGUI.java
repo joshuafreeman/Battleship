@@ -377,7 +377,6 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
             placeX = Integer.parseInt(((JButton)e.getSource()).getText().substring(2));
             placeY = (int)(((JButton)e.getSource()).getText().charAt(1)) - 64;
             //placeY = 5;
-            System.out.println("Internal y: " + placeY);
         }
 
         if (e.getActionCommand().equals("Send Attack"))

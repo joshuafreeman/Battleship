@@ -49,13 +49,13 @@ public class HeadSpot extends Ship
     {
         switch(type)
         {
-            case("Battleship"):
+            case("BattleShip"):
                 mySize = 5;
-                myHull = "Battleship";
+                myHull = "BattleShip";
                 break;
-            case("Carrier"):
+            case("AircraftCarrier"):
                 mySize = 6;
-                myHull = "Carrier";
+                myHull = "AircraftCarrier";
                 break;
             case("Destroyer"):
                 mySize = 3;
@@ -65,9 +65,9 @@ public class HeadSpot extends Ship
                 mySize = 3;
                 myHull = "Submarine";
                 break;
-            case("Patrol Boat"):
+            case("PatrolBoat"):
                 mySize = 2;
-                myHull = "Patrol Boat";
+                myHull = "PatrolBoat";
                 break;
         }
     }

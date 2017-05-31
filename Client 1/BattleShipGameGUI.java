@@ -61,6 +61,9 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     private String shipName = "";
     private int firstClick = 0;
     private ImageIcon mouseIcon;
+    
+    private int num = 0;
+    private JButton[] ship = new JButton[5];
 
     
     public BattleShipGameGUI(PlayerBoard p1, OpponentBoard p2, JPanel pan)
@@ -106,7 +109,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         
         boardLable = new JLabel[2];
         
-        
+        ship[num] = new JButton();
         
         for(int k = 0; k < 2; k++)
             for (int x = 0; x < boardHeight; x++)
@@ -311,6 +314,23 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         panel.add(background);
         background.setBounds(0,0, 1300,810);
         
+        /*URL bground = getClass().getResource("/Images/punk.jpg");
+        ImageIcon iconback = new ImageIcon(bground);
+        background.setIcon(iconback);
+        background.setVisible(true);
+        
+        for (int k = 0; k < 2; k++) 
+        {
+            URL imageURL = getClass().getResource("/Images/ocean.jpeg");
+            if (imageURL != null) 
+            {
+                icon = new ImageIcon(imageURL);
+                display[k].setIcon(icon);
+                display[k].setVisible(true);
+            } else {
+                throw new RuntimeException("Image not found");
+            }
+        }*/
         
         pack();
         getContentPane().add(panel);
@@ -321,24 +341,6 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
      * Draw the display (cards and messages).
      */
     public void repaint() {
-        
-        URL bground = getClass().getResource("/Images/punk.jpg");
-        ImageIcon iconback = new ImageIcon(bground);
-        background.setIcon(iconback);
-        background.setVisible(true);
-        
-        for (int k = 0; k < 2; k++) 
-        {
-            URL imageURL = getClass().getResource("/Images/ocean.jpeg");
-            if (imageURL != null) 
-            {
-                ImageIcon icon = new ImageIcon(imageURL);
-                display[k].setIcon(icon);
-                display[k].setVisible(true);
-            } else {
-                throw new RuntimeException("Image not found");
-            }
-        }
         pack();
         panel.repaint();
     }
@@ -424,12 +426,13 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                 else
                     icon = new ImageIcon(getClass().getResource("/Images/" + str + "vert.png"));
         
-        JLabel ship = new JLabel(icon);
-        panel.add(ship);
-        ship.setBounds(28 + 48 * x + 720, 28 + 50 * y, 200, 200);
-        ship.setOpaque(true);
-        ship.setVisible(true);
-
+        ship[num].setIcon(icon);
+        panel.add(ship[num]);
+        ship[num].setBounds(20 + 48 * (x - 1) + 720, 40 + 50 * (y - 1), 200, 200);
+        ship[num].setHorizontalAlignment(SwingConstants.LEFT);
+        ship[num].setVerticalAlignment(SwingConstants.TOP);
+        ship[num].setContentAreaFilled(false);
+        num++;
         pack();
         panel.repaint();
     }

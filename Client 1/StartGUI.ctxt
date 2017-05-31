@@ -16,4 +16,6 @@ comment5.text=\r\n\ Deal\ with\ the\ user\ clicking\ on\ something\ other\ than\
 comment6.params=e
 comment6.target=void\ actionPerformed(java.awt.event.ActionEvent)
 comment6.text=\r\n\ Respond\ to\ a\ button\ click\ (on\ either\ the\ "Replace"\ button\r\n\ or\ the\ "Restart"\ button).\r\n\ @param\ e\ the\ button\ click\ action\ event\r\n
-numComments=7
+comment7.params=
+comment7.target=boolean\ clickedStart()
+numComments=8

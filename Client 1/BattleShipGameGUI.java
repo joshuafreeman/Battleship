@@ -42,7 +42,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     
     /** Letters and numbers*/
     private JLabel letters[];
-    private JLabel numbers;
+    private JLabel numbers[];
     
     /** Button array of accessable Squares. */
     private JButton[][] validSpaces;
@@ -166,21 +166,22 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                 panel.add(letters[x]);
                 letters[x].setVisible(true);
             }
-            
-            numbers = new JLabel();
-            numbers.setBounds(50 + (k * 720), -10, 500, 50);
-            numbers.setForeground(Color.WHITE);
-            
-            String text = ""; 
+
+            //Made top row pixel numbers. Why did you use spaces. - Josh
+            numbers = new JLabel[boardWidth];
+            String text = "";
             for (int x = 0; x < boardWidth; x++)
             {
-                text += ((x+1));
-                text += "          ";
+                text = ((Integer)(x + 1)).toString();
+                numbers[x] = new JLabel();
+                numbers[x].setBounds((48 * x ) + 47 + (k * 720), -9, 50, 50);
+                numbers[x].setForeground(Color.WHITE);
+                numbers[x].setText(text);
+                panel.add(numbers[x]);
+                numbers[x].setVisible(true);
             }
-            
-            numbers.setText(text);
-            panel.add(numbers);
-            numbers.setVisible(true);
+
+
             if (k == 0)
                 {
                     text = "Enemy Board";
@@ -392,7 +393,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         return pointy;
     }
     
-    public PosObject PlaceShip()
+/*    public PosObject PlaceShip()
     {
         selectable = true;
         placeX = -1;
@@ -403,7 +404,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         PosObject ship = new PosObject(placeX, placeY, placeR, shipName);
         selectable = false;
         return ship;
-    }
+    }*/
     
     public void keyPressed(KeyEvent e)
     {

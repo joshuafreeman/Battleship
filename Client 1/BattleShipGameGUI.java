@@ -402,7 +402,10 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         placeY = -1;
         placeR = 0;
         shipName = "";
-        while (placeX < 0 && placeY < 0 && !shipName.equals(""));
+        int test = 0;
+        String tester;
+        while (placeX < 0 && placeY < 0 && shipName.equals(""))
+            tester = ((Integer)test).toString();
         PosObject ship = new PosObject(placeX, placeY, placeR, shipName);
         selectable = false;
         return ship;
@@ -416,13 +419,17 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     {
         ImageIcon icon;
         if (r == 0)
-                    icon = new ImageIcon(getClass().getResource(str + ".png")); 
+                    //icon = new ImageIcon(getClass().getResource("/Images/" + str + ".png"));
+                    icon = new ImageIcon(getClass().getResource("/Images/Submarine.png"));
                 else
-                    icon = new ImageIcon(getClass().getResource(str + "vert.png"));
+                    icon = new ImageIcon(getClass().getResource("/Images/" + str + "vert.png"));
         
         JLabel ship = new JLabel(icon);
         panel.add(ship);
         ship.setBounds(28 + 48 * x + 720, 28 + 50 * y, 200, 200);
+        ship.setOpaque(true);
+        ship.setVisible(true);
+
         pack();
         panel.repaint();
     }

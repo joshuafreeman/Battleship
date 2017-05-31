@@ -411,7 +411,17 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         String tester;
         while (placeX < 0 && placeY < 0 && shipName.equals(""))
             tester = ((Integer)test).toString();
-        System.out.println("Y AFTER LOOP: " + placeY); //The only way this works is if I print placeY what????
+        //System.out.println(placeY); //The only way this works is if I print placeY what????
+        bA.append(((Integer)placeY).toString() + "\n");
+        /*int end = 0;
+        try{
+            end = bA.getLineEndOffset(0);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        bA.replaceRange("", 100, end);*/
+        //bA.setText(null);
+        //System.out.println("y test: " + placeY);
         PosObject ship = new PosObject(placeX, placeY, placeR, shipName);
         selectable = false;
         return ship;

@@ -125,7 +125,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                     else
                     {
                         text = "E";
-                        butt.setActionCommand("Send Atack");
+                        butt.setActionCommand("Send Attack");
                     }
                         
                     text += (char)(65+y) + "" + (int)(x+1);

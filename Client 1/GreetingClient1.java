@@ -68,8 +68,8 @@ public class GreetingClient1 {
             PosObject positions[] = new PosObject[5];
             for(int x = 0; x < 5; x ++) {
                 positions[x] = gui.placeShip();
-                System.out.println(positions[x].getX());
-                System.out.println(positions[x].getY());
+                //System.out.println("Setting x at: " + positions[x].getX());
+                //System.out.println("Setting y at: " + positions[x].getY());
                 bor.setShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName());
                 gui.showShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName());
             }

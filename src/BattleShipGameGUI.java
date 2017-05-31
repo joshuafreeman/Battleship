@@ -109,7 +109,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         
         boardLable = new JLabel[2];
         
-        ship[num] = new JButton();
+        for (int x = 0; x < 5; x++)
+            ship[x] = new JButton();
         
         for(int k = 0; k < 2; k++)
             for (int x = 0; x < boardHeight; x++)
@@ -369,8 +370,10 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     {
         if (e.getActionCommand().equals("Place Ship"))
         {
-            placeX = (int)(((JButton)e.getSource()).getText().charAt(1)) - 64;
-            placeY = Integer.parseInt(((JButton)e.getSource()).getText().substring(2));
+            placeX = Integer.parseInt(((JButton)e.getSource()).getText().substring(2));
+            placeY = (int)(((JButton)e.getSource()).getText().charAt(1)) - 64;
+            //placeY = 5;
+            //System.out.println("Internal y: " + placeY);
         }
 
         if (e.getActionCommand().equals("Send Attack"))
@@ -408,6 +411,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         String tester;
         while (placeX < 0 && placeY < 0 && shipName.equals(""))
             tester = ((Integer)test).toString();
+        System.out.println("Y AFTER LOOP: " + placeY); //The only way this works is if I print placeY what????
         PosObject ship = new PosObject(placeX, placeY, placeR, shipName);
         selectable = false;
         return ship;
@@ -428,10 +432,11 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         
         ship[num].setIcon(icon);
         panel.add(ship[num]);
-        ship[num].setBounds(20 + 48 * (x - 1) + 720, 40 + 50 * (y - 1), 200, 200);
+        ship[num].setBounds(42 * (x) + 720, 38 + 50 * (y - 1), 330 - (220 * r), 110 + (220 * r));
         ship[num].setHorizontalAlignment(SwingConstants.LEFT);
         ship[num].setVerticalAlignment(SwingConstants.TOP);
         ship[num].setContentAreaFilled(false);
+        ship[num].setBorder(null);
         num++;
         pack();
         panel.repaint();

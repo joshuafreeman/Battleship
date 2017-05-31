@@ -372,6 +372,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         {
             placeX = Integer.parseInt(((JButton)e.getSource()).getText().substring(2));
             placeY = (int)(((JButton)e.getSource()).getText().charAt(1)) - 64;
+            //placeY = 5;
+            //System.out.println("Internal y: " + placeY);
         }
 
         if (e.getActionCommand().equals("Send Attack"))
@@ -409,6 +411,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         String tester;
         while (placeX < 0 && placeY < 0 && shipName.equals(""))
             tester = ((Integer)test).toString();
+        System.out.println("Y AFTER LOOP: " + placeY); //The only way this works is if I print placeY what????
         PosObject ship = new PosObject(placeX, placeY, placeR, shipName);
         selectable = false;
         return ship;

@@ -109,7 +109,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         
         boardLable = new JLabel[2];
         
-        ship[num] = new JButton();
+        for (int x = 0; x < 5; x++)
+            ship[x] = new JButton();
         
         for(int k = 0; k < 2; k++)
             for (int x = 0; x < boardHeight; x++)
@@ -428,10 +429,11 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         
         ship[num].setIcon(icon);
         panel.add(ship[num]);
-        ship[num].setBounds(20 + 48 * (x - 1) + 720, 40 + 50 * (y - 1), 200, 200);
+        ship[num].setBounds(20 + 48 * (x - 1) + 720, 28 + 50 * (y - 1), 330 - (220 * r), 110 + (220 * r));
         ship[num].setHorizontalAlignment(SwingConstants.LEFT);
         ship[num].setVerticalAlignment(SwingConstants.TOP);
         ship[num].setContentAreaFilled(false);
+        ship[num].setBorder(null);
         num++;
         pack();
         panel.repaint();

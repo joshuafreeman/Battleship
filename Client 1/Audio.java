@@ -141,11 +141,11 @@ public class Audio
      */
     public void playThanks()
     {
-        won.setOnEndOfMedia(new Runnable()
+        loss.setOnEndOfMedia(new Runnable()
         {
             public void run()
             {
-                won.play(); 
+                end.play(); 
             }
         });   
     }      

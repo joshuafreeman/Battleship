@@ -44,7 +44,6 @@ public class GreetingClient1 {
             gui.printLog("Connecting to Server 1 (" + serverName + ") on port " + port + ".");
             boolean connected = false;
             int numberOfExceptionsThrown = 0;
-
             while(!connected)
                 try {
                 client = new Socket(serverName, port);
@@ -66,7 +65,7 @@ public class GreetingClient1 {
             InputStream inFromServer = client.getInputStream();
             DataInputStream  in = new DataInputStream (inFromServer);
 
-            
+
             //startGame();
             PosObject positions[] = new PosObject[5];
             ArrayList ships = new ArrayList();
@@ -154,7 +153,6 @@ public class GreetingClient1 {
                 {
                     gui.printLog("You sunk the opponent's ship!");
                     ao.playSunk();
-                    ao.stopSunk();
                 }
                 //Receive where the attacks hit on opponent board
                 gui.printLog("Waiting for opponent's attacks...");
@@ -170,7 +168,7 @@ public class GreetingClient1 {
 
                 PosObject difference = bor.singleDifference(oldBoard);
 
-                if(difference.getName().equals("hit"))
+                if(difference != null && difference.getName().equals("hit"))
                     gui.showHit(difference.getX(),difference.getY(),"F");
                 else
                     gui.showMiss(difference.getX(),difference.getY(),"F");

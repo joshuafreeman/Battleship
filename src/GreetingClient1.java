@@ -168,7 +168,7 @@ public class GreetingClient1 {
 
                 PosObject difference = bor.singleDifference(oldBoard);
 
-                if(difference.getName().equals("hit"))
+                if(difference != null && difference.getName().equals("hit"))
                     gui.showHit(difference.getX(),difference.getY(),"F");
                 else
                     gui.showMiss(difference.getX(),difference.getY(),"F");

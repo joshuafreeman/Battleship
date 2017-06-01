@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=ex\ why\ arr\ str
+comment0.target=PosObject(int,\ int,\ int,\ java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ PosObject\r\n
+comment1.params=
+comment1.target=int\ getX()
+comment1.text=\r\n\ Returns\ the\ x-coordinate\r\n
+comment2.params=
+comment2.target=int\ getY()
+comment2.text=\r\n\ Returns\ the\ y-coordinate\r\n
+comment3.params=
+comment3.target=int\ getR()
+comment3.text=\r\n\ Returns\ the\ rotation\r\n
+comment4.params=
+comment4.target=java.lang.String\ getName()
+comment4.text=\r\n\ Returns\ the\ name\r\n
+numComments=5

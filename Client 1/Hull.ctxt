@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Hull()
+comment0.text=\r\n\ Default\ constructor\r\n
+comment1.params=head
+comment1.target=Hull(HeadSpot)
+comment1.text=\r\n\ Constructor\ setting\ myHead\ to\ the\ head\ \r\n\ @param\ head\r\n
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment2.text=\r\n\ Returns\ a\ "S"\ to\ represent\ a\ Hull\r\n
+comment3.params=
+comment3.target=HeadSpot\ getHead()
+comment3.text=\r\n\ Returns\ the\ head\ of\ the\ ship\r\n\ @return\ myHead\r\n
+numComments=4

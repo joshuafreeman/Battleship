@@ -1,7 +1,9 @@
 import java.io.Serializable;
 
 /**
- * Created by Josh on 5/2/2017.
+ * Created by Johnny Liu
+ * 5/2/2017.
+ * This class is the parent class on which friendly and enemy boards are based off of
  */
 public abstract class Board implements Serializable
 {

@@ -1,6 +1,8 @@
 
 /**
- * Created by Josh on 5/3/2017.
+ * Created by Johnny Liu
+ * 5/3/2017.
+ * This class represents the head of the ship, as well containing basic information about the ship 
  */
 public class HeadSpot extends Ship 
 {

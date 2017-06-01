@@ -137,6 +137,7 @@ public class GreetingClient1 {
                 out.writeInt(xCord);
                 out.writeInt(yCord);
                 hit = in.readBoolean();
+ 
 
                 if(hit) {
                     gui.printLog("It's a hit!");
@@ -191,7 +192,9 @@ public class GreetingClient1 {
 
         }catch(SocketException e){
             gui.printLog("The opponent has disconnected. Please restart the game to find a new game.");
-        }
+        }catch(EOFException e){
+            gui.printLog("Server restarted. Please restart the game to find a new game.");
+         }
         catch(IOException e) {
             e.printStackTrace();
         }

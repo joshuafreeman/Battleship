@@ -1,5 +1,7 @@
 /**
- * Created by Josh on 5/4/2017.
+ * Created by Johnny Liu
+ * 5/4/2017.
+ * This class represents your own board and is child class of Board
  */
 public class PlayerBoard extends Board
 {
@@ -293,16 +295,23 @@ public class PlayerBoard extends Board
         return sunken;
     }
 
+    /**
+     * Finds and returns the single difference between myBoard and newPlayerBoard
+     * @param newPlayerBoard
+     */
     public PosObject singleDifference(PlayerBoard newPlayerBoard)
     {
+    	//traverses the entire board
         for(int y = 0; y < 10; y++)
             for(int x =0; x < 10; x++)
             {
+            	//the single difference
                 if(!myBoard[y][x].toString().equals(newPlayerBoard.displaySpot(x, y)))
                 {
                     return new PosObject(x + 1, y + 1, 0, myBoard[y][x].getType());
                 }
             }
+        //if no differences
         return null;
     }
     /**

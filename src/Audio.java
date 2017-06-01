@@ -139,7 +139,13 @@ public class Audio
      */
     public void playThanks()
     {
-        end.play();  
+        won.setOnEndOfMedia(new Runnable()
+        {
+            public void run()
+            {
+                won.play(); 
+            }
+        });   
     }      
     
     /**
@@ -147,7 +153,13 @@ public class Audio
      */
     public void playWon()
     {
-        won.play();        
+        sunk.setOnEndOfMedia(new Runnable()
+        {
+            public void run()
+            {
+                won.play(); 
+            }
+        });    
     }   
     
     /**
@@ -155,16 +167,28 @@ public class Audio
      */
     public void playLoss()
     {
-        loss.play();        
+        sunk.setOnEndOfMedia(new Runnable()
+        {
+            public void run()
+            {
+                loss.play(); 
+            }
+        });       
     }    
     
-    /**
-     * you sink a battleship this clip will play
-     */
     public void playSunk()
     {
-        sunk.play();  
-    }  
+        sunk.play();   
+        sunk.setOnEndOfMedia(new Runnable()
+        {
+            public void run()
+            {
+                File f = new File("musica/sunk.mp3");
+                Media m = new Media(f.toURI().toString());
+                sunk = new MediaPlayer(m);
+            }
+        });
+    }    
     
     /**
      * you sink a battleship this clip will play

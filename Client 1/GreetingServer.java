@@ -82,8 +82,9 @@ public class GreetingServer extends Thread {
                if((temp1.myType.equals("hull") || temp1.myType.equals("head") || temp1.myType.equals("ship")) && player2Board.sunk(temp1))
                {
                    outP1.writeBoolean(player2Board.sunk(temp1));
-                   if(player1Board.isEmpty())
-                        player1Won = true;
+                   if(player2Board.isEmpty()) {
+                      player1Won = true;
+                   }
                }
                else
                   outP1.writeBoolean(false);
@@ -101,8 +102,10 @@ public class GreetingServer extends Thread {
                if((temp2.myType.equals("hull") || temp2.myType.equals("head") || temp2.myType.equals("ship")) && player1Board.sunk(temp2))
                {
                    outP2.writeBoolean(player1Board.sunk(temp2));
-                   if(player2Board.isEmpty() && !player1Won)
-                        player2Won = true;
+                   if(player1Board.isEmpty() && !player1Won) {
+                      player2Won = true;
+                      System.out.println("Player 2 won");
+                   }
                }
                else
                   outP2.writeBoolean(false);
@@ -128,16 +131,16 @@ public class GreetingServer extends Thread {
             //Game over
             if(player1Won)
             {
-               System.out.println("Player 1 lost");
-               outP1.writeBoolean(false);
-               outP2.writeBoolean(true);
+               System.out.println("Player 1 won");
+               outP1.writeBoolean(true);
+               outP2.writeBoolean(false);
             }
             else
                 if(player2Won)
                 {
-                   System.out.println("Player 2 lost");
-                   outP1.writeBoolean(true);
-                   outP2.writeBoolean(false);
+                   System.out.println("Player 2 won");
+                   outP1.writeBoolean(false);
+                   outP2.writeBoolean(true);
                 }
 
             server1.close();

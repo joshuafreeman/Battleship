@@ -156,6 +156,7 @@ public class GreetingClient1 {
                 }
                 //Receive where the attacks hit on opponent board
                 gui.printLog("Waiting for opponent's attacks...");
+                PlayerBoard oldBoard = bor;
                 try{
                     ObjectInputStream objectIn = new ObjectInputStream(inFromServer);
                     opp = (OpponentBoard)objectIn.readObject();
@@ -164,6 +165,14 @@ public class GreetingClient1 {
                 }catch(Exception z){
                     z.printStackTrace();
                 }
+
+                PosObject difference = bor.singleDifference(oldBoard);
+
+                if(difference.getName().equals("hit"))
+                    gui.showHit(difference.getX(),difference.getY(),"F");
+                else
+                    gui.showMiss(difference.getX(),difference.getY(),"F");
+
             }
             boolean winner = in.readBoolean();
 

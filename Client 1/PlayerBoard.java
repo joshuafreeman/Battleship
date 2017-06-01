@@ -292,7 +292,19 @@ public class PlayerBoard extends Board
 
         return sunken;
     }
-    
+
+    public PosObject singleDifference(PlayerBoard newPlayerBoard)
+    {
+        for(int y = 0; y < 10; y++)
+            for(int x =0; x < 10; x++)
+            {
+                if(!myBoard[y][x].toString().equals(newPlayerBoard.displaySpot(x, y)))
+                {
+                    return new PosObject(x + 1, y + 1, 0, myBoard[y][x].getType());
+                }
+            }
+        return null;
+    }
     /**
      * Returns information of a specified spot
      */

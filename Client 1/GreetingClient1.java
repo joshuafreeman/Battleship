@@ -187,6 +187,7 @@ public class GreetingClient1 {
                 ao.playLoss();
             }    
             //Close connection
+            ao.stopBattle();
             ao.playThanks();
             client.close();
 

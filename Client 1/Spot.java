@@ -1,7 +1,9 @@
 import java.io.Serializable;
 
 /**
- * Created by Josh on 5/2/2017.
+ * Created by Johnny Liu
+ * 5/2/2017.
+ * This class represents a spot (x and y coordinate) on the board
  */
 public abstract class Spot implements Serializable 
 {

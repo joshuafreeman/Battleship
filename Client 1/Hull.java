@@ -1,5 +1,7 @@
 /**
- * Created by Josh on 5/8/2017.
+ * Created by Johnny Liu
+ * 5/8/2017
+ * This class represents the rest of the ship that is not the head
  */
 public class Hull extends Ship
 {

@@ -125,7 +125,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                     else
                     {
                         text = "E";
-                        butt.setActionCommand("Send Atack");
+                        butt.setActionCommand("Send Attack");
                     }
                         
                     text += (char)(65+y) + "" + (int)(x+1);
@@ -314,7 +314,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         panel.add(logBackground);
         logBackground.setVisible(true);
         
-        background = new JLabel();
+        /*background = new JLabel();
         panel.add(background);
         background.setBounds(0,0, 1300,810);
         
@@ -335,7 +335,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                 throw new RuntimeException("Image not found");
             }
         }
-        
+        */
         pack();
         getContentPane().add(panel);
         panel.setVisible(true); 

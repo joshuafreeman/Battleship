@@ -142,7 +142,7 @@ public class GreetingClient1 {
                 out.writeInt(xCord);
                 out.writeInt(yCord);
                 hit = in.readBoolean();
-
+ 
 
                 if(hit) {
                     gui.printLog("It's a hit!");
@@ -156,10 +156,9 @@ public class GreetingClient1 {
                 sunk = in.readBoolean();
                 if(sunk)
                     gui.printLog("You sunk the opponent's ship!");
-                else
-                    gui.printLog("You didn't sink the ship!");
+                
                 //Receive where the attacks hit on opponent board
-                System.out.println("Waiting for opponent's attacks...");
+                gui.printLog("Waiting for opponent's attacks...");
                 try{
                     ObjectInputStream objectIn = new ObjectInputStream(inFromServer);
                     opp = (OpponentBoard)objectIn.readObject();

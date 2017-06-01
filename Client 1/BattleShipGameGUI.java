@@ -454,8 +454,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                     icon = new ImageIcon(getClass().getResource("/Images/" + str + "vert.png"));
         
         ship[num].setIcon(icon);
-        ship[num].setBounds(43 * (x-1) + 720, 35 + 50 * (y - 2), 330 - (220 * r), 110 + (220 * r));
-        ship[num].setHorizontalAlignment(SwingConstants.CENTER);
+        ship[num].setBounds(43 * (x) + 720, 35 + 50 * (y - 1), 330 - (220 * r), 110 + (220 * r));
+        ship[num].setHorizontalAlignment(SwingConstants.LEFT);
         ship[num].setVerticalAlignment(SwingConstants.TOP);
         ship[num].setContentAreaFilled(false);
         ship[num].setBorder(null);

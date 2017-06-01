@@ -1,6 +1,5 @@
 /**
- * Created by Johnny Liu
- * 5/4/2017.
+ * Anton Gerasimov
  * This class represents your own board and is child class of Board
  */
 public class PlayerBoard extends Board

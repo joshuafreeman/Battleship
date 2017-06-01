@@ -106,6 +106,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         this.setSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
         panel.setLayout(null);
         panel.setPreferredSize(new Dimension(DEFAULT_WIDTH - 20, DEFAULT_HEIGHT - 20));
+        panel.addKeyListener(this);
+        panel.setFocusable(true);
         
         boardLable = new JLabel[2];
 
@@ -517,7 +519,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     
     public void keyPressed(KeyEvent e)
     {
-        //if (e.getKeyChar() == 'r' || e.getKeyChar() == 'R')
+        if (e.getKeyCode() == KeyEvent.VK_R)
         {
             if (placeR == 0)
                 placeR = 1;

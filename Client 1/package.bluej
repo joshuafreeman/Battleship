@@ -119,21 +119,12 @@ dependency8.type=UsesDependency
 dependency9.from=PlayerBoard
 dependency9.to=Spot
 dependency9.type=UsesDependency
-<<<<<<< HEAD
-objectbench.height=101
-objectbench.width=762
-package.editor.height=634
-package.editor.width=959
-package.editor.x=761
-package.editor.y=122
-=======
-objectbench.height=76
+objectbench.height=100
 objectbench.width=1236
 package.editor.height=635
-package.editor.width=1138
-package.editor.x=260
+package.editor.width=1433
+package.editor.x=119
 package.editor.y=68
->>>>>>> cfb5bb0204f3599528d19b65c1b5ed84e57143c3
 package.numDependencies=40
 package.numTargets=18
 package.showExtends=true
@@ -255,10 +246,6 @@ target17.typeParameters=
 target17.width=80
 target17.x=200
 target17.y=10
-<<<<<<< HEAD
-target18.height=50
-target18.name=Audio
-=======
 target18.editor.height=700
 target18.editor.width=900
 target18.editor.x=631
@@ -266,22 +253,16 @@ target18.editor.y=250
 target18.height=50
 target18.name=Audio
 target18.naviview.expanded=true
->>>>>>> cfb5bb0204f3599528d19b65c1b5ed84e57143c3
 target18.showInterface=false
 target18.type=ClassTarget
 target18.typeParameters=
 target18.width=80
-<<<<<<< HEAD
-target18.x=690
-target18.y=10
-=======
 target18.x=790
 target18.y=60
 target2.editor.height=700
 target2.editor.width=900
 target2.editor.x=64
 target2.editor.y=123
->>>>>>> cfb5bb0204f3599528d19b65c1b5ed84e57143c3
 target2.height=50
 target2.name=PosObject
 target2.naviview.expanded=true
@@ -317,10 +298,10 @@ target4.typeParameters=
 target4.width=80
 target4.x=50
 target4.y=40
-target5.editor.height=1002
-target5.editor.width=1840
-target5.editor.x=-8
-target5.editor.y=-8
+target5.editor.height=961
+target5.editor.width=1680
+target5.editor.x=0
+target5.editor.y=23
 target5.height=50
 target5.name=GreetingClient1
 target5.naviview.expanded=true
@@ -357,15 +338,9 @@ target7.width=120
 target7.x=420
 target7.y=280
 target8.editor.height=700
-<<<<<<< HEAD
-target8.editor.width=1126
-target8.editor.x=668
-target8.editor.y=58
-=======
 target8.editor.width=994
 target8.editor.x=286
 target8.editor.y=106
->>>>>>> cfb5bb0204f3599528d19b65c1b5ed84e57143c3
 target8.height=50
 target8.name=BattleShipGameGUI
 target8.naviview.expanded=true

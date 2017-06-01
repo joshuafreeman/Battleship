@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=ex\ why\ arr\ str
+comment0.target=PosObject(int,\ int,\ int,\ java.lang.String)
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ PosObject\n
+comment1.params=
+comment1.target=int\ getX()
+comment2.params=
+comment2.target=int\ getY()
+comment3.params=
+comment3.target=int\ getR()
+comment4.params=
+comment4.target=java.lang.String\ getName()
+numComments=5

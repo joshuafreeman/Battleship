@@ -148,6 +148,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                     panel.add(butt);
                     butt.setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 55, 55);
                     butt.addActionListener(this);
+                    butt.addKeyListener(this);
                 }
             }
 
@@ -278,6 +279,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
             butt.setBounds(50 + 240 * x, 635, 200, 100);
             butt.setActionCommand("Select Ship");
             butt.addActionListener(this);
+            butt.addKeyListener(this);
             butt.addMouseListener(new MyMouseListener());
         }                
             
@@ -523,7 +525,8 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
     
     public void keyPressed(KeyEvent e)
     {
-        if (e.getKeyCode() == KeyEvent.VK_R)
+        int key = e.getKeyCode();
+        if (key == KeyEvent.VK_R)
         {
             if (placeR == 0)
                 placeR = 1;

@@ -458,21 +458,24 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
      */
     public void showHit(int p, int q, String str)
     {
-        String text = str + (char)(q + 64) + p;
+        String text = "E" + (char)(q + 64) + p;
         for(int k = 0; k < 2; k++)
             for (int x = 0; x < boardHeight; x++)
             {
                 for (int y = 0; y < boardWidth; y++)
                     if (validSpaces[x][y].getText().equals(text))
                     {
-                        validSpaces[x][y] = new JButton();
                         text = "Hit";
                         validSpaces[x][y].setText(text);
                         validSpaces[x][y].setForeground(Color.WHITE);
                         validSpaces[x][y].setBackground(Color.RED);
+                        validSpaces[x][y].setBorder(ships[1].getBorder());
                         validSpaces[x][y].setContentAreaFilled(true);
+                        validSpaces[x][y].setActionCommand("void");
+                        validSpaces[x][y].setOpaque(true);
+                        validSpaces[x][y].setBorderPainted(false);
                         panel.add(validSpaces[x][y]);
-                        validSpaces[x][y].setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 55, 55);
+                        validSpaces[x][y].setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 50, 50);
                     }
             }
         pack();
@@ -486,21 +489,24 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
      */
     public void showMiss(int p, int q, String str)
     {
-        String text = str + (char)(q + 64) + p;
+        String text = "E" + (char)(q + 64) + p;
         for(int k = 0; k < 2; k++)
             for (int x = 0; x < boardHeight; x++)
             {
                 for (int y = 0; y < boardWidth; y++)
                     if (validSpaces[x][y].getText().equals(text))
                     {
-                        validSpaces[x][y] = new JButton();
                         text = "Miss";
                         validSpaces[x][y].setText(text);
                         validSpaces[x][y].setForeground(Color.RED);
                         validSpaces[x][y].setBackground(Color.WHITE);
+                        validSpaces[x][y].setBorder(ships[1].getBorder());
                         validSpaces[x][y].setContentAreaFilled(true);
+                        validSpaces[x][y].setActionCommand("void");
+                        validSpaces[x][y].setOpaque(true);
+                        validSpaces[x][y].setBorderPainted(false);
                         panel.add(validSpaces[x][y]);
-                        validSpaces[x][y].setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 55, 55);
+                        validSpaces[x][y].setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 50, 50);
                     }
             }
         pack();

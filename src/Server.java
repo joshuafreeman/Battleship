@@ -164,7 +164,7 @@ public class Server extends Thread {
    public static void main(String [] args) {
       int port = 8080;
       try {
-         Thread t = new GreetingServer(port);
+         Thread t = new Server(port);
          t.start();
       }catch(IOException e) {
          e.printStackTrace();

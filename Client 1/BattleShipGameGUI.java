@@ -474,6 +474,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                         validSpaces[x][(boardWidth * k) + y].setActionCommand("void");
                         validSpaces[x][(boardWidth * k) + y].setOpaque(true);
                         validSpaces[x][(boardWidth * k) + y].setBorderPainted(false);
+                        validSpaces[x][(boardWidth * k) + y].setFont(new Font("ArialSmall", 0, 1));
                         panel.add(validSpaces[x][(boardWidth * k) + y]);
                         validSpaces[x][(boardWidth * k) + y].setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 50, 50);
                     }
@@ -505,6 +506,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                         validSpaces[x][(boardWidth * k) + y].setActionCommand("void");
                         validSpaces[x][(boardWidth * k) + y].setOpaque(true);
                         validSpaces[x][(boardWidth * k) + y].setBorderPainted(false);
+                        validSpaces[x][(boardWidth * k) + y].setFont(new Font("ArialSmall", 0, 1));
                         panel.add(validSpaces[x][(boardWidth * k) + y]);
                         validSpaces[x][(boardWidth * k) + y].setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 50, 50);
                     }

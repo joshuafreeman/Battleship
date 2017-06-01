@@ -14,8 +14,8 @@ public class GreetingServer extends Thread {
          try {
             PlayerBoard player1Board = null;
             PlayerBoard player2Board = null;
-            OpponentBoard player1Opp;
-            OpponentBoard player2Opp;
+            OpponentBoard player1Opp = null;
+            OpponentBoard player2Opp = null;
             int xCordP1 = -1, xCordP2 = -1, yCordP1 = -1, yCordP2 = -1;
             //Player 1
             System.out.println("Waiting for Player 1 on port " +  serverSocket.getLocalPort() + "...");
@@ -78,7 +78,7 @@ public class GreetingServer extends Thread {
                   System.out.println("Player 1 hit Player 2's boat");
                else
                   System.out.println("Player 1 missed Player 2's boats");
-                  
+
                if((temp1.myType.equals("hull") || temp1.myType.equals("head") || temp1.myType.equals("ship")) && player2Board.sunk(temp1))
                {
                    outP1.writeBoolean(player2Board.sunk(temp1));
@@ -91,7 +91,7 @@ public class GreetingServer extends Thread {
                outP2.writeBoolean(true); //P2 can attack
                xCordP2 = inP2.readInt();
                yCordP2 = inP2.readInt();
-               
+
                temp2  = player1Board.getSpot(xCordP2, yCordP2);
                outP2.writeBoolean(player1Board.receiveAttack(xCordP2, yCordP2));
                if(player1Board.receiveAttack(xCordP2, yCordP2))
@@ -103,10 +103,10 @@ public class GreetingServer extends Thread {
                    outP2.writeBoolean(player1Board.sunk(temp2));
                    if(player2Board.isEmpty() && !player1Won)
                         player2Won = true;
-               }    
+               }
                else
                   outP2.writeBoolean(false);
-               
+
 
                player1Opp = new OpponentBoard(player2Board);
                player2Opp = new OpponentBoard(player1Board);
@@ -145,7 +145,13 @@ public class GreetingServer extends Thread {
          }catch(SocketTimeoutException s) {
             System.out.println("Socket timed out!");
             break;
-         }catch(IOException e) {
+         }catch(SocketException s) {
+            System.out.println("One of the players disconnected. Restarting server.");
+
+         }catch(EOFException e){
+            System.out.println("Got end of file.");
+         }
+         catch(IOException e) {
             e.printStackTrace();
             break;
          }

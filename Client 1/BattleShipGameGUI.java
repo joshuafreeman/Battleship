@@ -314,7 +314,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         panel.add(logBackground);
         logBackground.setVisible(true);
         
-        /*background = new JLabel();
+        background = new JLabel();
         panel.add(background);
         background.setBounds(0,0, 1300,810);
         
@@ -335,7 +335,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                 throw new RuntimeException("Image not found");
             }
         }
-        */
+        
         pack();
         getContentPane().add(panel);
         panel.setVisible(true); 
@@ -458,24 +458,24 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
      */
     public void showHit(int p, int q, String str)
     {
-        String text = "E" + (char)(q + 64) + p;
+        String text = str + (char)(q + 64) + p;
         for(int k = 0; k < 2; k++)
             for (int x = 0; x < boardHeight; x++)
             {
                 for (int y = 0; y < boardWidth; y++)
-                    if (validSpaces[x][y].getText().equals(text))
+                    if (validSpaces[x][(boardWidth * k) + y].getText().equals(text))
                     {
                         text = "Hit";
-                        validSpaces[x][y].setText(text);
-                        validSpaces[x][y].setForeground(Color.WHITE);
-                        validSpaces[x][y].setBackground(Color.RED);
-                        validSpaces[x][y].setBorder(ships[1].getBorder());
-                        validSpaces[x][y].setContentAreaFilled(true);
-                        validSpaces[x][y].setActionCommand("void");
-                        validSpaces[x][y].setOpaque(true);
-                        validSpaces[x][y].setBorderPainted(false);
-                        panel.add(validSpaces[x][y]);
-                        validSpaces[x][y].setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 50, 50);
+                        validSpaces[x][(boardWidth * k) + y].setText(text);
+                        validSpaces[x][(boardWidth * k) + y].setForeground(Color.WHITE);
+                        validSpaces[x][(boardWidth * k) + y].setBackground(Color.RED);
+                        validSpaces[x][(boardWidth * k) + y].setBorder(ships[1].getBorder());
+                        validSpaces[x][(boardWidth * k) + y].setContentAreaFilled(true);
+                        validSpaces[x][(boardWidth * k) + y].setActionCommand("void");
+                        validSpaces[x][(boardWidth * k) + y].setOpaque(true);
+                        validSpaces[x][(boardWidth * k) + y].setBorderPainted(false);
+                        panel.add(validSpaces[x][(boardWidth * k) + y]);
+                        validSpaces[x][(boardWidth * k) + y].setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 50, 50);
                     }
             }
         pack();
@@ -489,24 +489,24 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
      */
     public void showMiss(int p, int q, String str)
     {
-        String text = "E" + (char)(q + 64) + p;
+        String text = str + (char)(q + 64) + p;
         for(int k = 0; k < 2; k++)
             for (int x = 0; x < boardHeight; x++)
             {
                 for (int y = 0; y < boardWidth; y++)
-                    if (validSpaces[x][y].getText().equals(text))
+                    if (validSpaces[x][(boardWidth * k) + y].getText().equals(text))
                     {
                         text = "Miss";
-                        validSpaces[x][y].setText(text);
-                        validSpaces[x][y].setForeground(Color.RED);
-                        validSpaces[x][y].setBackground(Color.WHITE);
-                        validSpaces[x][y].setBorder(ships[1].getBorder());
-                        validSpaces[x][y].setContentAreaFilled(true);
-                        validSpaces[x][y].setActionCommand("void");
-                        validSpaces[x][y].setOpaque(true);
-                        validSpaces[x][y].setBorderPainted(false);
-                        panel.add(validSpaces[x][y]);
-                        validSpaces[x][y].setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 50, 50);
+                        validSpaces[x][(boardWidth * k) + y].setText(text);
+                        validSpaces[x][(boardWidth * k) + y].setForeground(Color.RED);
+                        validSpaces[x][(boardWidth * k) + y].setBackground(Color.WHITE);
+                        validSpaces[x][(boardWidth * k) + y].setBorder(ships[1].getBorder());
+                        validSpaces[x][(boardWidth * k) + y].setContentAreaFilled(true);
+                        validSpaces[x][(boardWidth * k) + y].setActionCommand("void");
+                        validSpaces[x][(boardWidth * k) + y].setOpaque(true);
+                        validSpaces[x][(boardWidth * k) + y].setBorderPainted(false);
+                        panel.add(validSpaces[x][(boardWidth * k) + y]);
+                        validSpaces[x][(boardWidth * k) + y].setBounds(28 + 48 * x + (k * 720), 28 + 50 * y, 50, 50);
                     }
             }
         pack();

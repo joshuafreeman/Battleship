@@ -139,7 +139,7 @@ public class Audio
      */
     public void playThanks()
     {
-        end.play();        
+        end.play();  
     }      
     
     /**
@@ -163,7 +163,16 @@ public class Audio
      */
     public void playSunk()
     {
-        sunk.play();        
+        sunk.play();  
+    }  
+    
+    /**
+     * you sink a battleship this clip will play
+     */
+    public void stopSunk()
+    {
+        sunk.stop();  
+        sunk.setCycleCount(5);
     }    
 
 }

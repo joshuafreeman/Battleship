@@ -77,7 +77,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         
         validSpaces = new JButton[boardHeight][boardWidth * 2];
         grids = new JLabel[boardHeight + 2][boardWidth * 4];
-        
+        validOutcome = new JLabel[boardHeight][boardWidth * 2];
         for (int x = 0; x < boardHeight; x++)
             for (int y = 0; y < boardWidth * 2; y++)
             {

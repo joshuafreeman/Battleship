@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=pan
 comment0.target=StartGUI(javax.swing.JPanel)
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ StartGUI\r\n
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ StartGUI\n
 comment1.params=
 comment1.target=void\ displayGame()
 comment2.params=
@@ -12,10 +12,10 @@ comment4.params=
 comment4.target=void\ repaint()
 comment5.params=
 comment5.target=void\ signalError()
-comment5.text=\r\n\ Deal\ with\ the\ user\ clicking\ on\ something\ other\ than\ a\ button\ or\ a\ card.\r\n
+comment5.text=\n\ Deal\ with\ the\ user\ clicking\ on\ something\ other\ than\ a\ button\ or\ a\ card.\n
 comment6.params=e
 comment6.target=void\ actionPerformed(java.awt.event.ActionEvent)
-comment6.text=\r\n\ Respond\ to\ a\ button\ click\ (on\ either\ the\ "Replace"\ button\r\n\ or\ the\ "Restart"\ button).\r\n\ @param\ e\ the\ button\ click\ action\ event\r\n
+comment6.text=\n\ Respond\ to\ a\ button\ click\ (on\ either\ the\ "Replace"\ button\n\ or\ the\ "Restart"\ button).\n\ @param\ e\ the\ button\ click\ action\ event\n
 comment7.params=
 comment7.target=boolean\ clickedStart()
 numComments=8

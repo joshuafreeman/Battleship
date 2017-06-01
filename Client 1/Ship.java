@@ -1,6 +1,6 @@
-
 /**
- * Created by Josh on 5/2/2017.
+ * Created by Johnny Liu
+ * 5/2/2017.
  */
 public class Ship extends Spot
 {

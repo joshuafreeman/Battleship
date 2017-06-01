@@ -131,6 +131,8 @@ public class Audio
      */
     public void stopBattle()
     {
+        battle1.stop();
+        battle2.stop();
         battle3.stop();  
     }    
     

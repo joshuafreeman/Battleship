@@ -163,6 +163,7 @@ public class Audio
      */
     public void playSunk()
     {
+        sunk.setOnRepeat();
         sunk.play();  
     }  
     

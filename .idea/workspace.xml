@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="939a6364-1114-4a0e-a246-7e7297c675f1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/Audio$3.class" afterPath="$PROJECT_DIR$/out/production/Battleship/Audio$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/Audio$4.class" afterPath="$PROJECT_DIR$/out/production/Battleship/Audio$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/Audio$5.class" afterPath="$PROJECT_DIR$/out/production/Battleship/Audio$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/Audio$6.class" afterPath="$PROJECT_DIR$/out/production/Battleship/Audio$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/Audio.class" afterPath="$PROJECT_DIR$/out/production/Battleship/Audio.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/Client$1.class" afterPath="$PROJECT_DIR$/out/production/Battleship/Client$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/Client.class" afterPath="$PROJECT_DIR$/out/production/Battleship/Client.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/OpponentBoard.class" afterPath="$PROJECT_DIR$/out/production/Battleship/OpponentBoard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/PlayerBoard.class" afterPath="$PROJECT_DIR$/out/production/Battleship/PlayerBoard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Battleship/Server.class" afterPath="$PROJECT_DIR$/out/production/Battleship/Server.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Audio.java" afterPath="$PROJECT_DIR$/src/Audio.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Board.java" afterPath="$PROJECT_DIR$/src/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Client.java" afterPath="$PROJECT_DIR$/src/Client.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OpponentBoard.java" afterPath="$PROJECT_DIR$/src/OpponentBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlayerBoard.java" afterPath="$PROJECT_DIR$/src/PlayerBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server.java" afterPath="$PROJECT_DIR$/src/Server.java" />
-    </list>
+    <list default="true" id="939a6364-1114-4a0e-a246-7e7297c675f1" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,18 +31,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BattleShipGameGUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BattleShipGameGUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BattleShipGameGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10132">
+            <state relative-caret-position="2667">
               <caret line="606" column="0" lean-forward="false" selection-start-line="606" selection-start-column="0" selection-end-line="606" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#2684#2685#0" expanded="false" />
-                <element signature="e#2732#2733#0" expanded="false" />
-                <element signature="e#14869#14870#0" expanded="false" />
-                <element signature="e#14897#14898#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -120,7 +96,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerBoard.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PlayerBoard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PlayerBoard.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="321">
@@ -602,7 +578,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -613,7 +588,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3206934" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3206934" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -662,13 +637,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5032">
           <caret line="302" column="68" lean-forward="false" selection-start-line="302" selection-start-column="68" selection-end-line="302" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2684#2685#0" expanded="false" />
-            <element signature="e#2732#2733#0" expanded="false" />
-            <element signature="e#14869#14870#0" expanded="false" />
-            <element signature="e#14897#14898#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -686,13 +655,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4114">
           <caret line="250" column="68" lean-forward="false" selection-start-line="250" selection-start-column="51" selection-end-line="250" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2684#2685#0" expanded="false" />
-            <element signature="e#2732#2733#0" expanded="false" />
-            <element signature="e#14869#14870#0" expanded="false" />
-            <element signature="e#14897#14898#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -787,20 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BattleShipGameGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10132">
-          <caret line="606" column="0" lean-forward="false" selection-start-line="606" selection-start-column="0" selection-end-line="606" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2684#2685#0" expanded="false" />
-            <element signature="e#2732#2733#0" expanded="false" />
-            <element signature="e#14869#14870#0" expanded="false" />
-            <element signature="e#14897#14898#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/io/PrintStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -858,6 +807,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
           <caret line="289" column="62" lean-forward="false" selection-start-line="289" selection-start-column="62" selection-end-line="289" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BattleShipGameGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2667">
+          <caret line="606" column="0" lean-forward="false" selection-start-line="606" selection-start-column="0" selection-end-line="606" selection-end-column="0" />
           <folding />
         </state>
       </provider>

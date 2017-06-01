@@ -1,25 +1,35 @@
-// File Name GreetingClient.java
-import apcslib.*;
+// File Name Client.java
+/**
+ *  The main client class for the battleship game. The client class is set up parallel to the server.
+ *  The class connects to the server, plays against another client in a game of battleship.
+ *  A GUI is created to display the game with audio bits.
+ *
+ *  @author Joshua Freeman
+ *  @version 1.0
+ *  @date 6/1/17
+ */
+
 import chn.util.ConsoleIO;
 import java.net.*;
 import java.io.*;
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import java.net.URL;
 import java.util.*;
 public class Client {
     private static PlayerBoard bor;
     private static BattleShipGameGUI gui;
     public static void main(String [] args) {
-        String serverName = "76.88.3.218";
-        Audio ao = new Audio();
-        int port = 8080;
+
+        String serverName = "76.88.3.218"; //Fixed server IP (My House IP)
+        Audio ao = new Audio(); //Create new audio object
+        int port = 8080; //Fixed port
         try {
+            //Create boards and empty it
             bor = new PlayerBoard(10,10);
             bor.emptyBoard();
             OpponentBoard opp = new OpponentBoard();
-            
+
+            //Start GUI
             JPanel uniPanel = new JPanel()
             {
                 public void paintComponent(Graphics g) {
@@ -37,10 +47,10 @@ public class Client {
             while(!start.clickedStart()) {
                 String tester = ((Integer)test).toString();
             }
-            ao.playBattle();
+            ao.playBattle(); //Start audio
             Socket client = null;
-            //Start connection to server
 
+            //Start connection to server
             gui.printLog("Connecting to Server 1 (" + serverName + ") on port " + port + ".");
             boolean connected = false;
             int numberOfExceptionsThrown = 0;
@@ -59,6 +69,8 @@ public class Client {
             }
 
             gui.printLog("Just connected to " + client.getRemoteSocketAddress());
+
+            //Create input and output streams
             OutputStream outToServer = client.getOutputStream();
             DataOutputStream out = new DataOutputStream(outToServer);
 
@@ -66,14 +78,17 @@ public class Client {
             DataInputStream  in = new DataInputStream (inFromServer);
 
 
-            //startGame();
+            //Start placing ships
             PosObject positions[] = new PosObject[5];
+            //ArrayLists of all the place ships
             ArrayList ships = new ArrayList();
-            boolean duplicateShips;
+            boolean duplicateShips; //Boolean if there are duplicate ships
             for(int x = 0; x < 5; x ++) {
                 duplicateShips = false;
-                positions[x] = gui.placeShip();
 
+                positions[x] = gui.placeShip(); //Get location the user set for ship
+
+                //Make sure the ship hasn't already ben placed
                 for(int count = 0; count < ships.size(); count++)
                 {
                     if(ships.get(count).equals(positions[x].getName())) {
@@ -83,6 +98,7 @@ public class Client {
                     }
                 }
                 if(!duplicateShips)
+                    //Make sure ship doesn't go off the edge of the board or ontop of another ship
                     if (!bor.setShip(positions[x].getX(), positions[x].getY(), positions[x].getR(), positions[x].getName())) {
                         gui.printLog("Can't place ship there.");
                         x--;
@@ -103,16 +119,11 @@ public class Client {
             }
 
             //Turn opponents player board into opponent board
-            try{
-                ObjectOutputStream objectOut = new ObjectOutputStream(outToServer);
-                objectOut.writeObject(bor);
-                ObjectInputStream objectIn = new ObjectInputStream(inFromServer);
-                opp = (OpponentBoard)objectIn.readObject();
+            ObjectOutputStream objectOut = new ObjectOutputStream(outToServer);
+            objectOut.writeObject(bor);
+            ObjectInputStream objectIn = new ObjectInputStream(inFromServer);
+            opp = (OpponentBoard)objectIn.readObject();
 
-            }catch(Exception x)
-            {
-                x.printStackTrace();
-            }
 
             //Attacking
             boolean gameOver = false;
@@ -122,6 +133,8 @@ public class Client {
             ConsoleIO con = new ConsoleIO();
             boolean hit;
             int attacks = 0;
+
+            //While no one has won
             while(!bor.isEmpty() && !opp.isEmpty()) {
                 attacks++;
                 opponentReady = false;
@@ -157,14 +170,10 @@ public class Client {
                 //Receive where the attacks hit on opponent board
                 gui.printLog("Waiting for opponent's attacks...");
                 PlayerBoard oldBoard = bor;
-                try{
-                    ObjectInputStream objectIn = new ObjectInputStream(inFromServer);
-                    opp = (OpponentBoard)objectIn.readObject();
-                    //Get new player board with opponents attacks
-                    bor = (PlayerBoard)objectIn.readObject();
-                }catch(Exception z){
-                    z.printStackTrace();
-                }
+                objectIn = new ObjectInputStream(inFromServer);
+                opp = (OpponentBoard)objectIn.readObject();
+                //Get new player board with opponents attacks
+                bor = (PlayerBoard)objectIn.readObject();
 
                 PosObject difference = bor.singleDifference(oldBoard);
                 if(difference != null)
@@ -174,6 +183,7 @@ public class Client {
                         gui.showMiss(difference.getX(),difference.getY(),"F");
 
             }
+            //If you exit the loop, server says who the winner is
             boolean winner = in.readBoolean();
 
             if(winner)
@@ -195,8 +205,9 @@ public class Client {
             gui.printLog("The opponent has disconnected. Please restart the game to find a new game.");
         }catch(EOFException e){
             gui.printLog("Server restarted. Please restart the game to find a new game.");
-         }
-        catch(IOException e) {
+        }catch(IOException e) {
+            e.printStackTrace();
+        }catch(Exception e) {
             e.printStackTrace();
         }
     }

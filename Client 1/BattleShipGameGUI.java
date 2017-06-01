@@ -328,11 +328,11 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
         panel.add(logBackground);
         logBackground.setVisible(true);
         
-        background = new JLabel();
+        /*background = new JLabel();
         panel.add(background);
         background.setBounds(0,0, 1300,810);
         
-        /*URL bground = getClass().getResource("/Images/punk.jpg");
+        URL bground = getClass().getResource("/Images/punk.jpg");
         ImageIcon iconback = new ImageIcon(bground);
         background.setIcon(iconback);
         background.setVisible(true);

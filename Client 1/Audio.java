@@ -131,8 +131,6 @@ public class Audio
      */
     public void stopBattle()
     {
-        battle1.stop();
-        battle2.stop();
         battle3.stop();  
     }    
     
@@ -141,7 +139,13 @@ public class Audio
      */
     public void playThanks()
     {
-        end.play(); 
+        won.setOnEndOfMedia(new Runnable()
+        {
+            public void run()
+            {
+                won.play(); 
+            }
+        });   
     }      
     
     /**
@@ -185,4 +189,14 @@ public class Audio
             }
         });
     }    
+    
+    /**
+     * you sink a battleship this clip will play
+     */
+    public void stopSunk()
+    {
+        sunk.stop();  
+        sunk.setCycleCount(5);
+    }    
+
 }

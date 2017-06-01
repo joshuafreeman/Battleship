@@ -8,7 +8,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.net.URL;
 import java.util.*;
-public class GreetingClient1 {
+public class Client {
     private static PlayerBoard bor;
     private static BattleShipGameGUI gui;
     public static void main(String [] args) {

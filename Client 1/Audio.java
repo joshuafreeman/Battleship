@@ -158,13 +158,19 @@ public class Audio
         loss.play();        
     }    
     
-    /**
-     * you sink a battleship this clip will play
-     */
     public void playSunk()
     {
-        sunk.play();  
-    }  
+        sunk.play();   
+        sunk.setOnEndOfMedia(new Runnable()
+        {
+            public void run()
+            {
+                File f = new File("musica/sunk.mp3");
+                Media m = new Media(f.toURI().toString());
+                sunk = new MediaPlayer(m);
+            }
+        });
+    }    
     
     /**
      * you sink a battleship this clip will play

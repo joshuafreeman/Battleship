@@ -131,6 +131,8 @@ public class Audio
      */
     public void stopBattle()
     {
+        battle1.stop();
+        battle2.stop();
         battle3.stop();  
     }    
     
@@ -139,11 +141,11 @@ public class Audio
      */
     public void playThanks()
     {
-        won.setOnEndOfMedia(new Runnable()
+        loss.setOnEndOfMedia(new Runnable()
         {
             public void run()
             {
-                won.play(); 
+                end.play(); 
             }
         });   
     }      

@@ -1,6 +1,5 @@
 /**
- * Created by Johnny Liu
- * 5/4/2017.
+ * Anton Gerasimov
  * Uses parent class Board to represent an enemy's board
  */
 public class OpponentBoard extends Board 

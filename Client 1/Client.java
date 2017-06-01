@@ -113,7 +113,7 @@ public class Client {
             boolean opponentReady = false;
             while(!opponentReady)
             {
-                gui.printLog("Waiting for opponent");
+                gui.printLog("Waiting for opponent...");
                 opponentReady = in.readBoolean();
                 gui.printLog("Found opponent!");
             }

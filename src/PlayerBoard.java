@@ -1,6 +1,5 @@
 /**
- * Created by Johnny Liu
- * 5/4/2017.
+ * Anton Gerasimov
  * This class represents your own board and is child class of Board
  */
 public class PlayerBoard extends Board
@@ -279,7 +278,7 @@ public class PlayerBoard extends Board
         if(rotation == 0)
         {
         	//checks if the entire ship is hit
-            for(int x = xCord + 1; x < xCord + size; x++)
+            for(int x = xCord; x < xCord + size; x++)
                 if(!myBoard[yCord][x].getType().equals("hit"))
                     sunken = false;
         }
@@ -287,9 +286,10 @@ public class PlayerBoard extends Board
         else
         {
         	//checks if the entire ship is hit
-            for(int y = yCord + 1; y < yCord + size; y++)
+            for(int y = yCord; y < yCord + size; y++)
                 if(!myBoard[y][xCord].getType().equals("hit"))
                     sunken = false;
+
         }
 
         return sunken;

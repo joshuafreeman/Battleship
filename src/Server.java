@@ -158,15 +158,12 @@ public class Server extends Thread {
             break;
          }catch(SocketException s) {
             System.out.println("One of the players disconnected. Restarting server.");
-
          }catch(EOFException e){
             System.out.println("Got end of file.");
-         }
-         catch(IOException e) {
+         }catch(IOException e) {
             e.printStackTrace();
             break;
-         }
-         catch(Exception e)
+         }catch(Exception e)
          {
             e.printStackTrace();
          }

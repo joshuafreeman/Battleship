@@ -1,9 +1,9 @@
 import java.io.Serializable;
 
 /**
- * Created by Johnny Liu
- * 5/2/2017.
- * This class is the parent class on which friendly and enemy boards are based off of
+ * Anton Gerasimov
+ * 
+ * A board class that is made for both opponents and players
  */
 public abstract class Board implements Serializable
 {

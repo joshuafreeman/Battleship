@@ -1,5 +1,7 @@
 /**
- * Created by Josh on 5/3/2017.
+ * Created by Johnny Liu
+ * 5/3/2017.
+ * This class represents a miss marker on the board
  */
 public class Miss extends Spot 
 {

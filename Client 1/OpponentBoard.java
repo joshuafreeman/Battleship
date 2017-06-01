@@ -1,5 +1,7 @@
 /**
- * Created by Josh on 5/4/2017.
+ * Created by Johnny Liu
+ * 5/4/2017.
+ * Uses parent class Board to represent an enemy's board
  */
 public class OpponentBoard extends Board 
 {

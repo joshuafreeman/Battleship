@@ -137,7 +137,6 @@ public class GreetingClient1 {
                 out.writeInt(xCord);
                 out.writeInt(yCord);
                 hit = in.readBoolean();
- 
 
                 if(hit) {
                     gui.printLog("It's a hit!");

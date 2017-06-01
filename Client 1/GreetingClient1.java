@@ -13,6 +13,7 @@ public class GreetingClient1 {
     private static BattleShipGameGUI gui;
     public static void main(String [] args) {
         String serverName = "76.88.3.218";
+        Audio ao = new Audio();
         int port = 8080;
         try {
             bor = new PlayerBoard(10,10);
@@ -36,7 +37,7 @@ public class GreetingClient1 {
             while(!start.clickedStart()) {
                 String tester = ((Integer)test).toString();
             }
-
+            ao.playBattle();
             Socket client = null;
             //Start connection to server
 
@@ -155,8 +156,10 @@ public class GreetingClient1 {
 
                 sunk = in.readBoolean();
                 if(sunk)
+                {
                     gui.printLog("You sunk the opponent's ship!");
-                
+                    ao.playSunk();
+                }
                 //Receive where the attacks hit on opponent board
                 gui.printLog("Waiting for opponent's attacks...");
                 try{
@@ -171,10 +174,14 @@ public class GreetingClient1 {
             boolean winner = in.readBoolean();
 
             if(winner)
+            {
                 gui.printLog("Congrats! You sunk all their battleships.");
+                ao.playWon();
+            }
             else
                 gui.printLog("Sorry. They sunk all your battleships.");
             //Close connection
+            ao.playThanks();
             client.close();
 
         }catch(SocketException e){

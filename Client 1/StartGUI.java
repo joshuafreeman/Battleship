@@ -25,7 +25,7 @@ public class StartGUI extends JFrame implements ActionListener
     private JLabel logo;
     private JLabel background;
     private JButton start;
-    private MediaPlayer mP;
+    private Audio ao;
 
     private boolean startButton;
     /**
@@ -35,12 +35,8 @@ public class StartGUI extends JFrame implements ActionListener
     {
         startButton = false;
         panel = pan;
-        final JFXPanel fxPanel = new JFXPanel();
-        File f = new File("mainmenu.mp3");
-        Media m = new Media(f.toURI().toString());  
-        mP = new MediaPlayer(m);        
-        mP.setCycleCount(10);
-        mP.play();
+        ao = new Audio();
+        ao.playMain();
         initDisplay();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         repaint();
@@ -117,7 +113,7 @@ public class StartGUI extends JFrame implements ActionListener
             background.setVisible(false);
             start.setVisible(false);
             startButton = true;
-            mP.stop();
+            ao.stopMain();
         }
     }
     public boolean clickedStart()

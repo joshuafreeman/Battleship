@@ -61,7 +61,7 @@ public abstract class Board implements Serializable
         {
             for(int y = 0; y < myWidth; y++)
             {
-            	//if not water
+            	//if there is a ship
                 if(myBoard[x][y].getType().equals("ship") || myBoard[x][y].getType().equals("hull") || myBoard[x][y].getType().equals("head"))
                 {
                     empt = false;

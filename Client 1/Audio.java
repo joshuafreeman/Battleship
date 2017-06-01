@@ -139,7 +139,13 @@ public class Audio
      */
     public void playThanks()
     {
-        end.play();  
+        won.setOnEndOfMedia(new Runnable()
+        {
+            public void run()
+            {
+                won.play(); 
+            }
+        });   
     }      
     
     /**
@@ -147,7 +153,13 @@ public class Audio
      */
     public void playWon()
     {
-        won.play();        
+        sunk.setOnEndOfMedia(new Runnable()
+        {
+            public void run()
+            {
+                won.play(); 
+            }
+        });    
     }   
     
     /**
@@ -155,7 +167,13 @@ public class Audio
      */
     public void playLoss()
     {
-        loss.play();        
+        sunk.setOnEndOfMedia(new Runnable()
+        {
+            public void run()
+            {
+                loss.play(); 
+            }
+        });       
     }    
     
     public void playSunk()

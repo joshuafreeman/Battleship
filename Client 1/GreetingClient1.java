@@ -122,6 +122,7 @@ public class GreetingClient1 {
             ConsoleIO con = new ConsoleIO();
             boolean hit;
             int attacks = 0;
+            bor.emptyBoard();
             while(!bor.isEmpty() && !opp.isEmpty()) {
                 attacks++;
                 opponentReady = false;

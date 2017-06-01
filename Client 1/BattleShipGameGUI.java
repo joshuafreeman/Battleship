@@ -184,7 +184,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
             {
                 letters[x] = new JLabel();
                 letters[x].setBounds(10 + (k * 1240), 50 * x + 30, 50, 50);
-                letters[x].setForeground(Color.WHITE);
+                letters[x].setForeground(Color.BLACK);
                 letters[x].setText((char)(x + 65) + "");
                 panel.add(letters[x]);
                 letters[x].setVisible(true);
@@ -198,7 +198,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                 text = ((Integer)(x + 1)).toString();
                 numbers[x] = new JLabel();
                 numbers[x].setBounds((48 * x ) + 47 + (k * 720), -9, 50, 50);
-                numbers[x].setForeground(Color.WHITE);
+                numbers[x].setForeground(Color.BLACK);
                 numbers[x].setText(text);
                 panel.add(numbers[x]);
                 numbers[x].setVisible(true);
@@ -454,7 +454,7 @@ public class BattleShipGameGUI extends JFrame implements ActionListener, KeyList
                     icon = new ImageIcon(getClass().getResource("/Images/" + str + "vert.png"));
         
         ship[num].setIcon(icon);
-        ship[num].setBounds(42 * (x) + 720, 38 + 50 * (y - 1), 330 - (220 * r), 110 + (220 * r));
+        ship[num].setBounds(40 * (x) + 720, 35 + 50 * (y - 1), 330 - (220 * r), 110 + (220 * r));
         ship[num].setHorizontalAlignment(SwingConstants.LEFT);
         ship[num].setVerticalAlignment(SwingConstants.TOP);
         ship[num].setContentAreaFilled(false);

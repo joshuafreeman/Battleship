@@ -179,7 +179,10 @@ public class GreetingClient1 {
                 ao.playWon();
             }
             else
+            {
                 gui.printLog("Sorry. They sunk all your battleships.");
+                ao.playLoss();
+            }    
             //Close connection
             ao.playThanks();
             client.close();
